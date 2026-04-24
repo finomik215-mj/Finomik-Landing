@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finomik – Educación financiera gamificada para colegios | Plataforma EdTech</title>
+    <meta name="description" content="Finomik es la plataforma gamificada de educación financiera para centros educativos. Módulos interactivos, integración LMS y seguimiento del progreso del alumnado." />
+    <link rel="canonical" href="https://finomik.com/" />
+
+    <!-- Hreflang (duplicated in JS for dynamic updates) -->
+    <link rel="alternate" hreflang="es" href="https://finomik.com/" />
+    <link rel="alternate" hreflang="en" href="https://finomik.com/" />
+    <link rel="alternate" hreflang="ca" href="https://finomik.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://finomik.com/" />
+
+    <!-- Schema markup (static for crawlers without JS) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Finomik",
+      "url": "https://finomik.com",
+      "logo": "https://finomik.com/logo-finomik-on-blue.png",
+      "description": "Plataforma gamificada de educación financiera para centros educativos. Módulos interactivos, integración LMS y seguimiento del progreso del alumnado.",
+      "areaServed": ["ES", "GB", "US", "MX", "AR", "CO"],
+      "knowsLanguage": ["es", "en", "ca"],
+      "sameAs": ["https://www.linkedin.com/company/finomik"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "availableLanguage": ["Spanish", "Catalan", "English"],
+        "url": "https://finomik.com/more-info"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Finomik",
+      "url": "https://finomik.com",
+      "description": "Plataforma gamificada de educación financiera para centros educativos.",
+      "inLanguage": ["es", "en", "ca"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Finomik",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "url": "https://finomik.com",
+      "description": "Plataforma gamificada de educación financiera para centros educativos y colegios.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "administrator"
+      }
+    }
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Finomik – Educación financiera gamificada para colegios" />
+    <meta property="og:description" content="Plataforma gamificada de educación financiera para centros educativos. Módulos interactivos, integración LMS y seguimiento del progreso." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://finomik.com/" />
+    <meta property="og:image" content="https://finomik.com/logo-finomik-on-blue.png" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="ca_ES" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Finomik – Educación financiera gamificada para colegios" />
+    <meta name="twitter:description" content="Plataforma gamificada de educación financiera para centros educativos." />
+    <meta name="twitter:image" content="https://finomik.com/logo-finomik-on-blue.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/fk-favicon-v2.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/fk-favicon-v2.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/fk-favicon-v2.png" />
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+              finomik: {
+                // Primary — Azul Finomik
+                navy:    '#0B3064',
+                // Secondary palette
+                dark2:   '#114076',
+                slate:   '#3C4C67',
+                mid:     '#3E5374',
+                soft:    '#5574A7',
+                gray:    '#8F9EB7',
+                pale:    '#C8D0DD',
+                // Accent
+                gold:    '#F5C518',
+                // Aliases — keep same names so existing Tailwind classes still compile
+                // NOTE: light changes from #0C4A6E to #5574A7 (intentional brand alignment)
+                // NOTE: pale changes from #F0F4F8 to #C8D0DD (intentional brand alignment)
+                light:   '#5574A7',
+                'logo-bg': '#0B3064',
+                silver:  '#8F9EB7',
+              }
+            },
+            backgroundImage: {
+              // Dorado Finomik — use for primary CTA buttons
+              'cta-gold': 'linear-gradient(135deg, #F5C518 0%, #E8B84B 100%)',
+              // Decorative blue gradient — NOT for CTA buttons
+              'accent-gradient': 'linear-gradient(135deg, #0B3064 0%, #3E5374 50%, #5574A7 100%)',
+            },
+            animation: {
+              'wave-slow': 'wave 8s ease-in-out infinite',
+              'fade-up': 'fadeUp 0.8s ease-out forwards',
+              'line-expand': 'lineExpand 0.5s ease-out forwards',
+              'icon-pop': 'iconPop 0.45s ease-out forwards',
+              'icon-breathe': 'iconBreathe 1.8s ease-in-out infinite',
+              'line-glow': 'lineGlow 1.4s ease-in-out infinite',
+              'slide-up-fade': 'slideUpFade 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+            },
+            keyframes: {
+              wave: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              lineExpand: {
+                '0%': { transform: 'scaleX(0)' },
+                '100%': { transform: 'scaleX(1)' },
+              },
+              iconPop: {
+                '0%': { transform: 'scale(0.75)', opacity: '0.6' },
+                '70%': { transform: 'scale(1.08)' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              iconBreathe: {
+                '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                '50%': { transform: 'scale(1.14)', opacity: '0.85' },
+              },
+              lineGlow: {
+                '0%, 100%': { opacity: '0.6' },
+                '50%': { opacity: '1' },
+              },
+              slideUpFade: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+</head>
+  <body class="bg-white text-finomik-navy antialiased selection:bg-accent-gradient selection:text-white">
+    <div id="root"></div>
+    <noscript>
+      <p>Finomik es la plataforma gamificada de educación financiera para centros educativos. Módulos interactivos, integración LMS y resultados medibles.</p>
+    </noscript>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

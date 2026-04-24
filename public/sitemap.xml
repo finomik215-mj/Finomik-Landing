@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://finomik.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://finomik.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://finomik.com/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://finomik.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://finomik.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2026-03-19</lastmod>
+  </url>
+  <url>
+    <loc>https://finomik.com/more-info</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-19</lastmod>
+  </url>
+  <url>
+    <loc>https://finomik.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <lastmod>2026-03-19</lastmod>
+  </url>
+  <url>
+    <loc>https://finomik.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <lastmod>2026-03-19</lastmod>
+  </url>
+</urlset>
