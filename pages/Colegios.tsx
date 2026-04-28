@@ -117,24 +117,15 @@ const InstitutionBenefitsPanel = () => {
     return () => clearInterval(id);
   }, [inView]);
 
-  // Suppress unused warning
   void activeIndex;
 
   return (
-    <div
-      ref={panelRef}
-      className="relative font-sans"
-    >
+    <div ref={panelRef} className="relative font-sans">
       <div className="absolute -top-16 -right-10 w-56 h-56 bg-finomik-light/20 blur-3xl opacity-40 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }} />
       <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#5574A7]/15 blur-3xl opacity-40 pointer-events-none animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
 
       <div className="relative px-1 py-3 md:p-2 flex flex-col items-center justify-center gap-3 md:gap-5 min-h-0">
-        {/* Mac-style laptop mockup */}
-        <div
-          className={`relative w-full min-w-0 lg:w-[880px] xl:w-[960px] transition-all duration-700 ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-          }`}
-        >
+        <div className={`relative w-full min-w-0 lg:w-[880px] xl:w-[960px] transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
           <div className="aspect-[16/10] w-full max-h-[44vh] min-h-[220px] sm:max-h-[48vh] sm:min-h-[260px] lg:max-h-none lg:min-h-0 flex flex-col">
           <div className="flex-1 min-h-0 flex flex-col rounded-2xl lg:rounded-3xl bg-slate-200 shadow-2xl overflow-hidden border border-slate-300/80">
             <div className="h-3.5 sm:h-5 lg:h-10 w-full flex-shrink-0 bg-slate-200 flex items-center justify-between px-1.5 sm:px-3 lg:px-6 border-b border-slate-300/90">
@@ -383,26 +374,6 @@ const InstitutionBenefitsPanel = () => {
 
           </div>
 
-          {/* Notifications mobile */}
-          <div className="hidden sm:flex lg:hidden absolute left-0 top-[18%] -translate-x-[58%] z-30 w-[32%] max-w-[62px]">
-            <div className="bg-white rounded shadow-md border border-slate-200/80 px-1.5 py-1 flex items-center gap-1">
-              <CheckCircle2 className="w-2.5 h-2.5 text-[#1C386E] flex-shrink-0" />
-              <div className="min-w-0 flex-1">
-                <p className="text-[0.5rem] font-semibold uppercase text-slate-500 leading-tight">{lang === 'ca' ? 'Activitat' : lang === 'es' ? 'Actividad' : 'Activity'}</p>
-                <p className="text-[0.55rem] font-bold text-slate-800 leading-tight break-words line-clamp-2">{lang === 'ca' ? 'La Laura ha completat el M3' : lang === 'es' ? 'Laura completó M3' : 'Laura done M3'}</p>
-              </div>
-            </div>
-          </div>
-          <div className="hidden sm:flex lg:hidden absolute right-0 top-[42%] translate-x-[48%] z-30 w-[32%] max-w-[60px]">
-            <div className="bg-white rounded shadow-md border border-slate-200/80 px-1.5 py-1 flex items-center gap-1">
-              <Trophy className="w-2.5 h-2.5 text-[#1C386E] flex-shrink-0" />
-              <div className="min-w-0 flex-1">
-                <p className="text-[0.5rem] font-semibold uppercase text-slate-500 leading-tight">{lang === 'ca' ? 'Objectiu' : lang === 'es' ? 'Objetivo' : 'Goal'}</p>
-                <p className="text-[0.55rem] font-bold text-slate-800 leading-tight break-words line-clamp-2">{lang === 'ca' ? 'Meta assolida' : lang === 'es' ? 'Meta alcanzada' : 'Goal reached'}</p>
-              </div>
-            </div>
-          </div>
-
           {/* Floating notifications desktop */}
           <div className="hidden lg:block absolute left-0 top-[5%] -translate-x-[52%] z-20 w-[72%] max-w-[165px] sm:max-w-[180px]">
             <div className="bg-white rounded-lg shadow-md border border-[#1a2f52]/40 px-2.5 py-2 flex items-start gap-2">
@@ -456,136 +427,52 @@ export default function Colegios() {
 
       <Navbar />
 
-      {/* ===================== HERO: split grid layout =====================
-          Left (40%): badge, large headline, CTA
-          Right (60%): 2x2 grid of benefit mini-cards with icons
-          Background: #0B3064 (dark)
-          Cards: glass-morphism bg-white/10 border-white/20
-      ===================== */}
-      <section className="bg-[#0B3064] pt-28 pb-16 md:pb-20 relative overflow-hidden">
-        <WaveShape
-          className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
-          opacity={1}
-          mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-        />
-        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-6xl">
-          <div className="grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+      {/* ===================== HERO: WHITE, editorial ===================== */}
+      <section className="bg-white pt-28 pb-16 md:pb-24 relative overflow-hidden">
+        {/* Decorative circle top-right */}
+        <div className="absolute top-0 right-0 w-[480px] h-[480px] bg-[#f0f5fc] rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-[#EEF2FB] rounded-full translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
-            {/* LEFT — 2 cols (40%) */}
-            <div className="md:col-span-2">
-              <FadeInSection>
-                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-6">
-                  {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
-                </span>
-                <h1 className="text-4xl md:text-5xl font-black text-white leading-[1.05] mb-6">
-                  {l === 'ca'
-                    ? "L'educació financera que els joves necessiten"
-                    : l === 'es'
-                    ? 'La educación financiera que los jóvenes necesitan'
-                    : 'The financial education young people need'}
-                </h1>
-                <p className="text-white/60 text-base leading-relaxed mb-8">
-                  {l === 'ca'
-                    ? "Un programa adaptat a cada centre, dissenyat per a resultats reals."
-                    : l === 'es'
-                    ? 'Un programa adaptado a cada colegio, diseñado para obtener resultados reales.'
-                    : 'A programme adapted to each school, designed for real results.'}
-                </p>
-                <Link
-                  to="/more-info"
-                  className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-7 py-3.5 rounded-xl text-sm hover:bg-yellow-400 transition-colors"
-                >
-                  {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-              </FadeInSection>
-            </div>
-
-            {/* RIGHT — 3 cols (60%): 2x2 benefit grid */}
-            <div className="md:col-span-3">
-              <FadeInSection delay={150}>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    {
-                      icon: <Target className="w-5 h-5" />,
-                      title: { es: 'Programa a medida', en: 'Bespoke programme', ca: 'Programa a mida' },
-                      desc: { es: 'El colegio elige los temas. Nosotros diseñamos el programa.', en: 'The school chooses the topics. We design the programme.', ca: 'El col·legi tria els temes. Nosaltres dissenyem el programa.' },
-                    },
-                    {
-                      icon: <Brain className="w-5 h-5" />,
-                      title: { es: 'IA adaptativa', en: 'Adaptive AI', ca: 'IA adaptativa' },
-                      desc: { es: 'Cada alumno avanza a su ritmo. Todos llegan al mismo nivel.', en: 'Each student progresses at their own pace. All reach the same level.', ca: 'Cada alumne avança al seu ritme. Tots arriben al mateix nivell.' },
-                    },
-                    {
-                      icon: <Users className="w-5 h-5" />,
-                      title: { es: 'Control del profesor', en: 'Teacher control', ca: 'Control del professor' },
-                      desc: { es: 'Seguimiento en tiempo real del progreso de cada alumno.', en: "Real-time tracking of each student's progress.", ca: 'Seguiment en temps real del progrés de cada alumne.' },
-                    },
-                    {
-                      icon: <Award className="w-5 h-5" />,
-                      title: { es: 'Certificado final', en: 'Final certificate', ca: 'Certificat final' },
-                      desc: { es: 'Cada alumno termina con un certificado de competencia financiera.', en: 'Every student finishes with a financial competency certificate.', ca: 'Cada alumne acaba amb un certificat de competència financera.' },
-                    },
-                  ].map((card, i) => (
-                    <div key={i} className="bg-white/10 border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-colors">
-                      <div className="text-[#F5C518] mb-3">{card.icon}</div>
-                      <h3 className="font-black text-white text-sm mb-1.5">{card.title[l]}</h3>
-                      <p className="text-white/55 text-xs leading-relaxed">{card.desc[l]}</p>
-                    </div>
-                  ))}
-                </div>
-              </FadeInSection>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== EL PROGRAMA: horizontal 4-step journey ===================== */}
-      <section className="bg-white py-20 md:py-24">
-        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
-            <div className="text-center mb-14">
-              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-4">
-                {l === 'ca' ? 'Personalització' : l === 'es' ? 'Personalización' : 'Customisation'}
+            <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#0B3064] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-8">
+              {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black text-[#0B3064] leading-[1.05] mb-8 max-w-4xl">
+              {l === 'ca' ? "L'educació financera que els joves " : l === 'es' ? 'La educación financiera que los jóvenes ' : 'The financial education young people '}
+              <span className="relative inline whitespace-nowrap">
+                <span className="relative z-10">{l === 'ca' ? 'necessiten' : l === 'es' ? 'necesitan' : 'need'}</span>
+                <span className="absolute left-0 right-0 bottom-0 h-[0.35em] bg-[#F5C518]/60 z-0 rounded-sm" style={{ bottom: '0.05em' }} />
               </span>
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064]">
-                {l === 'ca' ? 'El programa és teu' : l === 'es' ? 'El programa es tuyo' : 'The programme is yours'}
-              </h2>
-            </div>
+            </h1>
+            <p className="text-[#3C4C67] text-xl leading-relaxed mb-10 max-w-2xl">
+              {l === 'ca'
+                ? "Un programa adaptat a cada centre, dissenyat per a resultats reals."
+                : l === 'es'
+                ? 'Un programa adaptado a cada colegio, diseñado para obtener resultados reales.'
+                : 'A programme adapted to each school, designed for real results.'}
+            </p>
+            <Link
+              to="/more-info"
+              className="inline-flex items-center gap-2 bg-[#0B3064] text-white font-extrabold px-7 py-3.5 rounded-xl text-sm hover:bg-[#114076] transition-colors"
+            >
+              {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </FadeInSection>
 
-            <div className="grid md:grid-cols-4 gap-0 relative">
-              {/* Connecting line */}
-              <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-[#E8EDF5] z-0" />
-
+          {/* Stats row */}
+          <FadeInSection delay={200}>
+            <div className="mt-16 pt-8 border-t border-[#E8EDF5] grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                {
-                  num: '01',
-                  title: { es: 'Tú eliges los temas', en: 'You choose the topics', ca: 'Tu tries els temes' },
-                  desc: { es: 'El colegio selecciona los contenidos financieros que quiere para sus alumnos.', en: 'The school selects the financial content it wants for its students.', ca: "El col·legi selecciona els continguts financers que vol per als seus alumnes." },
-                },
-                {
-                  num: '02',
-                  title: { es: 'Finomik diseña el programa', en: 'Finomik builds the programme', ca: 'Finomik dissenya el programa' },
-                  desc: { es: 'Creamos un programa a medida, adaptado al número de alumnos y tiempos del centro.', en: 'We build a bespoke programme, adapted to your student numbers and school schedule.', ca: "Creem un programa a mida, adaptat al nombre d'alumnes i als temps del centre." },
-                },
-                {
-                  num: '03',
-                  title: { es: 'Los alumnos aprenden', en: 'Students learn', ca: 'Els alumnes aprenen' },
-                  desc: { es: 'Cada alumno avanza a su ritmo con módulos cortos e interactivos, guiados por IA.', en: 'Each student progresses at their own pace through short, interactive AI-guided modules.', ca: "Cada alumne avança al seu ritme amb mòduls curts i interactius, guiats per IA." },
-                },
-                {
-                  num: '04',
-                  title: { es: 'Todos al mismo nivel', en: 'Everyone at the same level', ca: 'Tots al mateix nivell' },
-                  desc: { es: 'Independientemente del ritmo, todos los alumnos terminan con el mismo nivel de competencia financiera.', en: 'Regardless of pace, all students finish with the same level of financial competency.', ca: "Independentment del ritme, tots els alumnes acaben amb el mateix nivell de competència financera." },
-                },
-              ].map((step, i) => (
-                <div key={i} className="relative z-10 flex flex-col items-center text-center px-4 py-2">
-                  <div className="w-20 h-20 rounded-full bg-[#0B3064] flex items-center justify-center mb-4 text-[#F5C518] font-black text-xl border-4 border-white shadow-lg">
-                    {step.num}
-                  </div>
-                  <h3 className="font-black text-[#0B3064] text-base mb-2">{step.title[l]}</h3>
-                  <p className="text-[#3C4C67] text-sm leading-relaxed">{step.desc[l]}</p>
+                { num: '+500', label: { es: 'alumnos activos', en: 'active students', ca: 'alumnes actius' } },
+                { num: '100%', label: { es: 'alcanzan el nivel certificado', en: 'reach certified level', ca: 'arriben al nivell certificat' } },
+                { num: '6+', label: { es: 'módulos financieros', en: 'financial modules', ca: 'mòduls financers' } },
+                { num: '8', label: { es: 'semanas de programa', en: 'weeks per programme', ca: 'setmanes de programa' } },
+              ].map((stat, i) => (
+                <div key={i}>
+                  <p className="text-3xl md:text-4xl font-black text-[#0B3064]">{stat.num}</p>
+                  <p className="text-[#8F9EB7] text-sm mt-1 leading-tight">{stat.label[l]}</p>
                 </div>
               ))}
             </div>
@@ -593,89 +480,149 @@ export default function Colegios() {
         </div>
       </section>
 
-      {/* ===================== IA: convergence visual ===================== */}
-      <section className="bg-[#114076] py-20 md:py-24 relative overflow-hidden">
-        <WaveShape className="absolute top-0 w-full h-[35%] text-white z-0 transform rotate-180" opacity={0.07} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
-        <WaveShape className="absolute bottom-0 left-0 w-full h-[35%] text-white z-0" opacity={0.07} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
+      {/* ===================== EL PROGRAMA: dark, bold numbered list ===================== */}
+      <section className="bg-[#0B3064] py-20 md:py-24 relative overflow-hidden">
+        <WaveShape className="absolute top-0 w-full h-[30%] text-white z-0 transform rotate-180" opacity={0.04} />
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* LEFT: convergence visual card */}
-              <div className="bg-white/10 rounded-2xl border border-white/20 p-6">
-                <p className="text-[#F5C518] font-bold text-xs uppercase tracking-widest mb-5">
-                  {l === 'ca' ? 'Classe de 3r ESO — Setmana 8' : l === 'es' ? 'Clase de 3.° ESO — Semana 8' : 'Year 9 Class — Week 8'}
-                </p>
-                {[
-                  { name: 'Alumno A', progress: 88, color: '#F5C518' },
-                  { name: 'Alumno B', progress: 64, color: '#8F9EB7' },
-                  { name: 'Alumno C', progress: 41, color: '#5574A7' },
-                ].map((student, i) => (
-                  <div key={i} className="mb-4">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="text-white text-xs font-semibold">{student.name}</span>
-                      <span className="text-white/60 text-xs">{student.progress}%</span>
-                    </div>
-                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div className="h-full rounded-full" style={{ width: `${student.progress}%`, backgroundColor: student.color }} />
-                    </div>
-                  </div>
-                ))}
-                <div className="mt-6 pt-4 border-t border-white/20 flex items-center justify-between">
-                  <span className="text-white/70 text-xs">{l === 'ca' ? 'Objectiu final' : l === 'es' ? 'Objetivo final' : 'Final goal'}</span>
-                  <span className="text-[#F5C518] font-black text-sm">{l === 'ca' ? 'Nivell certificat' : l === 'es' ? 'Nivel certificado' : 'Certified level'}</span>
-                </div>
-                <p className="text-white/50 text-xs mt-2">
-                  {l === 'ca' ? 'Tots arriben al mateix destí, al seu ritme.' : l === 'es' ? 'Todos llegan al mismo destino, a su ritmo.' : 'Everyone reaches the same destination, at their own pace.'}
-                </p>
-              </div>
-
-              {/* RIGHT: explanation */}
-              <div>
-                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
-                  {l === 'ca' ? 'Intel·ligència Artificial' : l === 'es' ? 'Inteligencia Artificial' : 'Artificial Intelligence'}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
-                  {l === 'ca' ? 'Un camí financer per a cada alumne' : l === 'es' ? 'Un camino financiero para cada alumno' : 'A financial path for every student'}
-                </h2>
-                <p className="text-white/70 text-lg leading-relaxed mb-6">
-                  {l === 'ca'
-                    ? "La IA adapta el ritme i la dificultat de cada mòdul a l'alumne. Cada un avança al seu ritme, però tots acaben amb el mateix nivell de coneixements i habilitats."
-                    : l === 'es'
-                    ? 'La IA adapta el ritmo y la dificultad de cada módulo al alumno. Cada uno avanza a su ritmo, pero todos acaban con el mismo nivel de conocimientos y habilidades.'
-                    : 'AI adapts the pace and difficulty of each module to the student. Each one progresses at their own pace, but everyone finishes with the same level of knowledge and skills.'}
-                </p>
-                <div className="bg-white/10 rounded-xl p-5 border border-white/20">
-                  <p className="text-[#F5C518] font-bold text-sm mb-2">{l === 'ca' ? 'Important' : l === 'es' ? 'Importante' : 'Important'}</p>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    {l === 'ca'
-                      ? 'Tots els alumnes, independentment del seu ritme, arriben al mateix nivell de competència financera al final del programa.'
-                      : l === 'es'
-                      ? 'Todos los alumnos, independientemente de su ritmo, llegan al mismo nivel de competencia financiera al final del programa.'
-                      : 'All students, regardless of their pace, reach the same level of financial competency by the end of the programme.'}
-                  </p>
-                </div>
-              </div>
+            <div className="mb-12">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-4">
+                {l === 'ca' ? 'Personalització' : l === 'es' ? 'Personalización' : 'Customisation'}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-white">
+                {l === 'ca' ? 'El programa és teu' : l === 'es' ? 'El programa es tuyo' : 'The programme is yours'}
+              </h2>
             </div>
           </FadeInSection>
+
+          <div className="divide-y divide-white/10">
+            {[
+              {
+                num: '01',
+                icon: <BookOpen className="w-5 h-5 text-[#F5C518]" />,
+                title: { es: 'Tú eliges los temas', en: 'You choose the topics', ca: 'Tu tries els temes' },
+                desc: { es: 'El colegio selecciona los contenidos financieros que quiere para sus alumnos.', en: 'The school selects the financial content it wants for its students.', ca: "El col·legi selecciona els continguts financers que vol per als seus alumnes." },
+              },
+              {
+                num: '02',
+                icon: <Brain className="w-5 h-5 text-[#F5C518]" />,
+                title: { es: 'Finomik diseña el programa', en: 'Finomik builds the programme', ca: 'Finomik dissenya el programa' },
+                desc: { es: 'Creamos un programa a medida, adaptado al número de alumnos y tiempos del centro.', en: 'We build a bespoke programme, adapted to your student numbers and school schedule.', ca: "Creem un programa a mida, adaptat al nombre d'alumnes i als temps del centre." },
+              },
+              {
+                num: '03',
+                icon: <Target className="w-5 h-5 text-[#F5C518]" />,
+                title: { es: 'Los alumnos aprenden', en: 'Students learn', ca: 'Els alumnes aprenen' },
+                desc: { es: 'Cada alumno avanza a su ritmo con módulos cortos e interactivos, guiados por IA.', en: 'Each student progresses at their own pace through short, interactive AI-guided modules.', ca: "Cada alumne avança al seu ritme amb mòduls curts i interactius, guiats per IA." },
+              },
+              {
+                num: '04',
+                icon: <Award className="w-5 h-5 text-[#F5C518]" />,
+                title: { es: 'Todos al mismo nivel', en: 'Everyone at the same level', ca: 'Tots al mateix nivell' },
+                desc: { es: 'Independientemente del ritmo, todos los alumnos terminan con el mismo nivel de competencia financiera.', en: 'Regardless of pace, all students finish with the same level of financial competency.', ca: "Independentment del ritme, tots els alumnes acaben amb el mateix nivell de competència financera." },
+              },
+            ].map((step, i) => (
+              <FadeInSection key={i} delay={i * 80}>
+                <div className="flex items-center gap-6 md:gap-10 py-7">
+                  <span className="text-6xl md:text-8xl font-black leading-none select-none flex-shrink-0 w-16 md:w-28 text-right tabular-nums" style={{ color: 'rgba(255,255,255,0.07)' }}>
+                    {step.num}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-black text-white mb-1">{step.title[l]}</h3>
+                    <p className="text-white/55 text-sm md:text-base leading-relaxed">{step.desc[l]}</p>
+                  </div>
+                  <div className="hidden md:flex w-10 h-10 rounded-xl border border-white/20 items-center justify-center flex-shrink-0">
+                    {step.icon}
+                  </div>
+                </div>
+              </FadeInSection>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ===================== DASHBOARD DEL PROFESOR =====================
-          Framed as "producto en uso" - like seeing through the teacher's screen.
-          Light background. The panel is inside a "browser chrome" wrapper.
-          Title above: "Tu tienes el control"
-      ===================== */}
-      <section className="bg-[#f0f5fc] py-20 md:py-24 relative overflow-hidden">
+      {/* ===================== IA: light, statement + 3 insight cards ===================== */}
+      <section className="bg-[#f0f5fc] py-20 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
-            <div className="text-center mb-10">
+            <div className="text-center mb-12">
               <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-4">
+                {l === 'ca' ? 'Intel·ligència Artificial' : l === 'es' ? 'Inteligencia Artificial' : 'Artificial Intelligence'}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064]">
+                {l === 'ca' ? 'Un camí financer per a cada alumne' : l === 'es' ? 'Un camino financiero para cada alumno' : 'A financial path for every student'}
+              </h2>
+            </div>
+          </FadeInSection>
+
+          {/* Central statement card */}
+          <FadeInSection delay={100}>
+            <div className="bg-[#0B3064] rounded-3xl p-8 md:p-12 mb-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-72 h-72 bg-[#114076] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-60" />
+              <div className="relative z-10 max-w-3xl">
+                <p className="text-2xl md:text-3xl font-black text-white leading-tight mb-5">
+                  {l === 'ca'
+                    ? '"Cada alumne avança al seu ritme. Tots arriben al mateix nivell."'
+                    : l === 'es'
+                    ? '"Cada alumno avanza a su ritmo. Todos llegan al mismo nivel."'
+                    : '"Each student progresses at their own pace. All reach the same level."'}
+                </p>
+                <p className="text-white/65 text-base leading-relaxed">
+                  {l === 'ca'
+                    ? "La IA adapta la dificultat a cada alumne en temps real. Independentment del punt de partida, tots acaben amb el mateix nivell de competència financera."
+                    : l === 'es'
+                    ? 'La IA adapta la dificultad a cada alumno en tiempo real. Independientemente del punto de partida, todos terminan con el mismo nivel de competencia financiera.'
+                    : 'AI adapts the difficulty to each student in real time. Regardless of starting point, all students finish with the same level of financial competency.'}
+                </p>
+              </div>
+            </div>
+          </FadeInSection>
+
+          {/* 3 insight cards */}
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                icon: <Brain className="w-6 h-6 text-[#0B3064]" />,
+                title: { es: 'Ritmo personalizado', en: 'Personalised pace', ca: 'Ritme personalitzat' },
+                desc: { es: 'Módulos que se ajustan al nivel y velocidad de cada alumno.', en: "Modules that adjust to each student's level and speed.", ca: "Mòduls que s'adapten al nivell i velocitat de cada alumne." },
+              },
+              {
+                icon: <Target className="w-6 h-6 text-[#0B3064]" />,
+                title: { es: 'Mismo destino', en: 'Same destination', ca: 'Mateix destí' },
+                desc: { es: 'Todos los caminos llevan al mismo nivel de competencia certificado.', en: 'All paths lead to the same certified competency level.', ca: "Tots els camins porten al mateix nivell de competència certificat." },
+              },
+              {
+                icon: <Users className="w-6 h-6 text-[#0B3064]" />,
+                title: { es: 'Sin alumnos perdidos', en: 'No student left behind', ca: 'Cap alumne enrere' },
+                desc: { es: 'La IA detecta bloqueos en tiempo real y adapta el contenido para ayudar al alumno.', en: 'AI detects blocks in real time and adapts content to help the student through.', ca: "La IA detecta bloqueigs en temps real i adapta el contingut per ajudar l'alumne." },
+              },
+            ].map((insight, i) => (
+              <FadeInSection key={i} delay={i * 80}>
+                <div className="bg-white rounded-2xl p-6 border border-[#E8EDF5] shadow-sm h-full">
+                  <div className="w-10 h-10 rounded-xl bg-[#EEF2FB] flex items-center justify-center mb-4">
+                    {insight.icon}
+                  </div>
+                  <h3 className="font-black text-[#0B3064] text-base mb-2">{insight.title[l]}</h3>
+                  <p className="text-[#3C4C67] text-sm leading-relaxed">{insight.desc[l]}</p>
+                </div>
+              </FadeInSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===================== DASHBOARD DEL PROFESOR ===================== */}
+      <section className="bg-[#114076] py-20 md:py-24 relative overflow-hidden">
+        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
+          <FadeInSection>
+            <div className="text-center mb-10">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-4">
                 {l === 'ca' ? 'Per al professor' : l === 'es' ? 'Para el profesor' : 'For teachers'}
               </span>
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 {l === 'ca' ? 'Tu tens el control' : l === 'es' ? 'Tú tienes el control' : "You're in control"}
               </h2>
-              <p className="text-[#3C4C67] text-lg max-w-2xl mx-auto">
+              <p className="text-white/65 text-lg max-w-2xl mx-auto">
                 {l === 'ca'
                   ? "Segueix el progrés de cada alumne, detecta qui necessita ajuda i actua a temps."
                   : l === 'es'
@@ -685,47 +632,59 @@ export default function Colegios() {
             </div>
 
             {/* Browser chrome wrapper */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#E8EDF5]">
-              {/* Browser bar */}
-              <div className="bg-[#E8EDF5] px-4 py-3 flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#C8D0DD]" />
-                <div className="w-3 h-3 rounded-full bg-[#C8D0DD]" />
-                <div className="w-3 h-3 rounded-full bg-[#C8D0DD]" />
-                <div className="ml-4 flex-1 bg-white rounded px-3 py-1 text-xs text-[#8F9EB7] max-w-xs">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+              <div className="bg-[#0B3064] px-4 py-3 flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-white/25" />
+                <div className="w-3 h-3 rounded-full bg-white/25" />
+                <div className="w-3 h-3 rounded-full bg-white/25" />
+                <div className="ml-4 flex-1 bg-white/10 rounded px-3 py-1 text-xs text-white/55 max-w-xs">
                   finomik.com/dashboard
                 </div>
               </div>
-              {/* Dashboard panel */}
               <InstitutionBenefitsPanel />
             </div>
           </FadeInSection>
         </div>
       </section>
 
-      {/* ===================== CERTIFICADOS: certificate card mockup ===================== */}
-      <section className="bg-[#0B3064] py-20 md:py-24 relative overflow-hidden">
-        <WaveShape className="absolute top-0 w-full h-[35%] text-[#114076] z-0 transform rotate-180" opacity={1} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
-        <WaveShape className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0" opacity={1} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
-        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-4xl">
+      {/* ===================== CERTIFICADOS: white, split with checklist ===================== */}
+      <section className="bg-white py-20 md:py-24 relative overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="grid md:grid-cols-2 gap-12 items-center">
+
+              {/* Left: text + checklist */}
               <div>
-                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
+                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-5">
                   {l === 'ca' ? 'Reconeixement' : l === 'es' ? 'Reconocimiento' : 'Recognition'}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
+                <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
                   {l === 'ca' ? 'Cada alumne acaba amb un certificat' : l === 'es' ? 'Cada alumno termina con un certificado' : 'Every student finishes with a certificate'}
                 </h2>
-                <p className="text-white/70 text-lg leading-relaxed">
+                <p className="text-[#3C4C67] text-lg leading-relaxed mb-8">
                   {l === 'ca'
-                    ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides. Un reconeixement real del seu treball.'
+                    ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides.'
                     : l === 'es'
-                    ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas. Un reconocimiento real de su esfuerzo.'
-                    : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired. Real recognition for real work.'}
+                    ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas.'
+                    : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired.'}
                 </p>
+                <div className="space-y-4">
+                  {[
+                    { es: 'Emitido digitalmente por Finomik', en: 'Issued digitally by Finomik', ca: 'Emès digitalment per Finomik' },
+                    { es: 'Incluye el nombre del alumno y el nivel alcanzado', en: "Includes the student's name and level reached", ca: "Inclou el nom de l'alumne i el nivell assolit" },
+                    { es: 'Compartible en LinkedIn y redes sociales', en: 'Shareable on LinkedIn and social networks', ca: 'Compartible a LinkedIn i xarxes socials' },
+                  ].map((point, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#EEF2FB] flex items-center justify-center flex-shrink-0">
+                        <CheckCircle2 className="w-4 h-4 text-[#0B3064]" />
+                      </div>
+                      <span className="text-[#3C4C67] text-base">{point[l]}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Certificate card mockup */}
+              {/* Right: certificate mockup */}
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#E8EDF5]">
                 <div className="bg-[#0B3064] px-6 py-4">
                   <img src="/logo-finomik-on-blue.png" alt="Finomik" className="h-7 w-auto" />
@@ -757,19 +716,20 @@ export default function Colegios() {
                   </div>
                 </div>
               </div>
+
             </div>
           </FadeInSection>
         </div>
       </section>
 
-      {/* ===================== CTA FINAL ===================== */}
-      <section className="bg-white py-20 md:py-24">
+      {/* ===================== CTA FINAL: dark ===================== */}
+      <section className="bg-[#0B3064] py-20 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-3xl text-center">
           <FadeInSection>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
               {l === 'ca' ? 'Porta Finomik al teu centre' : l === 'es' ? 'Lleva Finomik a tu colegio' : 'Bring Finomik to your school'}
             </h2>
-            <p className="text-[#3C4C67] text-lg leading-relaxed mb-8 max-w-lg mx-auto">
+            <p className="text-white/65 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
               {l === 'ca'
                 ? "Explica'ns la situació del teu centre i crearem junts el programa que els teus alumnes necessiten."
                 : l === 'es'
@@ -778,7 +738,7 @@ export default function Colegios() {
             </p>
             <Link
               to="/more-info"
-              className="inline-flex items-center gap-2 bg-[#0B3064] text-white font-extrabold px-8 py-4 rounded-xl text-base hover:bg-[#114076] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-8 py-4 rounded-xl text-base hover:bg-yellow-400 transition-colors"
             >
               {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
               <ChevronRight className="w-5 h-5" />
