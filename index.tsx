@@ -11,6 +11,8 @@ import SolutionsSchools from './pages/SolutionsSchools';
 import SolutionsUniversities from './pages/SolutionsUniversities';
 import SolutionsPlatform from './pages/SolutionsPlatform';
 import SolutionsTechnology from './pages/SolutionsTechnology';
+import Colegios from './pages/Colegios';
+import Bancos from './pages/Bancos';
 import ArticlePage from './ArticlePage';
 import Contact from './Contact';
 import ErrorBoundary from './ErrorBoundary';
@@ -38,6 +40,8 @@ root.render(
             <Route path="/solutions/technology" element={<SolutionsTechnology />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/articulo/:slug" element={<ArticlePage />} />
+            <Route path="/colegios" element={<Colegios />} />
+            <Route path="/bancos" element={<Bancos />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </ErrorBoundary>
