@@ -234,9 +234,8 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', classNam
 
 // --- Header ---
 const navItems = [
-  { key: 'mission', href: '#our-mission' },
-  { key: 'solutions', href: '#our-solutions' },
-  { key: 'why', href: '#why-finomik' },
+  { key: 'colegios', href: '/colegios' },
+  { key: 'bancos', href: '/bancos' },
   { key: 'contact', href: '/contact' },
 ];
 
@@ -278,13 +277,11 @@ const Header = () => {
         <nav className="hidden lg:flex items-center flex-nowrap gap-5 xl:gap-7 shrink-0">
           {navItems.map((item) => {
             const label =
-              item.key === 'mission'
-                ? (lang === 'ca' ? 'Missi\u00f3' : lang === 'es' ? 'Misi\u00f3n' : 'Our Mission')
-                : item.key === 'solutions'
-                  ? (lang === 'ca' ? 'Solucions' : lang === 'es' ? 'Soluciones' : 'Our Solutions')
-                  : item.key === 'contact'
-                    ? (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')
-                    : (lang === 'ca' ? 'Per qu\u00e8 Finomik' : lang === 'es' ? 'Por qu\u00e9 Finomik' : 'Why Finomik');
+              item.key === 'colegios'
+                ? (lang === 'ca' ? 'Col·legis' : lang === 'es' ? 'Colegios' : 'Schools')
+                : item.key === 'bancos'
+                  ? (lang === 'ca' ? 'Bancs' : lang === 'es' ? 'Bancos' : 'Banks')
+                  : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact');
 
             if (item.href.startsWith('/')) {
               return (
@@ -361,13 +358,11 @@ const Header = () => {
                   onClick={closeMenu}
                   className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
                 >
-                  {item.key === 'mission'
-                    ? (lang === 'ca' ? 'Missi\u00f3' : lang === 'es' ? 'Misi\u00f3n' : 'Our Mission')
-                    : item.key === 'solutions'
-                      ? (lang === 'ca' ? 'Solucions' : lang === 'es' ? 'Soluciones' : 'Our Solutions')
-                      : item.key === 'contact'
-                        ? (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')
-                        : (lang === 'ca' ? 'Per qu\u00e8 Finomik' : lang === 'es' ? 'Por qu\u00e9 Finomik' : 'Why Finomik')}
+                  {item.key === 'colegios'
+                    ? (lang === 'ca' ? 'Col·legis' : lang === 'es' ? 'Colegios' : 'Schools')
+                    : item.key === 'bancos'
+                      ? (lang === 'ca' ? 'Bancs' : lang === 'es' ? 'Bancos' : 'Banks')
+                      : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')}
                 </Link>
               ) : (
                 <a
@@ -376,13 +371,11 @@ const Header = () => {
                   onClick={closeMenu}
                   className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
                 >
-                  {item.key === 'mission'
-                    ? (lang === 'ca' ? 'Missi\u00f3' : lang === 'es' ? 'Misi\u00f3n' : 'Our Mission')
-                    : item.key === 'solutions'
-                      ? (lang === 'ca' ? 'Solucions' : lang === 'es' ? 'Soluciones' : 'Our Solutions')
-                      : item.key === 'contact'
-                        ? (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')
-                        : (lang === 'ca' ? 'Per qu\u00e8 Finomik' : lang === 'es' ? 'Por qu\u00e9 Finomik' : 'Why Finomik')}
+                  {item.key === 'colegios'
+                    ? (lang === 'ca' ? 'Col·legis' : lang === 'es' ? 'Colegios' : 'Schools')
+                    : item.key === 'bancos'
+                      ? (lang === 'ca' ? 'Bancs' : lang === 'es' ? 'Bancos' : 'Banks')
+                      : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')}
                 </a>
               )
             )}
