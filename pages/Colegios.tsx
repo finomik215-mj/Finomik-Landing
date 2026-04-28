@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Award, CheckCircle2, ChevronRight, ShieldCheck, LineChart, Trophy } from 'lucide-react';
+import { Award, CheckCircle2, ChevronRight, Brain, Target, BookOpen, Users, ShieldCheck, LineChart, Trophy } from 'lucide-react';
 import { SeoHead } from '../components/SeoHead';
 import { useI18n } from '../i18n';
 import { Navbar } from '../components/Navbar';
@@ -456,54 +456,92 @@ export default function Colegios() {
 
       <Navbar />
 
-      {/* ===================== HERO: text left + dashboard floating right ===================== */}
-      <section className="bg-[#0B3064] pt-24 pb-12 md:pb-0 relative">
-        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            {/* LEFT: text content */}
-            <div className="pt-8 pb-8 md:pb-24">
+      {/* ===================== HERO: split grid layout =====================
+          Left (40%): badge, large headline, CTA
+          Right (60%): 2x2 grid of benefit mini-cards with icons
+          Background: #0B3064 (dark)
+          Cards: glass-morphism bg-white/10 border-white/20
+      ===================== */}
+      <section className="bg-[#0B3064] pt-28 pb-16 md:pb-20 relative overflow-hidden">
+        <WaveShape
+          className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
+          opacity={1}
+          mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
+        />
+        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+
+            {/* LEFT — 2 cols (40%) */}
+            <div className="md:col-span-2">
               <FadeInSection>
                 <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-6">
                   {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
                 </span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] mb-6">
+                <h1 className="text-4xl md:text-5xl font-black text-white leading-[1.05] mb-6">
                   {l === 'ca'
                     ? "L'educació financera que els joves necessiten"
                     : l === 'es'
                     ? 'La educación financiera que los jóvenes necesitan'
                     : 'The financial education young people need'}
                 </h1>
-                <p className="text-white/70 text-lg leading-relaxed mb-10">
+                <p className="text-white/60 text-base leading-relaxed mb-8">
                   {l === 'ca'
-                    ? "Un programa adaptat a cada centre, dissenyat perquè els teus alumnes desenvolupin habilitats financeres reals des del primer dia."
+                    ? "Un programa adaptat a cada centre, dissenyat per a resultats reals."
                     : l === 'es'
-                    ? 'Un programa adaptado a cada colegio, diseñado para que tus alumnos desarrollen habilidades financieras reales desde el primer día.'
-                    : 'A programme adapted to each school, designed so your students develop real financial skills from day one.'}
+                    ? 'Un programa adaptado a cada colegio, diseñado para obtener resultados reales.'
+                    : 'A programme adapted to each school, designed for real results.'}
                 </p>
                 <Link
                   to="/more-info"
-                  className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-8 py-4 rounded-xl text-base hover:bg-yellow-400 transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-7 py-3.5 rounded-xl text-sm hover:bg-yellow-400 transition-colors"
                 >
                   {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4" />
                 </Link>
               </FadeInSection>
             </div>
 
-            {/* RIGHT: dashboard panel — extends below hero on desktop */}
-            <div className="relative md:translate-y-16 md:pb-0 pb-8">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white">
-                <InstitutionBenefitsPanel />
-              </div>
+            {/* RIGHT — 3 cols (60%): 2x2 benefit grid */}
+            <div className="md:col-span-3">
+              <FadeInSection delay={150}>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    {
+                      icon: <Target className="w-5 h-5" />,
+                      title: { es: 'Programa a medida', en: 'Bespoke programme', ca: 'Programa a mida' },
+                      desc: { es: 'El colegio elige los temas. Nosotros diseñamos el programa.', en: 'The school chooses the topics. We design the programme.', ca: 'El col·legi tria els temes. Nosaltres dissenyem el programa.' },
+                    },
+                    {
+                      icon: <Brain className="w-5 h-5" />,
+                      title: { es: 'IA adaptativa', en: 'Adaptive AI', ca: 'IA adaptativa' },
+                      desc: { es: 'Cada alumno avanza a su ritmo. Todos llegan al mismo nivel.', en: 'Each student progresses at their own pace. All reach the same level.', ca: 'Cada alumne avança al seu ritme. Tots arriben al mateix nivell.' },
+                    },
+                    {
+                      icon: <Users className="w-5 h-5" />,
+                      title: { es: 'Control del profesor', en: 'Teacher control', ca: 'Control del professor' },
+                      desc: { es: 'Seguimiento en tiempo real del progreso de cada alumno.', en: "Real-time tracking of each student's progress.", ca: 'Seguiment en temps real del progrés de cada alumne.' },
+                    },
+                    {
+                      icon: <Award className="w-5 h-5" />,
+                      title: { es: 'Certificado final', en: 'Final certificate', ca: 'Certificat final' },
+                      desc: { es: 'Cada alumno termina con un certificado de competencia financiera.', en: 'Every student finishes with a financial competency certificate.', ca: 'Cada alumne acaba amb un certificat de competència financera.' },
+                    },
+                  ].map((card, i) => (
+                    <div key={i} className="bg-white/10 border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-colors">
+                      <div className="text-[#F5C518] mb-3">{card.icon}</div>
+                      <h3 className="font-black text-white text-sm mb-1.5">{card.title[l]}</h3>
+                      <p className="text-white/55 text-xs leading-relaxed">{card.desc[l]}</p>
+                    </div>
+                  ))}
+                </div>
+              </FadeInSection>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Spacer to accommodate the overflowing dashboard card on desktop */}
-      <div className="bg-white h-0 md:h-24" />
-
-      {/* ===================== EL PROGRAMA: horizontal journey steps ===================== */}
+      {/* ===================== EL PROGRAMA: horizontal 4-step journey ===================== */}
       <section className="bg-white py-20 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
@@ -516,9 +554,8 @@ export default function Colegios() {
               </h2>
             </div>
 
-            {/* 4-step horizontal journey */}
             <div className="grid md:grid-cols-4 gap-0 relative">
-              {/* Connecting line (desktop only) */}
+              {/* Connecting line */}
               <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-[#E8EDF5] z-0" />
 
               {[
@@ -539,7 +576,7 @@ export default function Colegios() {
                 },
                 {
                   num: '04',
-                  title: { es: 'Todos llegan al mismo nivel', en: 'Everyone reaches the same level', ca: 'Tots arriben al mateix nivell' },
+                  title: { es: 'Todos al mismo nivel', en: 'Everyone at the same level', ca: 'Tots al mateix nivell' },
                   desc: { es: 'Independientemente del ritmo, todos los alumnos terminan con el mismo nivel de competencia financiera.', en: 'Regardless of pace, all students finish with the same level of financial competency.', ca: "Independentment del ritme, tots els alumnes acaben amb el mateix nivell de competència financera." },
                 },
               ].map((step, i) => (
@@ -563,8 +600,7 @@ export default function Colegios() {
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-
-              {/* LEFT: convergence visual */}
+              {/* LEFT: convergence visual card */}
               <div className="bg-white/10 rounded-2xl border border-white/20 p-6">
                 <p className="text-[#F5C518] font-bold text-xs uppercase tracking-widest mb-5">
                   {l === 'ca' ? 'Classe de 3r ESO — Setmana 8' : l === 'es' ? 'Clase de 3.° ESO — Semana 8' : 'Year 9 Class — Week 8'}
@@ -580,20 +616,13 @@ export default function Colegios() {
                       <span className="text-white/60 text-xs">{student.progress}%</span>
                     </div>
                     <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                      <div
-                        className="h-full rounded-full transition-all"
-                        style={{ width: `${student.progress}%`, backgroundColor: student.color }}
-                      />
+                      <div className="h-full rounded-full" style={{ width: `${student.progress}%`, backgroundColor: student.color }} />
                     </div>
                   </div>
                 ))}
                 <div className="mt-6 pt-4 border-t border-white/20 flex items-center justify-between">
-                  <span className="text-white/70 text-xs">
-                    {l === 'ca' ? 'Objectiu final' : l === 'es' ? 'Objetivo final' : 'Final goal'}
-                  </span>
-                  <span className="text-[#F5C518] font-black text-sm">
-                    {l === 'ca' ? 'Nivell certificat' : l === 'es' ? 'Nivel certificado' : 'Certified level'}
-                  </span>
+                  <span className="text-white/70 text-xs">{l === 'ca' ? 'Objectiu final' : l === 'es' ? 'Objetivo final' : 'Final goal'}</span>
+                  <span className="text-[#F5C518] font-black text-sm">{l === 'ca' ? 'Nivell certificat' : l === 'es' ? 'Nivel certificado' : 'Certified level'}</span>
                 </div>
                 <p className="text-white/50 text-xs mt-2">
                   {l === 'ca' ? 'Tots arriben al mateix destí, al seu ritme.' : l === 'es' ? 'Todos llegan al mismo destino, a su ritmo.' : 'Everyone reaches the same destination, at their own pace.'}
@@ -616,9 +645,7 @@ export default function Colegios() {
                     : 'AI adapts the pace and difficulty of each module to the student. Each one progresses at their own pace, but everyone finishes with the same level of knowledge and skills.'}
                 </p>
                 <div className="bg-white/10 rounded-xl p-5 border border-white/20">
-                  <p className="text-[#F5C518] font-bold text-sm mb-2">
-                    {l === 'ca' ? 'Important' : l === 'es' ? 'Importante' : 'Important'}
-                  </p>
+                  <p className="text-[#F5C518] font-bold text-sm mb-2">{l === 'ca' ? 'Important' : l === 'es' ? 'Importante' : 'Important'}</p>
                   <p className="text-white/80 text-sm leading-relaxed">
                     {l === 'ca'
                       ? 'Tots els alumnes, independentment del seu ritme, arriben al mateix nivell de competència financera al final del programa.'
@@ -633,14 +660,55 @@ export default function Colegios() {
         </div>
       </section>
 
-      {/* ===================== CERTIFICADOS: certificate visual ===================== */}
+      {/* ===================== DASHBOARD DEL PROFESOR =====================
+          Framed as "producto en uso" - like seeing through the teacher's screen.
+          Light background. The panel is inside a "browser chrome" wrapper.
+          Title above: "Tu tienes el control"
+      ===================== */}
+      <section className="bg-[#f0f5fc] py-20 md:py-24 relative overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <FadeInSection>
+            <div className="text-center mb-10">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-4">
+                {l === 'ca' ? 'Per al professor' : l === 'es' ? 'Para el profesor' : 'For teachers'}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-4">
+                {l === 'ca' ? 'Tu tens el control' : l === 'es' ? 'Tú tienes el control' : "You're in control"}
+              </h2>
+              <p className="text-[#3C4C67] text-lg max-w-2xl mx-auto">
+                {l === 'ca'
+                  ? "Segueix el progrés de cada alumne, detecta qui necessita ajuda i actua a temps."
+                  : l === 'es'
+                  ? 'Sigue el progreso de cada alumno, detecta quién necesita ayuda y actúa a tiempo.'
+                  : "Track each student's progress, spot who needs help and act in time."}
+              </p>
+            </div>
+
+            {/* Browser chrome wrapper */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#E8EDF5]">
+              {/* Browser bar */}
+              <div className="bg-[#E8EDF5] px-4 py-3 flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#C8D0DD]" />
+                <div className="w-3 h-3 rounded-full bg-[#C8D0DD]" />
+                <div className="w-3 h-3 rounded-full bg-[#C8D0DD]" />
+                <div className="ml-4 flex-1 bg-white rounded px-3 py-1 text-xs text-[#8F9EB7] max-w-xs">
+                  finomik.com/dashboard
+                </div>
+              </div>
+              {/* Dashboard panel */}
+              <InstitutionBenefitsPanel />
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* ===================== CERTIFICADOS: certificate card mockup ===================== */}
       <section className="bg-[#0B3064] py-20 md:py-24 relative overflow-hidden">
         <WaveShape className="absolute top-0 w-full h-[35%] text-[#114076] z-0 transform rotate-180" opacity={1} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
         <WaveShape className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0" opacity={1} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-4xl">
           <FadeInSection>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* LEFT: text */}
               <div>
                 <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
                   {l === 'ca' ? 'Reconeixement' : l === 'es' ? 'Reconocimiento' : 'Recognition'}
@@ -657,9 +725,9 @@ export default function Colegios() {
                 </p>
               </div>
 
-              {/* RIGHT: certificate card mockup */}
+              {/* Certificate card mockup */}
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#E8EDF5]">
-                <div className="bg-[#0B3064] px-6 py-4 flex items-center gap-3">
+                <div className="bg-[#0B3064] px-6 py-4">
                   <img src="/logo-finomik-on-blue.png" alt="Finomik" className="h-7 w-auto" />
                 </div>
                 <div className="px-8 py-8 text-center border-b border-[#E8EDF5]">
@@ -685,9 +753,7 @@ export default function Colegios() {
                   <Award className="w-8 h-8 text-[#F5C518]" />
                   <div className="text-right">
                     <p className="text-xs text-[#8F9EB7]">{l === 'ca' ? 'Nivell' : l === 'es' ? 'Nivel' : 'Level'}</p>
-                    <p className="font-bold text-[#0B3064] text-sm">
-                      {l === 'ca' ? 'Avançat' : l === 'es' ? 'Avanzado' : 'Advanced'}
-                    </p>
+                    <p className="font-bold text-[#0B3064] text-sm">{l === 'ca' ? 'Avançat' : l === 'es' ? 'Avanzado' : 'Advanced'}</p>
                   </div>
                 </div>
               </div>
