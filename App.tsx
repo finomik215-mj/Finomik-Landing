@@ -278,9 +278,9 @@ const Header = () => {
           {navItems.map((item) => {
             const label =
               item.key === 'colegios'
-                ? (lang === 'ca' ? 'Col·legis' : lang === 'es' ? 'Colegios' : 'Schools')
+                ? (lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools')
                 : item.key === 'bancos'
-                  ? (lang === 'ca' ? 'Bancs' : lang === 'es' ? 'Bancos' : 'Banks')
+                  ? (lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks')
                   : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact');
 
             if (item.href.startsWith('/')) {
@@ -359,9 +359,9 @@ const Header = () => {
                   className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
                 >
                   {item.key === 'colegios'
-                    ? (lang === 'ca' ? 'Col·legis' : lang === 'es' ? 'Colegios' : 'Schools')
+                    ? (lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools')
                     : item.key === 'bancos'
-                      ? (lang === 'ca' ? 'Bancs' : lang === 'es' ? 'Bancos' : 'Banks')
+                      ? (lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks')
                       : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')}
                 </Link>
               ) : (
@@ -372,9 +372,9 @@ const Header = () => {
                   className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
                 >
                   {item.key === 'colegios'
-                    ? (lang === 'ca' ? 'Col·legis' : lang === 'es' ? 'Colegios' : 'Schools')
+                    ? (lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools')
                     : item.key === 'bancos'
-                      ? (lang === 'ca' ? 'Bancs' : lang === 'es' ? 'Bancos' : 'Banks')
+                      ? (lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks')
                       : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')}
                 </a>
               )
@@ -1532,30 +1532,30 @@ const InstitutionBenefits = () => {
 const SegmentSelector = () => {
   const { lang } = useI18n();
   return (
-    <section className="bg-[#114076] py-20 md:py-24 relative overflow-hidden">
+    <section className="bg-[#f0f5fc] py-20 md:py-24 relative overflow-hidden">
       <WaveShape
-        className="absolute top-0 w-full h-[35%] text-[#0B3064] z-0 transform rotate-180"
+        className="absolute top-0 w-full h-[35%] text-[#114076] z-0 transform rotate-180"
         opacity={1}
         mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
       />
       <WaveShape
-        className="absolute bottom-0 left-0 w-full h-[35%] text-[#0B3064] z-0"
+        className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
         opacity={1}
         mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
       />
       <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl text-center">
         <FadeInSection>
-          <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
+          <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-5">
             {lang === 'ca' ? 'Per a qui és' : lang === 'es' ? '¿Para quién es?' : 'Who is it for?'}
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-4">
             {lang === 'ca'
               ? 'Finomik s\u2019adapta al teu entorn'
               : lang === 'es'
               ? 'Finomik se adapta a tu entorno'
               : 'Finomik adapts to your environment'}
           </h2>
-          <p className="text-white/70 text-lg mb-12 max-w-xl mx-auto">
+          <p className="text-[#3C4C67] text-lg mb-12 max-w-xl mx-auto">
             {lang === 'ca'
               ? 'Tant si ets un centre educatiu com una entitat financera, tenim una solució pensada per a tu.'
               : lang === 'es'
@@ -1565,40 +1565,38 @@ const SegmentSelector = () => {
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <Link
               to="/colegios"
-              className="group bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-2xl p-8 text-left transition-all duration-200"
+              className="group bg-white hover:bg-[#f0f5fc] border border-[#E8EDF5] hover:border-[#C8D0DD] rounded-2xl p-8 text-left transition-all duration-200"
             >
-              <div className="text-3xl mb-4">🏫</div>
-              <h3 className="text-xl font-black text-white mb-2">
+              <h3 className="text-xl font-black text-[#0B3064] mb-2">
                 {lang === 'ca' ? 'Per a Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools'}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-5">
+              <p className="text-[#3C4C67] text-sm leading-relaxed mb-5">
                 {lang === 'ca'
                   ? 'Programa personalitzat per als teus alumnes. Tu tries els temes, nosaltres creem el camí.'
                   : lang === 'es'
                   ? 'Programa personalizado para tus alumnos. Tú eliges los temas, nosotros creamos el camino.'
                   : 'Personalised programme for your students. You choose the topics, we create the path.'}
               </p>
-              <span className="inline-flex items-center gap-1 text-[#F5C518] font-bold text-sm group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-[#5574A7] font-bold text-sm group-hover:gap-2 transition-all">
                 {lang === 'ca' ? 'Descobreix més' : lang === 'es' ? 'Descubre más' : 'Learn more'}
                 <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
             <Link
               to="/bancos"
-              className="group bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-2xl p-8 text-left transition-all duration-200"
+              className="group bg-white hover:bg-[#f0f5fc] border border-[#E8EDF5] hover:border-[#C8D0DD] rounded-2xl p-8 text-left transition-all duration-200"
             >
-              <div className="text-3xl mb-4">🏦</div>
-              <h3 className="text-xl font-black text-white mb-2">
+              <h3 className="text-xl font-black text-[#0B3064] mb-2">
                 {lang === 'ca' ? 'Per a Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks'}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-5">
+              <p className="text-[#3C4C67] text-sm leading-relaxed mb-5">
                 {lang === 'ca'
                   ? 'Clients més educats, decisions més sòlides. Finomik integra l\u2019educació financera al cor de la relació banc-client.'
                   : lang === 'es'
                   ? 'Clientes mejor educados, decisiones más sólidas. Finomik integra la educación financiera en el centro de la relación banco-cliente.'
                   : 'Better-educated clients, stronger decisions. Finomik brings financial education to the heart of the bank-client relationship.'}
               </p>
-              <span className="inline-flex items-center gap-1 text-[#F5C518] font-bold text-sm group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-[#5574A7] font-bold text-sm group-hover:gap-2 transition-all">
                 {lang === 'ca' ? 'Descobreix més' : lang === 'es' ? 'Descubre más' : 'Learn more'}
                 <ArrowRight className="w-4 h-4" />
               </span>
@@ -1914,6 +1912,7 @@ function App() {
         <Mission />
         <Process />
         <Platforms />
+        <InstitutionBenefits />
         <SegmentSelector />
         <WhyFinomik />
         <SocialProof />
