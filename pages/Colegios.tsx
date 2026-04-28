@@ -325,7 +325,7 @@ const InstitutionBenefitsPanel = () => {
                     </div>
                   </div>
                   <span className="px-2 py-1 lg:px-3 lg:py-1.5 rounded-full bg-[#1C386E]/10 text-[#1C386E] text-[0.65rem] lg:text-xs font-semibold whitespace-nowrap">
-                  {lang === 'ca' ? 'XX % completat' : lang === 'es' ? '62 % completado' : '62% completion'}
+                  {lang === 'ca' ? '78% completat' : lang === 'es' ? '78% completado' : '78% completed'}
                   </span>
                 </div>
                 <div className="mt-1.5 lg:mt-2 h-1 lg:h-1.5 w-full rounded-full bg-slate-200 overflow-hidden">
@@ -409,7 +409,7 @@ const InstitutionBenefitsPanel = () => {
                       />
                       <div className="absolute inset-[24%] rounded-full bg-slate-50 border border-slate-200" />
                       <span className="absolute inset-0 flex items-center justify-center text-[0.65rem] md:text-[0.8rem] lg:text-lg font-semibold text-[#1C386E]">
-                        62%
+                        78%
                       </span>
                     </div>
                     <div className="flex-1 space-y-1 lg:space-y-1.5 min-w-0">
@@ -417,30 +417,30 @@ const InstitutionBenefitsPanel = () => {
                         <span className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-[#8F9EB7] flex-shrink-0" />
                         <span className="text-[0.55rem] md:text-[0.6rem] lg:text-xs text-slate-600">
                           {lang === 'ca'
-                            ? "62% ha completat els seus mòduls assignats."
+                            ? '78% ha completat els seus mòduls assignats.'
                             : lang === 'es'
-                            ? 'Completa tus módulos para alcanzar tu objetivo personal.'
-                            : '62% have completed their assigned modules.'}
+                            ? '78% completado: han terminado sus módulos asignados.'
+                            : '78% have completed their assigned modules.'}
                         </span>
                       </div>
                       <div className="flex items-center gap-1">
                         <span className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-[#5574A7] flex-shrink-0" />
                         <span className="text-[0.55rem] md:text-[0.6rem] lg:text-xs text-slate-600">
                           {lang === 'ca'
-                            ? '27% avança activament pels mòduls.'
+                            ? '15% avança activament pels mòduls.'
                             : lang === 'es'
-                            ? 'XX % está avanzando activamente en los módulos.'
-                            : '27% are actively progressing.'}
+                            ? '15% avanza activamente en los módulos.'
+                            : '15% are actively progressing.'}
                         </span>
                       </div>
                       <div className="flex items-center gap-1">
                         <span className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-[#3E5374] flex-shrink-0" />
                         <span className="text-[0.55rem] md:text-[0.6rem] lg:text-xs text-slate-600">
                           {lang === 'ca'
-                            ? '11% encara no ha començat.'
+                            ? '7% encara no ha començat.'
                             : lang === 'es'
-                            ? 'XX % aún no ha empezado y puede necesitar apoyo.'
-                            : '11% have not yet started.'}
+                            ? '7% aún no ha empezado y puede necesitar apoyo.'
+                            : "7% haven't started yet."}
                         </span>
                       </div>
                     </div>
@@ -515,25 +515,25 @@ const InstitutionBenefitsPanel = () => {
 const InstitutionBenefits = ({ lang }: { lang: 'es' | 'en' | 'ca' }) => {
   const bullets = [
     lang === 'ca'
-      ? 'Aprèn en mòduls curts adaptats al teu nivell. Sense coneixements previs necessaris.'
+      ? 'Segueix en temps real el progrés de cada alumne.'
       : lang === 'es'
-      ? 'Aprende en módulos cortos adaptados a tu nivel. Sin conocimientos previos necesarios.'
-      : 'Learn in short modules adapted to your level. No prior knowledge needed.',
+      ? 'Sigue en tiempo real el progreso de cada alumno.'
+      : "Track each student's progress in real time.",
     lang === 'ca'
-      ? 'Coneixement que transforma el teu dia a dia: pressupost, estalvi, deute i inversió.'
+      ? "Detecta qui necessita ajuda abans que s'enrereixin."
       : lang === 'es'
-      ? 'Conocimiento que transforma tu día a día: presupuesto, ahorro, deuda e inversión.'
-      : 'Knowledge that transforms your daily decisions: budgeting, saving, debt and investing.',
+      ? 'Detecta quién necesita ayuda antes de que se quede atrás.'
+      : 'Spot who needs help before they fall behind.',
     lang === 'ca'
-      ? 'Segueix el teu progrés i mantén la motivació amb rachas i assoliments desblocables.'
+      ? 'El teu centre tria els temes i nosaltres creem el programa.'
       : lang === 'es'
-      ? 'Sigue tu progreso y mantén la motivación con rachas y logros desbloqueables.'
-      : 'Track your progress and stay motivated with streaks and unlockable achievements.',
+      ? 'Tu colegio elige los temas y nosotros creamos el programa.'
+      : 'Your school chooses the topics and we create the programme.',
     lang === 'ca'
-      ? "Disponible des del mòbil, l'ordinador o la tauleta. Aprèn on siguis."
+      ? 'Informes automàtics per compartir amb direcció i famílies.'
       : lang === 'es'
-      ? 'Disponible desde el móvil, el ordenador o la tablet. Aprende donde estés.'
-      : 'Available on mobile, desktop or tablet. Learn wherever you are.',
+      ? 'Informes automáticos para compartir con dirección y familias.'
+      : 'Automatic reports to share with leadership and families.',
   ];
 
   return (
