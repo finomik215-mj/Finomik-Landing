@@ -425,7 +425,7 @@ export default function Colegios() {
         lang={lang}
       />
 
-      <Navbar />
+      <Navbar lightHero={true} />
 
       {/* ===================== HERO: WHITE, editorial ===================== */}
       <section className="bg-white pt-28 pb-24 md:pb-32 relative overflow-hidden">

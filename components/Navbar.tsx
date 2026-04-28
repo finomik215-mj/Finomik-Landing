@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useI18n } from '../i18n';
 
+interface NavbarProps {
+  lightHero?: boolean;
+}
+
 const NAV_ITEMS = [
+  { key: 'home', href: '/' },
   { key: 'colegios', href: '/colegios' },
   { key: 'bancos', href: '/bancos' },
   { key: 'contact', href: '/contact' },
@@ -15,10 +20,11 @@ const LANG_OPTIONS: { code: 'en' | 'es' | 'ca'; label: string }[] = [
   { code: 'ca', label: 'CA' },
 ];
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC<NavbarProps> = ({ lightHero = false }) => {
   const { lang, setLang } = useI18n();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -28,22 +34,30 @@ export const Navbar: React.FC = () => {
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  // When hero is light-coloured (white), or when scrolled → use dark-on-white styling
+  const isLight = isScrolled || lightHero;
+
   const getLabel = (key: string) => {
+    if (key === 'home') return lang === 'ca' ? 'Inici' : lang === 'es' ? 'Inicio' : 'Home';
     if (key === 'colegios') return lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools';
     if (key === 'bancos') return lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks';
     return lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact';
   };
 
+  const isActive = (href: string) => location.pathname === href;
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-3'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-md py-2'
+        : lightHero
+        ? 'bg-white/90 backdrop-blur-sm border-b border-[#E8EDF5] py-3'
+        : 'bg-transparent py-3'
+    }`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center min-h-[52px] md:min-h-[64px]">
-        <Link
-          to="/"
-          className="flex items-center shrink-0"
-          aria-label="Finomik - Home"
-        >
+        <Link to="/" className="flex items-center shrink-0" aria-label="Finomik - Home">
           <img
-            src={isScrolled ? '/logo-finomik-on-white.png' : '/logo-finomik-on-blue.png'}
+            src={isLight ? '/logo-finomik-on-white.png' : '/logo-finomik-on-blue.png'}
             alt="Finomik"
             className="h-10 md:h-14 w-auto object-contain"
           />
@@ -51,22 +65,34 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center flex-nowrap gap-5 xl:gap-7 shrink-0">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.key}
-              to={item.href}
-              className={`text-sm font-semibold transition-colors whitespace-nowrap ${isScrolled ? 'text-gray-600 hover:text-[#0B3064]' : 'text-gray-200 hover:text-white'}`}
-            >
-              {getLabel(item.key)}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.key}
+                to={item.href}
+                className={`relative text-sm font-semibold transition-colors whitespace-nowrap pb-1 ${
+                  active
+                    ? isLight ? 'text-[#0B3064]' : 'text-white'
+                    : isLight ? 'text-gray-600 hover:text-[#0B3064]' : 'text-gray-200 hover:text-white'
+                }`}
+              >
+                {getLabel(item.key)}
+                {active && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F5C518] rounded-full" />
+                )}
+              </Link>
+            );
+          })}
           <Link
             to="/more-info"
-            className={`ml-4 inline-flex items-center justify-center px-5 py-2 rounded-lg font-bold text-xs tracking-wide transition-all whitespace-nowrap shrink-0 ${isScrolled ? 'bg-[#F5C518] text-[#0B3064] hover:bg-yellow-400' : 'bg-white text-[#0B3064] hover:bg-gray-100'}`}
+            className={`ml-4 inline-flex items-center justify-center px-5 py-2 rounded-lg font-bold text-xs tracking-wide transition-all whitespace-nowrap shrink-0 ${
+              isLight ? 'bg-[#F5C518] text-[#0B3064] hover:bg-yellow-400' : 'bg-white text-[#0B3064] hover:bg-gray-100'
+            }`}
           >
             {lang === 'ca' ? 'Sol·licitar informació' : lang === 'es' ? 'Solicitar información' : 'Request info'}
           </Link>
-          <div className={`ml-6 flex items-center gap-0.5 rounded-full border overflow-hidden shrink-0 ${isScrolled ? 'border-[#C8D0DD]' : 'border-white/60'}`}>
+          <div className={`ml-6 flex items-center gap-0.5 rounded-full border overflow-hidden shrink-0 ${isLight ? 'border-[#C8D0DD]' : 'border-white/60'}`}>
             {LANG_OPTIONS.map((opt) => (
               <button
                 key={opt.code}
@@ -74,8 +100,8 @@ export const Navbar: React.FC = () => {
                 onClick={() => setLang(opt.code)}
                 className={`text-xs font-semibold px-2.5 py-1 min-w-[2rem] transition-colors ${
                   lang === opt.code
-                    ? isScrolled ? 'bg-[#5574A7] text-white' : 'bg-white/20 text-white'
-                    : isScrolled ? 'text-[#0B3064] hover:bg-[#f0f5fc]' : 'text-white/80 hover:bg-white/10'
+                    ? isLight ? 'bg-[#5574A7] text-white' : 'bg-white/20 text-white'
+                    : isLight ? 'text-[#0B3064] hover:bg-[#f0f5fc]' : 'text-white/80 hover:bg-white/10'
                 }`}
                 aria-label={opt.code === 'en' ? 'English' : opt.code === 'es' ? 'Español' : 'Català'}
                 aria-pressed={lang === opt.code}
@@ -94,9 +120,9 @@ export const Navbar: React.FC = () => {
           onClick={() => setIsMenuOpen((open) => !open)}
         >
           {isMenuOpen ? (
-            <X className={`w-6 h-6 ${isScrolled ? 'text-[#0B3064]' : 'text-white'}`} />
+            <X className={`w-6 h-6 ${isLight ? 'text-[#0B3064]' : 'text-white'}`} />
           ) : (
-            <Menu className={`w-6 h-6 ${isScrolled ? 'text-[#0B3064]' : 'text-white'}`} />
+            <Menu className={`w-6 h-6 ${isLight ? 'text-[#0B3064]' : 'text-white'}`} />
           )}
         </button>
       </div>
@@ -105,20 +131,26 @@ export const Navbar: React.FC = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-[#114076]/95 backdrop-blur-md border-t border-white/10 shadow-lg">
           <nav className="container mx-auto px-6 py-4 flex flex-col space-y-3">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.key}
-                to={item.href}
-                onClick={closeMenu}
-                className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
-              >
-                {getLabel(item.key)}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.key}
+                  to={item.href}
+                  onClick={closeMenu}
+                  className={`text-sm font-semibold transition-colors py-2 block relative pl-3 ${
+                    active ? 'text-[#F5C518]' : 'text-white hover:text-blue-200'
+                  }`}
+                >
+                  {active && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-[#F5C518] rounded-full" />}
+                  {getLabel(item.key)}
+                </Link>
+              );
+            })}
             <Link
               to="/more-info"
               onClick={closeMenu}
-              className="mt-2 inline-flex items-center justify-center px-8 py-3 rounded-lg font-bold text-sm bg-white text-[#0B3064] hover:bg-gray-100 transition-colors"
+              className="mt-2 inline-flex items-center justify-center px-8 py-3 rounded-lg font-bold text-sm bg-[#F5C518] text-[#0B3064] hover:bg-yellow-400 transition-colors"
             >
               {lang === 'ca' ? 'Sol·licitar informació' : lang === 'es' ? 'Solicitar información' : 'Request info'}
             </Link>

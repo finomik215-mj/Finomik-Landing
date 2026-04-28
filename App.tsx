@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   ArrowRight, 
   ShieldCheck, 
@@ -234,6 +234,7 @@ const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', classNam
 
 // --- Header ---
 const navItems = [
+  { key: 'home', href: '/' },
   { key: 'colegios', href: '/colegios' },
   { key: 'bancos', href: '/bancos' },
   { key: 'contact', href: '/contact' },
@@ -249,6 +250,7 @@ const Header = () => {
   const { lang, setLang } = useI18n();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -257,6 +259,14 @@ const Header = () => {
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
+  const isActive = (href: string) => location.pathname === href;
+
+  const getNavLabel = (key: string) => {
+    if (key === 'home') return lang === 'ca' ? 'Inici' : lang === 'es' ? 'Inicio' : 'Home';
+    if (key === 'colegios') return lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools';
+    if (key === 'bancos') return lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks';
+    return lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact';
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-3'}`}>
@@ -276,22 +286,23 @@ const Header = () => {
         {/* Desktop nav: una sola fila, sin saltos de línea en CA/ES */}
         <nav className="hidden lg:flex items-center flex-nowrap gap-5 xl:gap-7 shrink-0">
           {navItems.map((item) => {
-            const label =
-              item.key === 'colegios'
-                ? (lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools')
-                : item.key === 'bancos'
-                  ? (lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks')
-                  : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact');
+            const label = getNavLabel(item.key);
 
+            const active = isActive(item.href);
             if (item.href.startsWith('/')) {
               return (
-              <Link
+                <Link
                   key={item.key}
-                to={item.href}
-                className={`text-sm font-semibold transition-colors whitespace-nowrap ${isScrolled ? 'text-gray-600 hover:text-finomik-navy' : 'text-gray-200 hover:text-white'}`}
-              >
+                  to={item.href}
+                  className={`relative text-sm font-semibold transition-colors whitespace-nowrap pb-1 ${
+                    active
+                      ? isScrolled ? 'text-finomik-navy' : 'text-white'
+                      : isScrolled ? 'text-gray-600 hover:text-finomik-navy' : 'text-gray-200 hover:text-white'
+                  }`}
+                >
                   {label}
-              </Link>
+                  {active && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F5C518] rounded-full" />}
+                </Link>
               );
             }
             return (
@@ -306,7 +317,7 @@ const Header = () => {
           })}
           <Button
             href="/more-info"
-            variant={isScrolled ? 'primary' : 'white'}
+            variant="primary"
             className="py-2 px-5 text-xs whitespace-nowrap shrink-0 ml-4"
           >
             {lang === 'ca' ? 'Sol·licitar informació' : lang === 'es' ? 'Solicitar información' : 'Request info'}
@@ -350,19 +361,18 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-[#114076]/95 backdrop-blur-md border-t border-white/10 shadow-lg">
           <nav className="container mx-auto px-6 py-4 flex flex-col space-y-3">
-            {navItems.map((item) =>
-              item.href.startsWith('/') ? (
+            {navItems.map((item) => {
+              const mobileLabel = getNavLabel(item.key);
+              const mobileActive = isActive(item.href);
+              return item.href.startsWith('/') ? (
                 <Link
                   key={item.key}
                   to={item.href}
                   onClick={closeMenu}
-                  className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
+                  className={`relative text-sm font-semibold transition-colors py-2 block pl-3 ${mobileActive ? 'text-[#F5C518]' : 'text-white hover:text-blue-200'}`}
                 >
-                  {item.key === 'colegios'
-                    ? (lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools')
-                    : item.key === 'bancos'
-                      ? (lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks')
-                      : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')}
+                  {mobileActive && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-[#F5C518] rounded-full" />}
+                  {mobileLabel}
                 </Link>
               ) : (
                 <a
@@ -371,16 +381,12 @@ const Header = () => {
                   onClick={closeMenu}
                   className="text-sm font-semibold text-white hover:text-blue-200 transition-colors py-2 block"
                 >
-                  {item.key === 'colegios'
-                    ? (lang === 'ca' ? 'Per als Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools')
-                    : item.key === 'bancos'
-                      ? (lang === 'ca' ? 'Per als Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks')
-                      : (lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact')}
+                  {mobileLabel}
                 </a>
-              )
-            )}
-            <Button href="/more-info" variant="white" className="mt-2 justify-center" onClick={closeMenu}>
-              {lang === 'ca' ? 'Més informació' : lang === 'es' ? 'Más información' : 'More info'}
+              );
+            })}
+            <Button href="/more-info" variant="primary" className="mt-2 justify-center" onClick={closeMenu}>
+              {lang === 'ca' ? 'Sol·licitar informació' : lang === 'es' ? 'Solicitar información' : 'Request info'}
             </Button>
             <div className="mt-3 flex gap-2 flex-wrap justify-center">
               {LANG_OPTIONS.map((opt) => (
