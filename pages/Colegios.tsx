@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, { useEffect, useRef, ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Award, Brain, BookOpen, CheckCircle2, TrendingUp, AlertCircle, ChevronRight, ArrowRight, ShieldCheck, LineChart, Trophy } from 'lucide-react';
+import { Award, CheckCircle2, ChevronRight, ShieldCheck, LineChart, Trophy } from 'lucide-react';
 import { SeoHead } from '../components/SeoHead';
 import { useI18n } from '../i18n';
+import { Navbar } from '../components/Navbar';
 
 // --- Types ---
 interface SectionProps {
@@ -13,13 +14,6 @@ interface SectionProps {
   visibleOnMobile?: boolean;
   forceVisible?: boolean;
   from?: 'bottom' | 'left' | 'right' | 'top';
-}
-
-interface AnimatedNumberProps {
-  value: number;
-  suffix?: string;
-  duration?: number;
-  decimals?: number;
 }
 
 // --- WaveShape ---
@@ -82,71 +76,6 @@ const FadeInSection: React.FC<SectionProps> = ({ children, className = "", id, d
     >
       {children}
     </div>
-  );
-};
-
-// --- AnimatedNumber ---
-const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value, suffix = '', duration = 1200, decimals = 0 }) => {
-  const [displayValue, setDisplayValue] = useState<string | number>(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (hasAnimated) return;
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setHasAnimated(true);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(el);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [hasAnimated]);
-
-  useEffect(() => {
-    if (!hasAnimated) return;
-
-    let start: number | null = null;
-    let frameId: number;
-
-    const step = (timestamp: number) => {
-      if (start === null) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const raw = progress * value;
-      const current =
-        decimals > 0
-          ? Number(raw.toFixed(decimals))
-          : Math.floor(raw);
-      setDisplayValue(current);
-
-      if (progress < 1) {
-        frameId = requestAnimationFrame(step);
-      }
-    };
-
-    frameId = requestAnimationFrame(step);
-
-    return () => {
-      cancelAnimationFrame(frameId);
-    };
-  }, [hasAnimated, value, duration, decimals]);
-
-  return (
-    <span ref={ref}>
-      {displayValue}
-      {suffix}
-    </span>
   );
 };
 
@@ -511,99 +440,6 @@ const InstitutionBenefitsPanel = () => {
   );
 };
 
-// --- InstitutionBenefits (adapted for Colegios: badge + title changed) ---
-const InstitutionBenefits = ({ lang }: { lang: 'es' | 'en' | 'ca' }) => {
-  const bullets = [
-    lang === 'ca'
-      ? 'Segueix en temps real el progrés de cada alumne.'
-      : lang === 'es'
-      ? 'Sigue en tiempo real el progreso de cada alumno.'
-      : "Track each student's progress in real time.",
-    lang === 'ca'
-      ? "Detecta qui necessita ajuda abans que s'enrereixin."
-      : lang === 'es'
-      ? 'Detecta quién necesita ayuda antes de que se quede atrás.'
-      : 'Spot who needs help before they fall behind.',
-    lang === 'ca'
-      ? 'El teu centre tria els temes i nosaltres creem el programa.'
-      : lang === 'es'
-      ? 'Tu colegio elige los temas y nosotros creamos el programa.'
-      : 'Your school chooses the topics and we create the programme.',
-    lang === 'ca'
-      ? 'Informes automàtics per compartir amb direcció i famílies.'
-      : lang === 'es'
-      ? 'Informes automáticos para compartir con dirección y familias.'
-      : 'Automatic reports to share with leadership and families.',
-  ];
-
-  return (
-    <section
-      id="institutions"
-      className="relative pt-6 pb-12 md:py-24 bg-[#f0f5fc] scroll-mt-32 md:scroll-mt-40 overflow-hidden"
-    >
-      <WaveShape
-        className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
-        opacity={0.4}
-        mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-      />
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-8 md:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EEF2FB] border border-[#C8D0DD] mb-6">
-            <ShieldCheck className="text-[#5574A7] w-4 h-4" />
-            <span className="text-[#5574A7] font-bold tracking-[0.18em] uppercase text-[0.7rem]">
-              {lang === 'ca' ? 'Per al professor' : lang === 'es' ? 'Para el profesor' : 'For teachers'}
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B3064] leading-tight mb-4">
-            {lang === 'ca'
-              ? 'Tu tens el control'
-              : lang === 'es'
-              ? 'Tú tienes el control'
-              : "You're in control"}
-          </h2>
-          <p className="text-base sm:text-lg text-[#3C4C67] font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-            {lang === 'ca'
-              ? 'No és teoria en un llibre. És pràctica que transforma com gestiones els teus diners.'
-              : lang === 'es'
-              ? 'No es teoría en un libro. Es práctica que transforma cómo gestionas tu dinero.'
-              : "It's not textbook theory. It's practice that transforms how you manage money."}
-          </p>
-        </div>
-
-        <ul className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-10 md:mb-12">
-          {bullets.map((item, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <div className="mt-1 w-6 h-6 rounded-full bg-[#C8D0DD] flex items-center justify-center flex-shrink-0">
-                <ArrowRight className="w-3 h-3 text-[#F5C518]" />
-              </div>
-              <span className="text-base leading-relaxed text-[#3C4C67] font-semibold">
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="text-center mb-10 md:mb-12">
-          <Link
-            to="/more-info"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-bold text-sm tracking-wide transition-all duration-300 transform hover:-translate-y-1 shadow-lg bg-[#F5C518] text-[#0B3064] hover:bg-[#E8B84B] hover:shadow-xl hover:-translate-y-0.5 border-0 font-extrabold"
-          >
-            {lang === 'ca' ? 'Descobreix Finomik' : lang === 'es' ? 'Descubre Finomik' : 'Discover Finomik'}
-          </Link>
-        </div>
-
-        <FadeInSection delay={150}>
-          <div className="flex justify-center overflow-visible px-1 sm:px-0 md:-mx-4 lg:-mx-6">
-            <InstitutionBenefitsPanel />
-          </div>
-        </FadeInSection>
-      </div>
-    </section>
-  );
-};
-
-// --- Main Colegios Page ---
 export default function Colegios() {
   const { lang } = useI18n();
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -613,261 +449,278 @@ export default function Colegios() {
     <div className="min-h-screen font-sans overflow-x-hidden">
       <SeoHead
         title={l === 'es' ? 'Finomik para Colegios | Educación financiera para jóvenes' : l === 'ca' ? 'Finomik per a Col·legis | Educació financera per a joves' : 'Finomik for Schools | Financial education for young people'}
-        description={l === 'es' ? 'Programa de educación financiera personalizado para colegios. Los alumnos desarrollan habilidades financieras reales con IA y seguimiento del profesor.' : 'Personalised financial education programme for schools.'}
+        description={l === 'es' ? 'Programa de educación financiera personalizado para colegios.' : 'Personalised financial education programme for schools.'}
         path="/colegios"
         lang={lang}
       />
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-[#E8EDF5] z-50">
-        <div className="container mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-[#0B3064] font-semibold hover:text-[#5574A7] transition-colors text-sm">
-            <ArrowLeft className="w-4 h-4" />
-            {l === 'ca' ? 'Inici' : l === 'es' ? 'Inicio' : 'Home'}
-          </Link>
-          <span className="text-xs font-bold tracking-[0.15em] uppercase text-[#5574A7]">Finomik</span>
-          <Link to="/more-info" className="inline-flex items-center gap-1 bg-[#F5C518] text-[#0B3064] font-extrabold px-4 py-2 rounded-lg text-xs hover:bg-yellow-400 transition-colors">
-            {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request info'}
-          </Link>
-        </div>
-      </header>
 
-      <main className="pt-16">
-        {/* HERO */}
-        <section className="min-h-[70vh] flex items-center bg-[#0B3064] relative overflow-hidden pt-24 pb-20">
-          <WaveShape
-            className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
-            opacity={1}
-            mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-          />
-          <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
-            <FadeInSection forceVisible>
-              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-6">
-                {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
-              </span>
-              <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.05] mb-6 max-w-3xl">
-                {l === 'ca'
-                  ? "L'educació financera que els joves necessiten"
-                  : l === 'es'
-                  ? 'La educación financiera que los jóvenes necesitan'
-                  : 'The financial education young people need'}
-              </h1>
-              <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-                {l === 'ca'
-                  ? "Un programa adaptat a cada centre, dissenyat perquè els teus alumnes desenvolupin habilitats financeres reals des del primer dia."
-                  : l === 'es'
-                  ? 'Un programa adaptado a cada colegio, diseñado para que tus alumnos desarrollen habilidades financieras reales desde el primer día.'
-                  : 'A programme adapted to each school, designed so your students develop real financial skills from day one.'}
-              </p>
-              <Link
-                to="/more-info"
-                className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-8 py-4 rounded-xl text-base hover:bg-yellow-400 transition-colors"
-              >
-                {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
-                <ChevronRight className="w-5 h-5" />
-              </Link>
-            </FadeInSection>
+      <Navbar />
+
+      {/* ===================== HERO: text left + dashboard floating right ===================== */}
+      <section className="bg-[#0B3064] pt-24 pb-12 md:pb-0 relative">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            {/* LEFT: text content */}
+            <div className="pt-8 pb-8 md:pb-24">
+              <FadeInSection>
+                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-6">
+                  {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
+                </span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] mb-6">
+                  {l === 'ca'
+                    ? "L'educació financera que els joves necessiten"
+                    : l === 'es'
+                    ? 'La educación financiera que los jóvenes necesitan'
+                    : 'The financial education young people need'}
+                </h1>
+                <p className="text-white/70 text-lg leading-relaxed mb-10">
+                  {l === 'ca'
+                    ? "Un programa adaptat a cada centre, dissenyat perquè els teus alumnes desenvolupin habilitats financeres reals des del primer dia."
+                    : l === 'es'
+                    ? 'Un programa adaptado a cada colegio, diseñado para que tus alumnos desarrollen habilidades financieras reales desde el primer día.'
+                    : 'A programme adapted to each school, designed so your students develop real financial skills from day one.'}
+                </p>
+                <Link
+                  to="/more-info"
+                  className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-8 py-4 rounded-xl text-base hover:bg-yellow-400 transition-colors"
+                >
+                  {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
+                  <ChevronRight className="w-5 h-5" />
+                </Link>
+              </FadeInSection>
+            </div>
+
+            {/* RIGHT: dashboard panel — extends below hero on desktop */}
+            <div className="relative md:translate-y-16 md:pb-0 pb-8">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white">
+                <InstitutionBenefitsPanel />
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* EL PROGRAMA ES TUYO */}
-        <section className="py-20 md:py-24 bg-white">
-          <div className="container mx-auto px-6 md:px-12 max-w-5xl">
-            <FadeInSection>
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-5">
-                    {l === 'ca' ? 'Personalització' : l === 'es' ? 'Personalización' : 'Customisation'}
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
-                    {l === 'ca' ? 'El programa és teu' : l === 'es' ? 'El programa es tuyo' : 'The programme is yours'}
-                  </h2>
-                  <p className="text-[#3C4C67] text-lg leading-relaxed mb-8">
-                    {l === 'ca'
-                      ? "Cada centre té necessitats diferents. A Finomik, el col·legi escull els temes en els quals vol formar els seus alumnes i nosaltres creem el programa."
-                      : l === 'es'
-                      ? 'Cada colegio tiene necesidades distintas. En Finomik, el colegio elige los temas en los que quiere formar a sus alumnos y nosotros creamos el programa personalizado.'
-                      : 'Every school has different needs. At Finomik, the school chooses the topics it wants to teach and we build the personalised programme.'}
-                  </p>
-                  <ul className="space-y-4">
-                    {[
-                      {
-                        es: 'Tú eliges los temas financieros que importan a tu comunidad educativa',
-                        en: 'You choose the financial topics that matter to your school community',
-                        ca: 'Tu tries els temes financers que importen a la teva comunitat educativa',
-                      },
-                      {
-                        es: 'El programa se adapta al número de alumnos y a los tiempos del centro',
-                        en: 'The programme adapts to your student numbers and school schedule',
-                        ca: "El programa s'adapta al nombre d'alumnes i als temps del centre",
-                      },
-                      {
-                        es: 'Contenido progresivo: de conceptos básicos a habilidades aplicadas',
-                        en: 'Progressive content: from basic concepts to applied skills',
-                        ca: "Contingut progressiu: de conceptes bàsics a habilitats aplicades",
-                      },
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#F5C518] flex-shrink-0 mt-0.5" />
-                        <span className="text-[#3C4C67] leading-relaxed">{item[l]}</span>
-                      </li>
-                    ))}
-                  </ul>
+      {/* Spacer to accommodate the overflowing dashboard card on desktop */}
+      <div className="bg-white h-0 md:h-24" />
+
+      {/* ===================== EL PROGRAMA: horizontal journey steps ===================== */}
+      <section className="bg-white py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <FadeInSection>
+            <div className="text-center mb-14">
+              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-4">
+                {l === 'ca' ? 'Personalització' : l === 'es' ? 'Personalización' : 'Customisation'}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064]">
+                {l === 'ca' ? 'El programa és teu' : l === 'es' ? 'El programa es tuyo' : 'The programme is yours'}
+              </h2>
+            </div>
+
+            {/* 4-step horizontal journey */}
+            <div className="grid md:grid-cols-4 gap-0 relative">
+              {/* Connecting line (desktop only) */}
+              <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-[#E8EDF5] z-0" />
+
+              {[
+                {
+                  num: '01',
+                  title: { es: 'Tú eliges los temas', en: 'You choose the topics', ca: 'Tu tries els temes' },
+                  desc: { es: 'El colegio selecciona los contenidos financieros que quiere para sus alumnos.', en: 'The school selects the financial content it wants for its students.', ca: "El col·legi selecciona els continguts financers que vol per als seus alumnes." },
+                },
+                {
+                  num: '02',
+                  title: { es: 'Finomik diseña el programa', en: 'Finomik builds the programme', ca: 'Finomik dissenya el programa' },
+                  desc: { es: 'Creamos un programa a medida, adaptado al número de alumnos y tiempos del centro.', en: 'We build a bespoke programme, adapted to your student numbers and school schedule.', ca: "Creem un programa a mida, adaptat al nombre d'alumnes i als temps del centre." },
+                },
+                {
+                  num: '03',
+                  title: { es: 'Los alumnos aprenden', en: 'Students learn', ca: 'Els alumnes aprenen' },
+                  desc: { es: 'Cada alumno avanza a su ritmo con módulos cortos e interactivos, guiados por IA.', en: 'Each student progresses at their own pace through short, interactive AI-guided modules.', ca: "Cada alumne avança al seu ritme amb mòduls curts i interactius, guiats per IA." },
+                },
+                {
+                  num: '04',
+                  title: { es: 'Todos llegan al mismo nivel', en: 'Everyone reaches the same level', ca: 'Tots arriben al mateix nivell' },
+                  desc: { es: 'Independientemente del ritmo, todos los alumnos terminan con el mismo nivel de competencia financiera.', en: 'Regardless of pace, all students finish with the same level of financial competency.', ca: "Independentment del ritme, tots els alumnes acaben amb el mateix nivell de competència financera." },
+                },
+              ].map((step, i) => (
+                <div key={i} className="relative z-10 flex flex-col items-center text-center px-4 py-2">
+                  <div className="w-20 h-20 rounded-full bg-[#0B3064] flex items-center justify-center mb-4 text-[#F5C518] font-black text-xl border-4 border-white shadow-lg">
+                    {step.num}
+                  </div>
+                  <h3 className="font-black text-[#0B3064] text-base mb-2">{step.title[l]}</h3>
+                  <p className="text-[#3C4C67] text-sm leading-relaxed">{step.desc[l]}</p>
                 </div>
-                <div className="bg-[#f0f5fc] rounded-2xl p-8 border border-[#E8EDF5]">
-                  <p className="text-xs font-bold tracking-widest uppercase text-[#8F9EB7] mb-5">
-                    {l === 'ca' ? 'Exemple de programa' : l === 'es' ? 'Ejemplo de programa' : 'Programme example'}
-                  </p>
-                  {[
-                    { icon: '💰', label: { es: 'Presupuesto personal', en: 'Personal budgeting', ca: 'Pressupost personal' } },
-                    { icon: '🏦', label: { es: 'Ahorro e inversión', en: 'Saving & investing', ca: 'Estalvi i inversió' } },
-                    { icon: '💳', label: { es: 'Deuda y crédito', en: 'Debt & credit', ca: 'Deute i crèdit' } },
-                    { icon: '📊', label: { es: 'Mercados financieros', en: 'Financial markets', ca: 'Mercats financers' } },
-                    { icon: '🛡️', label: { es: 'Seguros y planificación', en: 'Insurance & planning', ca: 'Assegurances i planificació' } },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 py-3 border-b border-[#E8EDF5] last:border-0">
-                      <span className="text-xl">{item.icon}</span>
-                      <span className="font-semibold text-[#0B3064] text-sm">{item.label[l]}</span>
-                      <CheckCircle2 className="w-4 h-4 text-[#5574A7] ml-auto" />
+              ))}
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* ===================== IA: convergence visual ===================== */}
+      <section className="bg-[#114076] py-20 md:py-24 relative overflow-hidden">
+        <WaveShape className="absolute top-0 w-full h-[35%] text-white z-0 transform rotate-180" opacity={0.07} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
+        <WaveShape className="absolute bottom-0 left-0 w-full h-[35%] text-white z-0" opacity={0.07} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
+        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
+          <FadeInSection>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+
+              {/* LEFT: convergence visual */}
+              <div className="bg-white/10 rounded-2xl border border-white/20 p-6">
+                <p className="text-[#F5C518] font-bold text-xs uppercase tracking-widest mb-5">
+                  {l === 'ca' ? 'Classe de 3r ESO — Setmana 8' : l === 'es' ? 'Clase de 3.° ESO — Semana 8' : 'Year 9 Class — Week 8'}
+                </p>
+                {[
+                  { name: 'Alumno A', progress: 88, color: '#F5C518' },
+                  { name: 'Alumno B', progress: 64, color: '#8F9EB7' },
+                  { name: 'Alumno C', progress: 41, color: '#5574A7' },
+                ].map((student, i) => (
+                  <div key={i} className="mb-4">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-white text-xs font-semibold">{student.name}</span>
+                      <span className="text-white/60 text-xs">{student.progress}%</span>
                     </div>
-                  ))}
+                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full transition-all"
+                        style={{ width: `${student.progress}%`, backgroundColor: student.color }}
+                      />
+                    </div>
+                  </div>
+                ))}
+                <div className="mt-6 pt-4 border-t border-white/20 flex items-center justify-between">
+                  <span className="text-white/70 text-xs">
+                    {l === 'ca' ? 'Objectiu final' : l === 'es' ? 'Objetivo final' : 'Final goal'}
+                  </span>
+                  <span className="text-[#F5C518] font-black text-sm">
+                    {l === 'ca' ? 'Nivell certificat' : l === 'es' ? 'Nivel certificado' : 'Certified level'}
+                  </span>
+                </div>
+                <p className="text-white/50 text-xs mt-2">
+                  {l === 'ca' ? 'Tots arriben al mateix destí, al seu ritme.' : l === 'es' ? 'Todos llegan al mismo destino, a su ritmo.' : 'Everyone reaches the same destination, at their own pace.'}
+                </p>
+              </div>
+
+              {/* RIGHT: explanation */}
+              <div>
+                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
+                  {l === 'ca' ? 'Intel·ligència Artificial' : l === 'es' ? 'Inteligencia Artificial' : 'Artificial Intelligence'}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
+                  {l === 'ca' ? 'Un camí financer per a cada alumne' : l === 'es' ? 'Un camino financiero para cada alumno' : 'A financial path for every student'}
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed mb-6">
+                  {l === 'ca'
+                    ? "La IA adapta el ritme i la dificultat de cada mòdul a l'alumne. Cada un avança al seu ritme, però tots acaben amb el mateix nivell de coneixements i habilitats."
+                    : l === 'es'
+                    ? 'La IA adapta el ritmo y la dificultad de cada módulo al alumno. Cada uno avanza a su ritmo, pero todos acaban con el mismo nivel de conocimientos y habilidades.'
+                    : 'AI adapts the pace and difficulty of each module to the student. Each one progresses at their own pace, but everyone finishes with the same level of knowledge and skills.'}
+                </p>
+                <div className="bg-white/10 rounded-xl p-5 border border-white/20">
+                  <p className="text-[#F5C518] font-bold text-sm mb-2">
+                    {l === 'ca' ? 'Important' : l === 'es' ? 'Importante' : 'Important'}
+                  </p>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    {l === 'ca'
+                      ? 'Tots els alumnes, independentment del seu ritme, arriben al mateix nivell de competència financera al final del programa.'
+                      : l === 'es'
+                      ? 'Todos los alumnos, independientemente de su ritmo, llegan al mismo nivel de competencia financiera al final del programa.'
+                      : 'All students, regardless of their pace, reach the same level of financial competency by the end of the programme.'}
+                  </p>
                 </div>
               </div>
-            </FadeInSection>
-          </div>
-        </section>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
 
-        {/* UN CAMINO PARA CADA ALUMNO */}
-        <section className="py-20 md:py-24 bg-[#114076] relative overflow-hidden">
-          <WaveShape
-            className="absolute top-0 w-full h-[35%] text-white z-0 transform rotate-180"
-            opacity={0.07}
-            mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-          />
-          <WaveShape
-            className="absolute bottom-0 left-0 w-full h-[35%] text-white z-0"
-            opacity={0.07}
-            mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-          />
-          <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
-            <FadeInSection>
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
-                    {l === 'ca' ? 'Intel·ligència Artificial' : l === 'es' ? 'Inteligencia Artificial' : 'Artificial Intelligence'}
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
-                    {l === 'ca'
-                      ? 'Un camí financer per a cada alumne'
-                      : l === 'es'
-                      ? 'Un camino financiero para cada alumno'
-                      : 'A financial path for every student'}
-                  </h2>
-                  <p className="text-white/70 text-lg leading-relaxed mb-6">
-                    {l === 'ca'
-                      ? "La IA adapta el ritme i la dificultat de cada mòdul a l'alumne. Cada un avança al seu ritme, però tots acaben amb el mateix nivell de coneixements i habilitats."
-                      : l === 'es'
-                      ? 'La IA adapta el ritmo y la dificultad de cada módulo al alumno. Cada uno avanza a su ritmo, pero todos acaban con el mismo nivel de conocimientos y habilidades.'
-                      : 'AI adapts the pace and difficulty of each module to the student. Each one progresses at their own pace, but everyone finishes with the same level of knowledge and skills.'}
+      {/* ===================== CERTIFICADOS: certificate visual ===================== */}
+      <section className="bg-[#0B3064] py-20 md:py-24 relative overflow-hidden">
+        <WaveShape className="absolute top-0 w-full h-[35%] text-[#114076] z-0 transform rotate-180" opacity={1} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
+        <WaveShape className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0" opacity={1} mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z" />
+        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-4xl">
+          <FadeInSection>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* LEFT: text */}
+              <div>
+                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-5">
+                  {l === 'ca' ? 'Reconeixement' : l === 'es' ? 'Reconocimiento' : 'Recognition'}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
+                  {l === 'ca' ? 'Cada alumne acaba amb un certificat' : l === 'es' ? 'Cada alumno termina con un certificado' : 'Every student finishes with a certificate'}
+                </h2>
+                <p className="text-white/70 text-lg leading-relaxed">
+                  {l === 'ca'
+                    ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides. Un reconeixement real del seu treball.'
+                    : l === 'es'
+                    ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas. Un reconocimiento real de su esfuerzo.'
+                    : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired. Real recognition for real work.'}
+                </p>
+              </div>
+
+              {/* RIGHT: certificate card mockup */}
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#E8EDF5]">
+                <div className="bg-[#0B3064] px-6 py-4 flex items-center gap-3">
+                  <img src="/logo-finomik-on-blue.png" alt="Finomik" className="h-7 w-auto" />
+                </div>
+                <div className="px-8 py-8 text-center border-b border-[#E8EDF5]">
+                  <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#8F9EB7] mb-2">
+                    {l === 'ca' ? 'Certifica que' : l === 'es' ? 'Certifica que' : 'This is to certify that'}
                   </p>
-                  <div className="bg-white/10 rounded-xl p-5 border border-white/20">
-                    <p className="text-[#F5C518] font-bold text-sm mb-2">
-                      {l === 'ca' ? 'Important' : l === 'es' ? 'Importante' : 'Important'}
-                    </p>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {l === 'ca'
-                        ? 'Tots els alumnes, independentment del seu ritme, arriben al mateix nivell de competència financera al final del programa.'
-                        : l === 'es'
-                        ? 'Todos los alumnos, independientemente de su ritmo, llegan al mismo nivel de competencia financiera al final del programa.'
-                        : 'All students, regardless of their pace, reach the same level of financial competency by the end of the programme.'}
+                  <p className="text-2xl font-black text-[#0B3064] mb-1">
+                    {l === 'ca' ? "Nom de l'alumne" : l === 'es' ? 'Nombre del alumno' : 'Student name'}
+                  </p>
+                  <p className="text-[#3C4C67] text-sm leading-relaxed mt-3">
+                    {l === 'ca'
+                      ? "ha completat satisfactòriament el Programa d'Educació Financera Finomik"
+                      : l === 'es'
+                      ? 'ha completado satisfactoriamente el Programa de Educación Financiera Finomik'
+                      : 'has successfully completed the Finomik Financial Education Programme'}
+                  </p>
+                </div>
+                <div className="px-8 py-5 flex items-center justify-between bg-[#f8fafc]">
+                  <div>
+                    <p className="text-xs text-[#8F9EB7]">{l === 'ca' ? 'Curs' : l === 'es' ? 'Curso' : 'Year'}</p>
+                    <p className="font-bold text-[#0B3064] text-sm">2024 – 2025</p>
+                  </div>
+                  <Award className="w-8 h-8 text-[#F5C518]" />
+                  <div className="text-right">
+                    <p className="text-xs text-[#8F9EB7]">{l === 'ca' ? 'Nivell' : l === 'es' ? 'Nivel' : 'Level'}</p>
+                    <p className="font-bold text-[#0B3064] text-sm">
+                      {l === 'ca' ? 'Avançat' : l === 'es' ? 'Avanzado' : 'Advanced'}
                     </p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { icon: <Brain className="w-6 h-6" />, title: { es: 'Personalización con IA', en: 'AI personalisation', ca: 'Personalització amb IA' }, desc: { es: 'El algoritmo ajusta el contenido a las fortalezas y debilidades de cada alumno', en: "The algorithm adjusts content to each student's strengths and weaknesses", ca: "L'algorisme ajusta el contingut als punts forts i febles de cada alumne" } },
-                    { icon: <TrendingUp className="w-6 h-6" />, title: { es: 'Progreso visible', en: 'Visible progress', ca: 'Progrés visible' }, desc: { es: 'Cada alumno ve cómo avanza hacia sus objetivos', en: "Every student sees how they're progressing towards their goals", ca: 'Cada alumne veu com avança cap als seus objectius' } },
-                    { icon: <AlertCircle className="w-6 h-6" />, title: { es: 'Detección temprana', en: 'Early detection', ca: 'Detecció primerenca' }, desc: { es: 'El sistema identifica alumnos que necesitan más apoyo antes de que se queden atrás', en: 'The system identifies students who need more support before they fall behind', ca: "El sistema identifica alumnes que necessiten més suport abans que s'enrereixin" } },
-                    { icon: <BookOpen className="w-6 h-6" />, title: { es: 'Mismos resultados', en: 'Same outcomes', ca: 'Mateixos resultats' }, desc: { es: 'Ritmos distintos, mismo destino: todos dominan las habilidades financieras clave', en: 'Different paces, same destination: everyone masters key financial skills', ca: 'Ritmes diferents, mateix destí: tots dominen les habilitats financeres clau' } },
-                  ].map((item, i) => (
-                    <div key={i} className="bg-white/10 border border-white/20 rounded-xl p-5">
-                      <div className="text-[#F5C518] mb-3">{item.icon}</div>
-                      <h4 className="font-black text-white text-sm mb-1">{item.title[l]}</h4>
-                      <p className="text-white/60 text-xs leading-relaxed">{item.desc[l]}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
-            </FadeInSection>
-          </div>
-        </section>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
 
-        {/* DASHBOARD DEL PROFESOR */}
-        <InstitutionBenefits lang={l} />
+      {/* ===================== CTA FINAL ===================== */}
+      <section className="bg-white py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-12 max-w-3xl text-center">
+          <FadeInSection>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
+              {l === 'ca' ? 'Porta Finomik al teu centre' : l === 'es' ? 'Lleva Finomik a tu colegio' : 'Bring Finomik to your school'}
+            </h2>
+            <p className="text-[#3C4C67] text-lg leading-relaxed mb-8 max-w-lg mx-auto">
+              {l === 'ca'
+                ? "Explica'ns la situació del teu centre i crearem junts el programa que els teus alumnes necessiten."
+                : l === 'es'
+                ? 'Cuéntanos la situación de tu colegio y crearemos juntos el programa que tus alumnos necesitan.'
+                : "Tell us about your school and we'll build the programme your students need together."}
+            </p>
+            <Link
+              to="/more-info"
+              className="inline-flex items-center gap-2 bg-[#0B3064] text-white font-extrabold px-8 py-4 rounded-xl text-base hover:bg-[#114076] transition-colors"
+            >
+              {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
+              <ChevronRight className="w-5 h-5" />
+            </Link>
+          </FadeInSection>
+        </div>
+      </section>
 
-        {/* CERTIFICADOS */}
-        <section className="py-20 md:py-24 bg-[#114076] relative overflow-hidden">
-          <WaveShape
-            className="absolute top-0 w-full h-[35%] text-[#0B3064] z-0 transform rotate-180"
-            opacity={1}
-            mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-          />
-          <WaveShape
-            className="absolute bottom-0 left-0 w-full h-[35%] text-[#0B3064] z-0"
-            opacity={1}
-            mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-          />
-          <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-3xl text-center">
-            <FadeInSection>
-              <div className="w-16 h-16 rounded-2xl bg-[#F5C518] flex items-center justify-center mx-auto mb-6">
-                <Award className="w-8 h-8 text-[#0B3064]" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
-                {l === 'ca'
-                  ? 'Cada alumne acaba amb un certificat'
-                  : l === 'es'
-                  ? 'Cada alumno termina con un certificado'
-                  : 'Every student finishes with a certificate'}
-              </h2>
-              <p className="text-white/70 text-lg leading-relaxed max-w-xl mx-auto">
-                {l === 'ca'
-                  ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides. Un reconeixement real del seu treball.'
-                  : l === 'es'
-                  ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas. Un reconocimiento real de su esfuerzo.'
-                  : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired. Real recognition for real work.'}
-              </p>
-            </FadeInSection>
-          </div>
-        </section>
-
-        {/* CTA FINAL */}
-        <section className="py-20 md:py-24 bg-white">
-          <div className="container mx-auto px-6 md:px-12 max-w-3xl text-center">
-            <FadeInSection>
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
-                {l === 'ca'
-                  ? 'Porta Finomik al teu centre'
-                  : l === 'es'
-                  ? 'Lleva Finomik a tu colegio'
-                  : 'Bring Finomik to your school'}
-              </h2>
-              <p className="text-[#3C4C67] text-lg leading-relaxed mb-8 max-w-lg mx-auto">
-                {l === 'ca'
-                  ? "Explica'ns la situació del teu centre i crearem junts el programa que els teus alumnes necessiten."
-                  : l === 'es'
-                  ? 'Cuéntanos la situación de tu colegio y crearemos juntos el programa que tus alumnos necesitan.'
-                  : "Tell us about your school and we'll build the programme your students need together."}
-              </p>
-              <Link
-                to="/more-info"
-                className="inline-flex items-center gap-2 bg-[#0B3064] text-white font-extrabold px-8 py-4 rounded-xl text-base hover:bg-[#114076] transition-colors"
-              >
-                {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
-                <ChevronRight className="w-5 h-5" />
-              </Link>
-            </FadeInSection>
-          </div>
-        </section>
-      </main>
     </div>
   );
 }
