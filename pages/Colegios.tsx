@@ -428,11 +428,13 @@ export default function Colegios() {
       <Navbar />
 
       {/* ===================== HERO: WHITE, editorial ===================== */}
-      <section className="bg-white pt-28 pb-16 md:pb-24 relative overflow-hidden">
-        {/* Decorative circle top-right */}
-        <div className="absolute top-0 right-0 w-[480px] h-[480px] bg-[#f0f5fc] rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-[#EEF2FB] rounded-full translate-y-1/2 -translate-x-1/3 pointer-events-none" />
-
+      <section className="bg-white pt-28 pb-24 md:pb-32 relative overflow-hidden">
+        <WaveShape
+          className="absolute bottom-0 left-0 w-full h-[30%] text-[#E8EDF5] z-0"
+          opacity={1}
+          path="M0,80 C360,140 1080,20 1440,80 L1440,160 L0,160 Z"
+          mobilePath="M0,100 C480,140 960,60 1440,100 L1440,160 L0,160 Z"
+        />
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#0B3064] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-8">
@@ -459,23 +461,6 @@ export default function Colegios() {
               {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
               <ChevronRight className="w-4 h-4" />
             </Link>
-          </FadeInSection>
-
-          {/* Stats row */}
-          <FadeInSection delay={200}>
-            <div className="mt-16 pt-8 border-t border-[#E8EDF5] grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { num: '+500', label: { es: 'alumnos activos', en: 'active students', ca: 'alumnes actius' } },
-                { num: '100%', label: { es: 'alcanzan el nivel certificado', en: 'reach certified level', ca: 'arriben al nivell certificat' } },
-                { num: '6+', label: { es: 'módulos financieros', en: 'financial modules', ca: 'mòduls financers' } },
-                { num: '8', label: { es: 'semanas de programa', en: 'weeks per programme', ca: 'setmanes de programa' } },
-              ].map((stat, i) => (
-                <div key={i}>
-                  <p className="text-3xl md:text-4xl font-black text-[#0B3064]">{stat.num}</p>
-                  <p className="text-[#8F9EB7] text-sm mt-1 leading-tight">{stat.label[l]}</p>
-                </div>
-              ))}
-            </div>
           </FadeInSection>
         </div>
       </section>
@@ -612,7 +597,7 @@ export default function Colegios() {
       </section>
 
       {/* ===================== DASHBOARD DEL PROFESOR ===================== */}
-      <section className="bg-[#114076] py-20 md:py-24 relative overflow-hidden">
+      <section className="bg-[#114076] py-20 md:py-24 relative">
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="text-center mb-10">
@@ -630,93 +615,47 @@ export default function Colegios() {
                   : "Track each student's progress, spot who needs help and act in time."}
               </p>
             </div>
-
-            {/* Browser chrome wrapper */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-              <div className="bg-[#0B3064] px-4 py-3 flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-white/25" />
-                <div className="w-3 h-3 rounded-full bg-white/25" />
-                <div className="w-3 h-3 rounded-full bg-white/25" />
-                <div className="ml-4 flex-1 bg-white/10 rounded px-3 py-1 text-xs text-white/55 max-w-xs">
-                  finomik.com/dashboard
-                </div>
-              </div>
-              <InstitutionBenefitsPanel />
-            </div>
+            <InstitutionBenefitsPanel />
           </FadeInSection>
         </div>
       </section>
 
-      {/* ===================== CERTIFICADOS: white, split with checklist ===================== */}
-      <section className="bg-white py-20 md:py-24 relative overflow-hidden">
-        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+      {/* ===================== CERTIFICADOS: white, centered ===================== */}
+      <section className="bg-white py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
           <FadeInSection>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-
-              {/* Left: text + checklist */}
-              <div>
-                <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-5">
-                  {l === 'ca' ? 'Reconeixement' : l === 'es' ? 'Reconocimiento' : 'Recognition'}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
-                  {l === 'ca' ? 'Cada alumne acaba amb un certificat' : l === 'es' ? 'Cada alumno termina con un certificado' : 'Every student finishes with a certificate'}
-                </h2>
-                <p className="text-[#3C4C67] text-lg leading-relaxed mb-8">
-                  {l === 'ca'
-                    ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides.'
-                    : l === 'es'
-                    ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas.'
-                    : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired.'}
-                </p>
-                <div className="space-y-4">
-                  {[
-                    { es: 'Emitido digitalmente por Finomik', en: 'Issued digitally by Finomik', ca: 'Emès digitalment per Finomik' },
-                    { es: 'Incluye el nombre del alumno y el nivel alcanzado', en: "Includes the student's name and level reached", ca: "Inclou el nom de l'alumne i el nivell assolit" },
-                    { es: 'Compartible en LinkedIn y redes sociales', en: 'Shareable on LinkedIn and social networks', ca: 'Compartible a LinkedIn i xarxes socials' },
-                  ].map((point, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-[#EEF2FB] flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="w-4 h-4 text-[#0B3064]" />
-                      </div>
-                      <span className="text-[#3C4C67] text-base">{point[l]}</span>
-                    </div>
-                  ))}
-                </div>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#EEF2FB] mb-6">
+                <Award className="w-8 h-8 text-[#0B3064]" />
               </div>
+              <span className="block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] mb-4">
+                {l === 'ca' ? 'Reconeixement' : l === 'es' ? 'Reconocimiento' : 'Recognition'}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
+                {l === 'ca' ? 'Cada alumne acaba amb un certificat' : l === 'es' ? 'Cada alumno termina con un certificado' : 'Every student finishes with a certificate'}
+              </h2>
+              <p className="text-[#3C4C67] text-lg leading-relaxed max-w-2xl mx-auto">
+                {l === 'ca'
+                  ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides.'
+                  : l === 'es'
+                  ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas.'
+                  : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired.'}
+              </p>
+            </div>
 
-              {/* Right: certificate mockup */}
-              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#E8EDF5]">
-                <div className="bg-[#0B3064] px-6 py-4">
-                  <img src="/logo-finomik-on-blue.png" alt="Finomik" className="h-7 w-auto" />
-                </div>
-                <div className="px-8 py-8 text-center border-b border-[#E8EDF5]">
-                  <p className="text-xs font-bold tracking-[0.2em] uppercase text-[#8F9EB7] mb-2">
-                    {l === 'ca' ? 'Certifica que' : l === 'es' ? 'Certifica que' : 'This is to certify that'}
-                  </p>
-                  <p className="text-2xl font-black text-[#0B3064] mb-1">
-                    {l === 'ca' ? "Nom de l'alumne" : l === 'es' ? 'Nombre del alumno' : 'Student name'}
-                  </p>
-                  <p className="text-[#3C4C67] text-sm leading-relaxed mt-3">
-                    {l === 'ca'
-                      ? "ha completat satisfactòriament el Programa d'Educació Financera Finomik"
-                      : l === 'es'
-                      ? 'ha completado satisfactoriamente el Programa de Educación Financiera Finomik'
-                      : 'has successfully completed the Finomik Financial Education Programme'}
-                  </p>
-                </div>
-                <div className="px-8 py-5 flex items-center justify-between bg-[#f8fafc]">
-                  <div>
-                    <p className="text-xs text-[#8F9EB7]">{l === 'ca' ? 'Curs' : l === 'es' ? 'Curso' : 'Year'}</p>
-                    <p className="font-bold text-[#0B3064] text-sm">2024 – 2025</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { es: 'Emitido digitalmente por Finomik', en: 'Issued digitally by Finomik', ca: 'Emès digitalment per Finomik' },
+                { es: 'Incluye el nombre del alumno y el nivel alcanzado', en: "Includes the student's name and level reached", ca: "Inclou el nom de l'alumne i el nivell assolit" },
+                { es: 'Compartible en LinkedIn y redes sociales', en: 'Shareable on LinkedIn and social networks', ca: 'Compartible a LinkedIn i xarxes socials' },
+              ].map((point, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-2xl p-6 border border-[#E8EDF5]">
+                  <div className="w-6 h-6 rounded-full bg-[#EEF2FB] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#0B3064]" />
                   </div>
-                  <Award className="w-8 h-8 text-[#F5C518]" />
-                  <div className="text-right">
-                    <p className="text-xs text-[#8F9EB7]">{l === 'ca' ? 'Nivell' : l === 'es' ? 'Nivel' : 'Level'}</p>
-                    <p className="font-bold text-[#0B3064] text-sm">{l === 'ca' ? 'Avançat' : l === 'es' ? 'Avanzado' : 'Advanced'}</p>
-                  </div>
+                  <span className="text-[#3C4C67] text-sm leading-relaxed">{point[l]}</span>
                 </div>
-              </div>
-
+              ))}
             </div>
           </FadeInSection>
         </div>
