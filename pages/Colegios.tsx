@@ -428,7 +428,7 @@ export default function Colegios() {
       <Navbar lightHero={true} />
 
       {/* ===================== HERO: WHITE, editorial ===================== */}
-      <section className="bg-white pt-28 pb-24 md:pb-32 relative overflow-hidden">
+      <section className="bg-white pt-24 pb-16 md:pb-28 relative overflow-hidden">
         <WaveShape
           className="absolute bottom-0 left-0 w-full h-[30%] text-[#E8EDF5] z-0"
           opacity={1}
@@ -440,7 +440,7 @@ export default function Colegios() {
             <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#0B3064] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-8">
               {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black text-[#0B3064] leading-[1.05] mb-8 max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-[#0B3064] leading-[1.05] mb-8 max-w-4xl">
               {l === 'ca' ? "L'educació financera que els joves " : l === 'es' ? 'La educación financiera que los jóvenes ' : 'The financial education young people '}
               <span className="relative inline whitespace-nowrap">
                 <span className="relative z-10">{l === 'ca' ? 'necessiten' : l === 'es' ? 'necesitan' : 'need'}</span>
@@ -509,7 +509,7 @@ export default function Colegios() {
             ].map((step, i) => (
               <FadeInSection key={i} delay={i * 80}>
                 <div className="flex items-center gap-6 md:gap-10 py-7">
-                  <span className="text-6xl md:text-8xl font-black leading-none select-none flex-shrink-0 w-16 md:w-28 text-right tabular-nums" style={{ color: 'rgba(255,255,255,0.07)' }}>
+                  <span className="text-5xl md:text-8xl font-black leading-none select-none flex-shrink-0 w-14 md:w-28 text-right tabular-nums" style={{ color: 'rgba(255,255,255,0.07)' }}>
                     {step.num}
                   </span>
                   <div className="flex-1 min-w-0">
@@ -527,7 +527,7 @@ export default function Colegios() {
       </section>
 
       {/* ===================== IA: light, statement + 3 insight cards ===================== */}
-      <section className="bg-[#f0f5fc] py-20 md:py-24">
+      <section className="bg-[#f0f5fc] py-14 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="text-center mb-12">
@@ -542,7 +542,7 @@ export default function Colegios() {
 
           {/* Central statement card */}
           <FadeInSection delay={100}>
-            <div className="bg-[#0B3064] rounded-3xl p-8 md:p-12 mb-6 relative overflow-hidden">
+            <div className="bg-[#0B3064] rounded-2xl p-6 md:p-12 mb-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-72 h-72 bg-[#114076] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-60" />
               <div className="relative z-10 max-w-3xl">
                 <p className="text-2xl md:text-3xl font-black text-white leading-tight mb-5">
@@ -597,7 +597,7 @@ export default function Colegios() {
       </section>
 
       {/* ===================== DASHBOARD DEL PROFESOR ===================== */}
-      <section className="bg-[#114076] py-20 md:py-24 relative">
+      <section className="bg-[#114076] py-14 md:py-24 relative">
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="text-center mb-10">
@@ -621,7 +621,7 @@ export default function Colegios() {
       </section>
 
       {/* ===================== CERTIFICADOS: white, centered ===================== */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white py-14 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-4xl">
           <FadeInSection>
             <div className="text-center mb-12">
