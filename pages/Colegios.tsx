@@ -539,30 +539,30 @@ const InstitutionBenefits = ({ lang }: { lang: 'es' | 'en' | 'ca' }) => {
   return (
     <section
       id="institutions"
-      className="relative pt-6 pb-12 md:py-24 bg-[#0B3064] scroll-mt-32 md:scroll-mt-40 overflow-hidden"
+      className="relative pt-6 pb-12 md:py-24 bg-[#f0f5fc] scroll-mt-32 md:scroll-mt-40 overflow-hidden"
     >
       <WaveShape
-        className="absolute bottom-0 left-0 w-full h-[35%] text-[#5574A7] z-0"
+        className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
         opacity={0.4}
         mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
       />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-8 md:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
-            <ShieldCheck className="text-blue-200 w-4 h-4" />
-            <span className="text-blue-100 font-bold tracking-[0.18em] uppercase text-[0.7rem]">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EEF2FB] border border-[#C8D0DD] mb-6">
+            <ShieldCheck className="text-[#5574A7] w-4 h-4" />
+            <span className="text-[#5574A7] font-bold tracking-[0.18em] uppercase text-[0.7rem]">
               {lang === 'ca' ? 'Per al professor' : lang === 'es' ? 'Para el profesor' : 'For teachers'}
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B3064] leading-tight mb-4">
             {lang === 'ca'
               ? 'Tu tens el control'
               : lang === 'es'
               ? 'Tú tienes el control'
               : "You're in control"}
           </h2>
-          <p className="text-base sm:text-lg text-blue-100/90 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-[#3C4C67] font-medium leading-relaxed max-w-2xl mx-auto mb-8">
             {lang === 'ca'
               ? 'No és teoria en un llibre. És pràctica que transforma com gestiones els teus diners.'
               : lang === 'es'
@@ -574,10 +574,10 @@ const InstitutionBenefits = ({ lang }: { lang: 'es' | 'en' | 'ca' }) => {
         <ul className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-10 md:mb-12">
           {bullets.map((item, i) => (
             <li key={i} className="flex items-start gap-3">
-              <div className="mt-1 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                <ArrowRight className="w-3 h-3 text-white" />
+              <div className="mt-1 w-6 h-6 rounded-full bg-[#C8D0DD] flex items-center justify-center flex-shrink-0">
+                <ArrowRight className="w-3 h-3 text-[#F5C518]" />
               </div>
-              <span className="text-base leading-relaxed text-blue-50 font-semibold">
+              <span className="text-base leading-relaxed text-[#3C4C67] font-semibold">
                 {item}
               </span>
             </li>
