@@ -4,6 +4,7 @@ import { Award, CheckCircle2, ChevronRight, Brain, Target, BookOpen, Users, Shie
 import { SeoHead } from '../components/SeoHead';
 import { useI18n } from '../i18n';
 import { Navbar } from '../components/Navbar';
+import { PageFooter } from '../components/PageFooter';
 
 // --- Types ---
 interface SectionProps {
@@ -316,7 +317,7 @@ const InstitutionBenefitsPanel = () => {
 
                 <div className="rounded-lg lg:rounded-xl bg-white border border-slate-200 p-2 md:p-2.5 lg:p-3 flex flex-col gap-1 lg:gap-1.5 min-h-0 flex-1 shadow-sm">
                   <span className="font-semibold uppercase tracking-[0.16em] text-[#1C386E] flex-shrink-0">
-                    {lang === 'ca' ? 'El teu progrés' : lang === 'es' ? 'Tu progreso' : 'Your progress'}
+                    {lang === 'ca' ? 'Progrés de la classe' : lang === 'es' ? 'Progreso de la clase' : 'Class progress'}
                   </span>
                   <div className="mt-0.5 flex items-center gap-2 lg:gap-3 flex-1 min-h-0 lg:justify-center">
                     <div className="relative w-12 h-12 md:w-14 md:h-14 lg:w-32 lg:h-32 flex-shrink-0">
@@ -416,6 +417,17 @@ export default function Colegios() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const l = lang === 'ca' ? 'ca' : lang === 'en' ? 'en' : 'es';
 
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 300;
+      const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 400;
+      setShowStickyBar(scrolled && !nearBottom);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen font-sans overflow-x-hidden">
       <SeoHead
@@ -428,19 +440,19 @@ export default function Colegios() {
       <Navbar lightHero={true} />
 
       {/* ===================== HERO: WHITE, editorial ===================== */}
-      <section className="bg-white pt-24 pb-16 md:pb-28 relative overflow-hidden">
+      <section className="bg-white min-h-[92vh] flex flex-col pt-20 md:pt-24 pb-8 md:pb-28 relative overflow-hidden">
         <WaveShape
           className="absolute bottom-0 left-0 w-full h-[30%] text-[#E8EDF5] z-0"
           opacity={1}
           path="M0,80 C360,140 1080,20 1440,80 L1440,160 L0,160 Z"
           mobilePath="M0,100 C480,140 960,60 1440,100 L1440,160 L0,160 Z"
         />
-        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
+        <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl flex-1 flex flex-col justify-center">
           <FadeInSection>
             <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#0B3064] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-8">
               {l === 'ca' ? 'Finomik per a Col·legis' : l === 'es' ? 'Finomik para Colegios' : 'Finomik for Schools'}
             </span>
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-[#0B3064] leading-[1.05] mb-8 max-w-4xl">
+            <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl md:text-7xl font-black text-[#0B3064] md:leading-[1.05] mb-8 max-w-4xl">
               {l === 'ca' ? "L'educació financera que els joves " : l === 'es' ? 'La educación financiera que los jóvenes ' : 'The financial education young people '}
               <span className="relative inline whitespace-nowrap">
                 <span className="relative z-10">{l === 'ca' ? 'necessiten' : l === 'es' ? 'necesitan' : 'need'}</span>
@@ -456,9 +468,9 @@ export default function Colegios() {
             </p>
             <Link
               to="/more-info"
-              className="inline-flex items-center gap-2 bg-[#0B3064] text-white font-extrabold px-7 py-3.5 rounded-xl text-sm hover:bg-[#114076] transition-colors"
+              className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#0B3064] text-white font-extrabold px-7 py-4 rounded-xl text-sm hover:bg-[#114076] transition-colors mt-2"
             >
-              {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
+              {l === 'ca' ? 'Vull un pilot per al meu centre' : l === 'es' ? 'Quiero un piloto para mi centro' : 'I want a pilot for my school'}
               <ChevronRight className="w-4 h-4" />
             </Link>
           </FadeInSection>
@@ -466,7 +478,7 @@ export default function Colegios() {
       </section>
 
       {/* ===================== EL PROGRAMA: dark, bold numbered list ===================== */}
-      <section className="bg-[#0B3064] py-20 md:py-24 relative overflow-hidden">
+      <section className="bg-[#0B3064] py-12 md:py-24 relative overflow-hidden">
         <WaveShape className="absolute top-0 w-full h-[30%] text-white z-0 transform rotate-180" opacity={0.04} />
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
@@ -508,13 +520,18 @@ export default function Colegios() {
               },
             ].map((step, i) => (
               <FadeInSection key={i} delay={i * 80}>
-                <div className="flex items-center gap-6 md:gap-10 py-7">
-                  <span className="text-5xl md:text-8xl font-black leading-none select-none flex-shrink-0 w-14 md:w-28 text-right tabular-nums" style={{ color: 'rgba(255,255,255,0.07)' }}>
-                    {step.num}
-                  </span>
+                <div className="flex items-start gap-4 md:gap-10 py-5 md:py-7">
+                  <div className="flex-shrink-0 flex items-center md:items-start gap-0">
+                    <span className="hidden md:block text-8xl font-black leading-none select-none w-28 text-right tabular-nums" style={{ color: 'rgba(255,255,255,0.07)' }}>
+                      {step.num}
+                    </span>
+                    <div className="md:hidden w-9 h-9 rounded-xl border border-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      {step.icon}
+                    </div>
+                  </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg md:text-xl font-black text-white mb-1">{step.title[l]}</h3>
-                    <p className="text-white/55 text-sm md:text-base leading-relaxed">{step.desc[l]}</p>
+                    <h3 className="text-base md:text-xl font-black text-white mb-1">{step.title[l]}</h3>
+                    <p className="text-white/60 text-base leading-relaxed">{step.desc[l]}</p>
                   </div>
                   <div className="hidden md:flex w-10 h-10 rounded-xl border border-white/20 items-center justify-center flex-shrink-0">
                     {step.icon}
@@ -527,7 +544,7 @@ export default function Colegios() {
       </section>
 
       {/* ===================== IA: light, statement + 3 insight cards ===================== */}
-      <section className="bg-[#f0f5fc] py-14 md:py-24">
+      <section className="bg-[#f0f5fc] py-12 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="text-center mb-12">
@@ -535,7 +552,7 @@ export default function Colegios() {
                 {l === 'ca' ? 'Intel·ligència Artificial' : l === 'es' ? 'Inteligencia Artificial' : 'Artificial Intelligence'}
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-[#0B3064]">
-                {l === 'ca' ? 'Un camí financer per a cada alumne' : l === 'es' ? 'Un camino financiero para cada alumno' : 'A financial path for every student'}
+                {l === 'ca' ? 'La IA que personalitza l\'aprenentatge' : l === 'es' ? 'La IA que personaliza el aprendizaje' : 'AI that personalises every learning journey'}
               </h2>
             </div>
           </FadeInSection>
@@ -564,7 +581,10 @@ export default function Colegios() {
           </FadeInSection>
 
           {/* 3 insight cards */}
-          <div className="grid md:grid-cols-3 gap-4">
+          <div
+            className="flex overflow-x-auto overflow-y-hidden gap-4 pb-4 snap-x snap-mandatory -mx-6 px-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:mx-0 md:px-0"
+            style={{ touchAction: 'pan-x' }}
+          >
             {[
               {
                 icon: <Brain className="w-6 h-6 text-[#0B3064]" />,
@@ -574,7 +594,7 @@ export default function Colegios() {
               {
                 icon: <Target className="w-6 h-6 text-[#0B3064]" />,
                 title: { es: 'Mismo destino', en: 'Same destination', ca: 'Mateix destí' },
-                desc: { es: 'Todos los caminos llevan al mismo nivel de competencia certificado.', en: 'All paths lead to the same certified competency level.', ca: "Tots els camins porten al mateix nivell de competència certificat." },
+                desc: { es: 'Todos los alumnos alcanzan el mismo nivel certificado, cada uno a su ritmo.', en: 'Every student reaches the same certified level, each at their own pace.', ca: "Tots els alumnes assoleixen el mateix nivell certificat, cadascú al seu ritme." },
               },
               {
                 icon: <Users className="w-6 h-6 text-[#0B3064]" />,
@@ -582,7 +602,7 @@ export default function Colegios() {
                 desc: { es: 'La IA detecta bloqueos en tiempo real y adapta el contenido para ayudar al alumno.', en: 'AI detects blocks in real time and adapts content to help the student through.', ca: "La IA detecta bloqueigs en temps real i adapta el contingut per ajudar l'alumne." },
               },
             ].map((insight, i) => (
-              <FadeInSection key={i} delay={i * 80}>
+              <FadeInSection key={i} delay={i * 80} className="snap-start flex-shrink-0 w-[80vw] max-w-[300px] md:w-auto md:max-w-none md:flex-shrink">
                 <div className="bg-white rounded-2xl p-6 border border-[#E8EDF5] shadow-sm h-full">
                   <div className="w-10 h-10 rounded-xl bg-[#EEF2FB] flex items-center justify-center mb-4">
                     {insight.icon}
@@ -597,14 +617,14 @@ export default function Colegios() {
       </section>
 
       {/* ===================== DASHBOARD DEL PROFESOR ===================== */}
-      <section className="bg-[#114076] py-14 md:py-24 relative">
+      <section className="bg-[#114076] py-12 md:py-24 relative">
         <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
           <FadeInSection>
             <div className="text-center mb-10">
               <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] bg-white/10 px-3 py-1.5 rounded-full mb-4">
-                {l === 'ca' ? 'Per al professor' : l === 'es' ? 'Para el profesor' : 'For teachers'}
+                {l === 'ca' ? 'Per al professorat' : l === 'es' ? 'Para el profesorado' : 'For teachers'}
               </span>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+              <h2 className="text-2xl md:text-4xl font-black text-white mb-4">
                 {l === 'ca' ? 'Tu tens el control' : l === 'es' ? 'Tú tienes el control' : "You're in control"}
               </h2>
               <p className="text-white/65 text-lg max-w-2xl mx-auto">
@@ -615,13 +635,66 @@ export default function Colegios() {
                   : "Track each student's progress, spot who needs help and act in time."}
               </p>
             </div>
-            <InstitutionBenefitsPanel />
+
+            {/* Mobile simplified stats */}
+            <div className="md:hidden space-y-3 mt-6">
+              {/* Progress card */}
+              <div className="bg-white/10 rounded-2xl p-5 border border-white/15">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="text-white/60 text-[0.65rem] font-bold uppercase tracking-wider">
+                      {l === 'ca' ? 'Itinerari en marxa' : l === 'es' ? 'Itinerario en marcha' : 'Journey in progress'}
+                    </p>
+                    <p className="text-white font-black text-sm mt-0.5">
+                      {l === 'ca' ? 'Educació financera 4t ESO' : l === 'es' ? 'Educación financiera 4º ESO' : 'Financial education Year 10'}
+                    </p>
+                  </div>
+                  <span className="bg-[#F5C518] text-[#0B3064] text-sm font-black px-3 py-1 rounded-full flex-shrink-0 ml-3">62%</span>
+                </div>
+                <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                  <div className="h-full w-[62%] bg-[#F5C518] rounded-full" />
+                </div>
+              </div>
+              {/* 3 stat tiles */}
+              <div className="grid grid-cols-3 gap-2.5">
+                {[
+                  { value: '6', label: l === 'ca' ? 'Mòduls' : l === 'es' ? 'Módulos' : 'Modules' },
+                  { value: '48', label: l === 'ca' ? 'Alumnes' : l === 'es' ? 'Alumnos' : 'Students' },
+                  { value: '4', label: l === 'ca' ? 'Setmanes' : l === 'es' ? 'Semanas' : 'Weeks' },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-white/10 rounded-xl p-3.5 text-center border border-white/10">
+                    <p className="text-white font-black text-2xl leading-none">{stat.value}</p>
+                    <p className="text-white/60 text-[0.65rem] font-semibold mt-1">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              {/* Activity feed */}
+              <div className="bg-white/10 rounded-2xl p-5 border border-white/15 space-y-3">
+                <p className="text-white/60 text-[0.65rem] font-bold uppercase tracking-wider mb-1">
+                  {l === 'ca' ? 'Activitat recent' : l === 'es' ? 'Actividad reciente' : 'Recent activity'}
+                </p>
+                {[
+                  { icon: <CheckCircle2 className="w-4 h-4 text-[#F5C518]" />, text: l === 'ca' ? 'La Laura ha completat el Mòdul 3' : l === 'es' ? 'Laura completó el Módulo 3' : 'Laura completed Module 3' },
+                  { icon: <Trophy className="w-4 h-4 text-[#F5C518]" />, text: l === 'ca' ? 'Meta setmanal assolida' : l === 'es' ? 'Meta semanal alcanzada' : 'Weekly goal reached' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">{item.icon}</div>
+                    <span className="text-white/80 text-sm leading-tight">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: full panel */}
+            <div className="hidden md:block">
+              <InstitutionBenefitsPanel />
+            </div>
           </FadeInSection>
         </div>
       </section>
 
       {/* ===================== CERTIFICADOS: white, centered ===================== */}
-      <section className="bg-white py-14 md:py-24">
+      <section className="bg-white py-12 md:py-24">
         <div className="container mx-auto px-6 md:px-12 max-w-4xl">
           <FadeInSection>
             <div className="text-center mb-12">
@@ -632,24 +705,27 @@ export default function Colegios() {
                 {l === 'ca' ? 'Reconeixement' : l === 'es' ? 'Reconocimiento' : 'Recognition'}
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-5">
-                {l === 'ca' ? 'Cada alumne acaba amb un certificat' : l === 'es' ? 'Cada alumno termina con un certificado' : 'Every student finishes with a certificate'}
+                {l === 'ca' ? 'Certificat personal per a cada alumne' : l === 'es' ? 'Certificado personal para cada alumno' : 'A personal certificate for every student'}
               </h2>
               <p className="text-[#3C4C67] text-lg leading-relaxed max-w-2xl mx-auto">
                 {l === 'ca'
-                  ? 'En completar el programa, cada alumne rep un certificat que acredita les habilitats financeres adquirides.'
+                  ? 'En completar el programa, cada alumne rep el seu propi certificat nominatiu, personalitzat amb el seu nom i les competències específiques que ha adquirit.'
                   : l === 'es'
-                  ? 'Al completar el programa, cada alumno recibe un certificado que acredita las habilidades financieras adquiridas.'
-                  : 'On completing the programme, every student receives a certificate recognising the financial skills they have acquired.'}
+                  ? 'Al completar el programa, cada alumno recibe su propio certificado nominativo, personalizado con su nombre y las competencias específicas que ha adquirido.'
+                  : 'On completing the programme, every student receives their own named certificate, personalised with their name and the specific competencies they have acquired.'}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4">
+            <div
+            className="flex overflow-x-auto overflow-y-hidden gap-4 pb-4 snap-x snap-mandatory -mx-6 px-6 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:mx-0 md:px-0"
+            style={{ touchAction: 'pan-x' }}
+          >
               {[
                 { es: 'Emitido digitalmente por Finomik', en: 'Issued digitally by Finomik', ca: 'Emès digitalment per Finomik' },
                 { es: 'Incluye el nombre del alumno y el nivel alcanzado', en: "Includes the student's name and level reached", ca: "Inclou el nom de l'alumne i el nivell assolit" },
                 { es: 'Compartible en LinkedIn y redes sociales', en: 'Shareable on LinkedIn and social networks', ca: 'Compartible a LinkedIn i xarxes socials' },
               ].map((point, i) => (
-                <div key={i} className="flex items-start gap-3 bg-[#f8fafc] rounded-2xl p-6 border border-[#E8EDF5]">
+                <div key={i} className="snap-start flex-shrink-0 w-[85vw] max-w-[300px] md:w-auto md:max-w-none md:flex-shrink flex items-start gap-3 bg-[#f8fafc] rounded-2xl p-6 border border-[#E8EDF5]">
                   <div className="w-6 h-6 rounded-full bg-[#EEF2FB] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0B3064]" />
                   </div>
@@ -661,30 +737,29 @@ export default function Colegios() {
         </div>
       </section>
 
-      {/* ===================== CTA FINAL: dark ===================== */}
-      <section className="bg-[#0B3064] py-20 md:py-24">
-        <div className="container mx-auto px-6 md:px-12 max-w-3xl text-center">
-          <FadeInSection>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-5">
-              {l === 'ca' ? 'Porta Finomik al teu centre' : l === 'es' ? 'Lleva Finomik a tu colegio' : 'Bring Finomik to your school'}
-            </h2>
-            <p className="text-white/65 text-lg leading-relaxed mb-8 max-w-lg mx-auto">
-              {l === 'ca'
-                ? "Explica'ns la situació del teu centre i crearem junts el programa que els teus alumnes necessiten."
-                : l === 'es'
-                ? 'Cuéntanos la situación de tu colegio y crearemos juntos el programa que tus alumnos necesitan.'
-                : "Tell us about your school and we'll build the programme your students need together."}
-            </p>
-            <Link
-              to="/more-info"
-              className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-8 py-4 rounded-xl text-base hover:bg-yellow-400 transition-colors"
-            >
-              {l === 'ca' ? 'Sol·licitar informació' : l === 'es' ? 'Solicitar información' : 'Request information'}
-              <ChevronRight className="w-5 h-5" />
-            </Link>
-          </FadeInSection>
-        </div>
-      </section>
+      <PageFooter
+        topTitle={{
+          es: 'Lleva Finomik a tu colegio',
+          en: 'Bring Finomik to your school',
+          ca: 'Porta Finomik al teu centre',
+        }}
+        ctaLabel={{
+          es: 'Hablemos de tu colegio',
+          en: "Let's talk about your school",
+          ca: 'Parlem del teu centre',
+        }}
+      />
+
+      {/* Sticky mobile CTA */}
+      <div className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-[#E8EDF5] px-4 py-3 shadow-lg transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'}`}>
+        <Link
+          to="/more-info"
+          className="w-full flex items-center justify-center gap-2 bg-[#0B3064] text-white font-extrabold py-4 rounded-xl text-sm"
+        >
+          {l === 'ca' ? 'Comença avui' : l === 'es' ? 'Empieza hoy' : 'Get started today'}
+          <ChevronRight className="w-4 h-4" />
+        </Link>
+      </div>
 
     </div>
   );

@@ -74,7 +74,7 @@ export default function Contact() {
           {/* Contact cards */}
           <div className="grid sm:grid-cols-2 gap-5 mb-12">
             <a
-              href="mailto:info@finomik.com"
+              href="mailto:info@finomik.com?subject=Informaci%C3%B3n%20sobre%20Finomik&body=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Finomik."
               className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
             >
               <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">

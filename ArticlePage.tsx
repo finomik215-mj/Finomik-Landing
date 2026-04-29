@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, Clock, User, ExternalLink, BookOpen, TrendingUp } 
 import { SeoHead } from './components/SeoHead';
 import { useI18n } from './i18n';
 import { getArticleBySlug, ArticleSection } from './articleData';
+import { PageFooter } from './components/PageFooter';
 
 function SectionBlock({ section }: { section: ArticleSection }) {
   return (
@@ -44,7 +45,11 @@ export default function ArticlePage() {
   const article = slug ? getArticleBySlug(slug) : undefined;
   if (!article) return <Navigate to="/404" replace />;
 
-  const dateFormatted = new Date(article.meta.date).toLocaleDateString('es-ES', {
+  const content = article.content[lang as 'es' | 'en' | 'ca'] ?? article.content.es;
+  const seo = article.seo[lang as 'es' | 'en' | 'ca'] ?? article.seo.es;
+
+  const dateLocale = lang === 'en' ? 'en-GB' : lang === 'ca' ? 'ca-ES' : 'es-ES';
+  const dateFormatted = new Date(article.meta.date).toLocaleDateString(dateLocale, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -53,8 +58,8 @@ export default function ArticlePage() {
   return (
     <div className="min-h-screen bg-white text-[#0B3064] font-sans overflow-x-hidden">
       <SeoHead
-        title={article.seo.title}
-        description={article.seo.description}
+        title={seo.title}
+        description={seo.description}
         path={`/articulo/${article.slug}`}
         lang={lang}
       />
@@ -67,7 +72,7 @@ export default function ArticlePage() {
             className="flex items-center gap-2 text-[#0B3064] font-semibold hover:text-[#5574A7] transition-colors text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            {lang === 'es' || lang === 'ca' ? 'Volver' : 'Back'}
+            {lang === 'en' ? 'Back' : lang === 'ca' ? 'Tornar' : 'Volver'}
           </button>
           <span className="text-xs font-bold tracking-[0.15em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full">
             {article.meta.category}
@@ -91,13 +96,13 @@ export default function ArticlePage() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5" />
-                {article.meta.readTime} de lectura
+                {article.meta.readTime} {lang === 'en' ? 'read' : 'de lectura'}
               </span>
             </div>
 
             {/* Title */}
             <h1 className="text-3xl md:text-4xl font-black text-[#0B3064] leading-tight mb-8">
-              {article.title}
+              {content.title}
             </h1>
 
             {/* Stat callout — horizontal card, inline in hero */}
@@ -123,12 +128,12 @@ export default function ArticlePage() {
         <div className="container mx-auto px-6 md:px-12 max-w-3xl py-10 md:py-14">
           {/* Intro */}
           <p className="text-base md:text-lg text-[#3C4C67] leading-relaxed mb-10 font-medium border-l-4 border-[#F5C518] pl-5">
-            {article.intro}
+            {content.intro}
           </p>
 
           {/* Sections */}
           <div className="mb-12">
-            {article.sections.map((section, i) => (
+            {content.sections.map((section, i) => (
               <SectionBlock key={i} section={section} />
             ))}
           </div>
@@ -144,7 +149,7 @@ export default function ArticlePage() {
                   Finomik
                 </p>
                 <p className="text-white font-medium leading-relaxed text-base">
-                  {article.ctaText}
+                  {content.ctaText}
                 </p>
               </div>
             </div>
@@ -152,14 +157,14 @@ export default function ArticlePage() {
               to="/more-info"
               className="inline-flex items-center gap-2 bg-[#F5C518] text-[#0B3064] font-extrabold px-6 py-3 rounded-xl text-sm hover:bg-yellow-400 transition-colors"
             >
-              Solicitar información
+              {lang === 'en' ? 'Talk to the team' : lang === 'ca' ? 'Parla amb l\'equip' : 'Habla con el equipo'}
             </Link>
           </div>
 
           {/* References */}
           <div className="border-t border-[#C8D0DD] pt-8">
             <h2 className="text-xs font-bold tracking-[0.18em] uppercase text-[#8F9EB7] mb-5">
-              Referencias
+              {lang === 'en' ? 'References' : lang === 'ca' ? 'Referències' : 'Referencias'}
             </h2>
             <ol className="space-y-3">
               {article.references.map((ref, i) => (
@@ -188,16 +193,7 @@ export default function ArticlePage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-[#f0f5fc] border-t border-[#C8D0DD] py-6">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#8F9EB7]">
-          <span>© {new Date().getFullYear()} Finomik. Educación financiera.</span>
-          <div className="flex gap-4">
-            <Link to="/privacy" className="hover:text-[#0B3064] transition-colors">Privacidad</Link>
-            <Link to="/terms" className="hover:text-[#0B3064] transition-colors">Términos</Link>
-          </div>
-        </div>
-      </footer>
+      <PageFooter />
     </div>
   );
 }

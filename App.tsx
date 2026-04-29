@@ -17,6 +17,8 @@ import {
   X,
   Route,
   User,
+  GraduationCap,
+  Building2,
 } from 'lucide-react';
 import { SeoHead } from './components/SeoHead';
 import { useI18n } from './i18n';
@@ -482,17 +484,20 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center min-w-0">
         <div className="space-y-4 md:space-y-8 max-w-2xl min-w-0">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-5 md:mb-10 break-words">
-            <WordReveal
-              text={lang === 'ca' ? 'El teu futur financer' : lang === 'es' ? 'Tu futuro financiero' : 'Your financial future'}
-              baseDelay={0.1}
-            />
-            {' '}
-            <WordReveal
-              text={lang === 'ca' ? 'comen\u00e7a aqu\u00ed.' : lang === 'es' ? 'empieza aqu\u00ed.' : 'starts here.'}
-              baseDelay={0.42}
-              accent
-            />
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-5 md:mb-10">
+            <span className="block">
+              <WordReveal
+                text={lang === 'ca' ? 'El teu futur financer' : lang === 'es' ? 'Tu futuro financiero' : 'Your financial future'}
+                baseDelay={0.1}
+              />
+            </span>
+            <span className="block">
+              <WordReveal
+                text={lang === 'ca' ? 'comen\u00e7a aqu\u00ed.' : lang === 'es' ? 'empieza aqu\u00ed.' : 'starts here.'}
+                baseDelay={0.42}
+                accent
+              />
+            </span>
           </h1>
 
           <motion.p
@@ -515,7 +520,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-3 pt-2 pb-6 md:gap-4 md:pt-4 md:pb-14"
           >
             <Button href="/more-info" variant="primary" className="justify-center">
-              {lang === 'ca' ? 'Sol·licitar informació' : lang === 'es' ? 'Solicitar información' : 'Request info'}
+              {lang === 'ca' ? 'Vull saber més' : lang === 'es' ? 'Quiero saber más' : 'Learn more'}
             </Button>
             <Button href="#our-solutions" variant="white" className="justify-center border border-white/30">
               {lang === 'ca' ? 'Veure solucions' : lang === 'es' ? 'Ver soluciones' : 'Discover solutions'}
@@ -635,10 +640,10 @@ const Problem = () => {
             </h3>
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-finomik-navy leading-tight mb-8 break-words px-1">
               {lang === 'ca'
-                ? "L'educació financera continua sent baixa arreu del món. La majoria de persones no aprèn mai a gestionar els seus diners."
+                ? "L'educació financera continua sent baixa arreu del món. La majoria de persones mai aprèn els fonaments financers bàsics."
                 : lang === 'es'
-                ? 'La educación financiera sigue siendo baja en todo el mundo. La mayoría de personas nunca aprende a gestionar su dinero.'
-                : 'Financial literacy remains low worldwide. Most people never learn how to manage money.'}
+                ? 'La educación financiera sigue siendo baja en todo el mundo. La mayoría de personas nunca aprende los fundamentos financieros básicos.'
+                : 'Financial literacy remains low worldwide. Most people never learn the basic financial fundamentals.'}
             </h2>
             <div
               className="w-20 h-1 mx-auto rounded-full mb-8"
@@ -700,10 +705,10 @@ const Mission = () => {
       title: lang === 'ca' ? 'Disseny gamificat' : lang === 'es' ? 'Diseño gamificado' : 'Gamified Design',
       desc:
         lang === 'ca'
-          ? 'Mecàniques atractives que fomenten la repetició sense resultar trivials.'
+          ? 'Aprèn jugant: missió a missió, amb reptes, punts i assoliments que fan que vulguis continuar.'
           : lang === 'es'
-          ? 'Mecánicas atractivas que fomentan la repetición sin resultar triviales.'
-          : 'Engaging mechanics that encourage repetition without feeling trivial.',
+          ? 'Aprende jugando: misión a misión, con retos, puntos y logros que hacen que quieras seguir.'
+          : 'Learn through play: mission by mission, with challenges, points and achievements that keep you coming back.',
       icon: <Smartphone className="w-6 h-6" />,
     },
     {
@@ -720,10 +725,10 @@ const Mission = () => {
       title: lang === 'ca' ? 'Hàbits diaris' : lang === 'es' ? 'Hábitos diarios' : 'Daily Habits',
       desc:
         lang === 'ca'
-          ? 'Dissenyat per a la interacció diària i constant, no per a cursos intensius puntuals.'
+          ? 'Mòduls breus i progressius que reforcen el coneixement dia a dia, fins que es converteix en hàbit.'
           : lang === 'es'
-          ? 'Diseñado para la interacción diaria y constante, no para cursos intensivos puntuales.'
-          : 'Built for consistent, daily interaction rather than one-off crash courses.',
+          ? 'Módulos breves y progresivos que refuerzan el conocimiento día a día, hasta convertirlo en hábito.'
+          : 'Short, progressive modules that reinforce knowledge day by day until it becomes a habit.',
       icon: <ShieldCheck className="w-6 h-6" />,
     },
   ];
@@ -733,7 +738,7 @@ const Mission = () => {
   useEffect(() => {
     const id = setInterval(() => {
       setActiveCardIndex((prev) => (prev + 1) % cardCount);
-    }, 3000);
+    }, 10000);
     return () => clearInterval(id);
   }, [cardCount]);
 
@@ -946,7 +951,7 @@ const PiledCards = () => {
   useEffect(() => {
     const id = setInterval(() => {
       setTopIndex((prev) => (prev + 1) % n);
-    }, 4000);
+    }, 10000);
     return () => clearInterval(id);
   }, [n]);
 
@@ -1459,7 +1464,7 @@ const InstitutionBenefits = () => {
       ? 'Conocimiento que transforma tu día a día: presupuesto, ahorro, deuda e inversión.'
       : 'Knowledge that transforms your daily decisions: budgeting, saving, debt and investing.',
     lang === 'ca'
-      ? 'Segueix el teu progrés i mantén la motivació amb rachas i assoliments desblocables.'
+      ? 'Segueix el teu progrés i mantén la motivació amb ratxes i assoliments desbloqueables.'
       : lang === 'es'
       ? 'Sigue tu progreso y mantén la motivación con rachas y logros desbloqueables.'
       : 'Track your progress and stay motivated with streaks and unlockable achievements.',
@@ -1498,10 +1503,10 @@ const InstitutionBenefits = () => {
           </h2>
           <p className="text-base sm:text-lg text-blue-100/90 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
             {lang === 'ca'
-              ? 'No és teoria en un llibre. És pràctica que transforma com gestiones els teus diners.'
+              ? 'No és teoria en un llibre. És pràctica que transforma la teva relació amb les finances.'
               : lang === 'es'
-              ? 'No es teoría en un libro. Es práctica que transforma cómo gestionas tu dinero.'
-              : "It's not textbook theory. It's practice that transforms how you manage money."}
+              ? 'No es teoría en un libro. Es práctica que transforma tu relación con las finanzas.'
+              : "It's not textbook theory. It's practice that transforms your relationship with finance."}
           </p>
         </div>
 
@@ -1520,7 +1525,7 @@ const InstitutionBenefits = () => {
 
         <div className="text-center mb-10 md:mb-12">
           <Button href="/more-info" variant="primary">
-            {lang === 'ca' ? 'Descobreix Finomik' : lang === 'es' ? 'Descubre Finomik' : 'Discover Finomik'}
+            {lang === 'ca' ? 'Coneix el programa' : lang === 'es' ? 'Conoce el programa' : 'See the programme'}
           </Button>
         </div>
 
@@ -1538,77 +1543,80 @@ const InstitutionBenefits = () => {
 const SegmentSelector = () => {
   const { lang } = useI18n();
   return (
-    <section className="bg-[#f0f5fc] py-20 md:py-24 relative overflow-hidden">
-      <WaveShape
-        className="absolute top-0 w-full h-[35%] text-[#114076] z-0 transform rotate-180"
-        opacity={1}
-        mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-      />
-      <WaveShape
-        className="absolute bottom-0 left-0 w-full h-[35%] text-[#114076] z-0"
-        opacity={1}
-        mobilePath="M0,80 C480,110 960,50 1440,80 L1440,160 L0,160 Z"
-      />
-      <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl text-center">
-        <FadeInSection>
-          <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#5574A7] bg-[#EEF2FB] px-3 py-1.5 rounded-full mb-5">
+    <section className="bg-[#0B3064] py-16 md:py-20 relative overflow-hidden">
+      {/* Subtle background texture */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, #F5C518 0%, transparent 50%), radial-gradient(circle at 80% 50%, #5574A7 0%, transparent 50%)'}} />
+      <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-5xl">
+        <FadeInSection className="text-center mb-10 md:mb-12">
+          <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#F5C518] mb-4">
             {lang === 'ca' ? 'Per a qui és' : lang === 'es' ? '¿Para quién es?' : 'Who is it for?'}
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-[#0B3064] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight">
             {lang === 'ca'
-              ? 'Finomik s\u2019adapta al teu entorn'
+              ? 'Una solució per a cada entorn'
               : lang === 'es'
-              ? 'Finomik se adapta a tu entorno'
-              : 'Finomik adapts to your environment'}
+              ? 'Una solución para cada entorno'
+              : 'A solution for every context'}
           </h2>
-          <p className="text-[#3C4C67] text-lg mb-12 max-w-xl mx-auto">
-            {lang === 'ca'
-              ? 'Tant si ets un centre educatiu com una entitat financera, tenim una solució pensada per a tu.'
-              : lang === 'es'
-              ? 'Tanto si eres un centro educativo como una entidad financiera, tenemos una solución pensada para ti.'
-              : 'Whether you\u2019re a school or a financial institution, we have a solution designed for you.'}
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <Link
-              to="/colegios"
-              className="group bg-white hover:bg-[#f0f5fc] border border-[#E8EDF5] hover:border-[#C8D0DD] rounded-2xl p-8 text-left transition-all duration-200"
-            >
-              <h3 className="text-xl font-black text-[#0B3064] mb-2">
+        </FadeInSection>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          {/* Colegios card */}
+          <Link
+            to="/colegios"
+            className="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F5C518]/40 rounded-2xl p-7 md:p-8 flex flex-col gap-5 transition-all duration-300"
+          >
+            <div className="flex items-start justify-between">
+              <div className="w-11 h-11 rounded-xl bg-[#F5C518] flex items-center justify-center flex-shrink-0">
+                <GraduationCap className="w-5 h-5 text-[#0B3064]" />
+              </div>
+              <span className="text-[0.65rem] font-black tracking-[0.2em] uppercase text-white/25">01</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-black text-white mb-2">
                 {lang === 'ca' ? 'Per a Col·legis' : lang === 'es' ? 'Para Colegios' : 'For Schools'}
               </h3>
-              <p className="text-[#3C4C67] text-sm leading-relaxed mb-5">
+              <p className="text-white/60 text-sm leading-relaxed">
                 {lang === 'ca'
                   ? 'Programa personalitzat per als teus alumnes. Tu tries els temes, nosaltres creem el camí.'
                   : lang === 'es'
                   ? 'Programa personalizado para tus alumnos. Tú eliges los temas, nosotros creamos el camino.'
                   : 'Personalised programme for your students. You choose the topics, we create the path.'}
               </p>
-              <span className="inline-flex items-center gap-1 text-[#5574A7] font-bold text-sm group-hover:gap-2 transition-all">
-                {lang === 'ca' ? 'Descobreix més' : lang === 'es' ? 'Descubre más' : 'Learn more'}
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </Link>
-            <Link
-              to="/bancos"
-              className="group bg-white hover:bg-[#f0f5fc] border border-[#E8EDF5] hover:border-[#C8D0DD] rounded-2xl p-8 text-left transition-all duration-200"
-            >
-              <h3 className="text-xl font-black text-[#0B3064] mb-2">
+            </div>
+            <div className="flex items-center gap-2 text-[#F5C518] font-bold text-sm group-hover:gap-3 transition-all">
+              {lang === 'ca' ? 'Descobreix més' : lang === 'es' ? 'Descubre más' : 'Learn more'}
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </Link>
+          {/* Bancos card */}
+          <Link
+            to="/bancos"
+            className="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#F5C518]/40 rounded-2xl p-7 md:p-8 flex flex-col gap-5 transition-all duration-300"
+          >
+            <div className="flex items-start justify-between">
+              <div className="w-11 h-11 rounded-xl bg-[#F5C518] flex items-center justify-center flex-shrink-0">
+                <Building2 className="w-5 h-5 text-[#0B3064]" />
+              </div>
+              <span className="text-[0.65rem] font-black tracking-[0.2em] uppercase text-white/25">02</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-black text-white mb-2">
                 {lang === 'ca' ? 'Per a Bancs' : lang === 'es' ? 'Para Bancos' : 'For Banks'}
               </h3>
-              <p className="text-[#3C4C67] text-sm leading-relaxed mb-5">
+              <p className="text-white/60 text-sm leading-relaxed">
                 {lang === 'ca'
-                  ? 'Clients més educats, decisions més sòlides. Finomik integra l\u2019educació financera al cor de la relació banc-client.'
+                  ? 'Clients més educats, decisions més sòlides. Integra l\u2019educació financera al cor de la relació banc-client.'
                   : lang === 'es'
-                  ? 'Clientes mejor educados, decisiones más sólidas. Finomik integra la educación financiera en el centro de la relación banco-cliente.'
-                  : 'Better-educated clients, stronger decisions. Finomik brings financial education to the heart of the bank-client relationship.'}
+                  ? 'Clientes mejor educados, decisiones más sólidas. Integra la educación financiera en el centro de la relación banco-cliente.'
+                  : 'Better-educated clients, stronger decisions. Bring financial education to the heart of the bank-client relationship.'}
               </p>
-              <span className="inline-flex items-center gap-1 text-[#5574A7] font-bold text-sm group-hover:gap-2 transition-all">
-                {lang === 'ca' ? 'Descobreix més' : lang === 'es' ? 'Descubre más' : 'Learn more'}
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </Link>
-          </div>
-        </FadeInSection>
+            </div>
+            <div className="flex items-center gap-2 text-[#F5C518] font-bold text-sm group-hover:gap-3 transition-all">
+              {lang === 'ca' ? 'Descobreix més' : lang === 'es' ? 'Descubre más' : 'Learn more'}
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -1681,7 +1689,7 @@ const WhyFinomik = () => {
     <section
       id="why-finomik"
       ref={sectionRef}
-      className="py-20 md:py-28 bg-white relative scroll-mt-32 md:scroll-mt-40"
+      className="pt-20 pb-12 md:pt-28 md:pb-16 bg-white relative scroll-mt-32 md:scroll-mt-40"
     >
       <div className="container mx-auto px-6 md:px-12 max-w-6xl">
         {/* Header */}
@@ -1701,10 +1709,10 @@ const WhyFinomik = () => {
           </div>
           <p className="text-[#5574A7] text-sm md:text-base max-w-xs md:text-right leading-relaxed hidden md:block">
             {lang === 'ca'
-              ? 'Sis raons per les quals Finomik transforma com gestiones els teus diners.'
+              ? 'Sis raons per les quals Finomik transforma la teva educació financera.'
               : lang === 'es'
-              ? 'Seis razones por las que Finomik transforma cómo gestionas tu dinero.'
-              : 'Six reasons Finomik transforms how you manage your money.'}
+              ? 'Seis razones por las que Finomik transforma tu educación financiera.'
+              : 'Six reasons Finomik transforms your financial education.'}
           </p>
         </motion.div>
 
@@ -1788,7 +1796,7 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="pt-10 pb-16 md:pt-12 md:pb-24 bg-[#f0f5fc] border-t border-[#E8EDF5] relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <FadeInSection className="text-center mb-12">
           <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-finomik-light mb-3">
@@ -1815,8 +1823,9 @@ const SocialProof = () => {
                 <p className="text-4xl font-black text-finomik-navy mb-2">{stat.number}</p>
                 <p className="text-sm text-[#3C4C67] leading-snug mb-3">{stat.label}</p>
                 <p className="text-[0.65rem] font-bold uppercase tracking-wider text-[#8F9EB7]">{stat.source}</p>
-                <span className="mt-3 inline-block text-xs font-semibold text-[#5574A7] opacity-0 group-hover:opacity-100 transition-opacity">
-                  {lang === 'ca' ? 'Llegir article →' : lang === 'es' ? 'Leer artículo →' : 'Read article →'}
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#5574A7] group-hover:gap-2 transition-all">
+                  {lang === 'ca' ? 'Llegir article' : lang === 'es' ? 'Leer artículo' : 'Read article'}
+                  <ArrowRight className="w-3 h-3" />
                 </span>
               </Link>
             </FadeInSection>
@@ -1824,7 +1833,7 @@ const SocialProof = () => {
         </div>
         <FadeInSection className="text-center">
           <Button href="/more-info" variant="primary">
-            {lang === 'ca' ? 'Descobreix Finomik' : lang === 'es' ? 'Descubre Finomik' : 'Discover Finomik'}
+            {lang === 'ca' ? 'Parla amb l\'equip' : lang === 'es' ? 'Habla con el equipo' : 'Talk to the team'}
           </Button>
         </FadeInSection>
       </div>
@@ -1865,7 +1874,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-12">
           {/* Contact info row */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-5 text-xs text-white/50">
-            <a href="mailto:info@finomik.com" className="hover:text-white transition-colors">info@finomik.com</a>
+            <a href="mailto:info@finomik.com?subject=Informaci%C3%B3n%20sobre%20Finomik&body=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Finomik." className="hover:text-white transition-colors">info@finomik.com</a>
             <a href="tel:+34673319335" className="hover:text-white transition-colors">+34 673 319 335</a>
             <a href="https://www.linkedin.com/company/finomik" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
@@ -1900,9 +1909,9 @@ function App() {
   };
 
   const descriptions = {
-    es: 'Finomik es la plataforma gamificada de educación financiera. Aprende a gestionar tu dinero con módulos interactivos, gamificación y seguimiento de tu progreso.',
-    en: 'Finomik is the gamified financial literacy platform. Learn to manage your money with interactive modules, gamification, and progress tracking.',
-    ca: "Finomik és la plataforma gamificada d'educació financera. Aprèn a gestionar els teus diners amb mòduls interactius, gamificació i seguiment del teu progrés.",
+    es: 'Finomik es la plataforma gamificada de educación financiera. Desarrolla tus competencias financieras con módulos interactivos, gamificación y seguimiento de tu progreso.',
+    en: 'Finomik is the gamified financial literacy platform. Build your financial skills with interactive modules, gamification, and progress tracking.',
+    ca: "Finomik és la plataforma gamificada d'educació financera. Desenvolupa les teves competències financeres amb mòduls interactius, gamificació i seguiment del teu progrés.",
   };
 
   const currentTitle = titles[lang] ?? titles.es;
@@ -1918,7 +1927,6 @@ function App() {
         <Mission />
         <Process />
         <Platforms />
-        <InstitutionBenefits />
         <SegmentSelector />
         <WhyFinomik />
         <SocialProof />
