@@ -100,55 +100,58 @@ export default function Contact() {
               ))}
             </div>
 
-            <a
-              href="tel:+34673319335"
-              className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
-                <Phone className="w-5 h-5 text-[#F5C518]" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
-                  {tx('phoneLabel')}
-                </p>
-                <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
-                  +34 673 319 335
-                </p>
-              </div>
-            </a>
+            {/* Phone + Location + LinkedIn — one row on desktop */}
+            <div className="sm:col-span-2 grid sm:grid-cols-3 gap-4">
+              <a
+                href="tel:+34673319335"
+                className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-[#F5C518]" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
+                    {tx('phoneLabel')}
+                  </p>
+                  <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
+                    +34 673 319 335
+                  </p>
+                </div>
+              </a>
 
-            <div className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-[#F5C518]" />
+              <div className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-[#F5C518]" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
+                    {tx('locationLabel')}
+                  </p>
+                  <p className="text-[#0B3064] font-extrabold">
+                    {tx('location')}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
-                  {tx('locationLabel')}
-                </p>
-                <p className="text-[#0B3064] font-extrabold">
-                  {tx('location')}
-                </p>
-              </div>
+
+              <a
+                href="https://www.linkedin.com/company/finomik"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                  <Linkedin className="w-5 h-5 text-[#F5C518]" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
+                    {tx('linkedinLabel')}
+                  </p>
+                  <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
+                    Finomik
+                  </p>
+                </div>
+              </a>
             </div>
-
-            <a
-              href="https://www.linkedin.com/company/finomik"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
-                <Linkedin className="w-5 h-5 text-[#F5C518]" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
-                  {tx('linkedinLabel')}
-                </p>
-                <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
-                  Finomik
-                </p>
-              </div>
-            </a>
           </div>
 
           {/* CTA to request form */}
