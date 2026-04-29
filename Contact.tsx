@@ -22,7 +22,9 @@ export default function Contact() {
       en: "We\u2019re here to help. Write or call us and we\u2019ll get back to you as soon as possible.",
       ca: 'Som aqu\u00ed per ajudar-te. Escriu-nos o truca\u2019ns i et respondrem el m\u00e9s aviat possible.',
     },
-    emailLabel: { es: 'Correo electr\u00f3nico', en: 'Email', ca: 'Correu electr\u00f2nic' },
+    emailGeneral:  { es: 'General', en: 'General', ca: 'General' },
+    emailSchools:  { es: 'Para Colegios', en: 'For Schools', ca: 'Per a Col\u00b7legis' },
+    emailBanks:    { es: 'Para Bancos', en: 'For Banks', ca: 'Per a Bancs' },
     phoneLabel: { es: 'Tel\u00e9fono', en: 'Phone', ca: 'Tel\u00e8fon' },
     locationLabel: { es: 'Ubicaci\u00f3n', en: 'Location', ca: 'Ubicaci\u00f3' },
     location: { es: 'Barcelona, Espa\u00f1a', en: 'Barcelona, Spain', ca: 'Barcelona, Espanya' },
@@ -74,22 +76,31 @@ export default function Contact() {
 
           {/* Contact cards */}
           <div className="grid sm:grid-cols-2 gap-5 mb-12">
-            <a
-              href={buildMailto('hello', lang)}
-              className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
-                <Mail className="w-5 h-5 text-[#F5C518]" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
-                  {tx('emailLabel')}
-                </p>
-                <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
-                  hello@finomik.com
-                </p>
-              </div>
-            </a>
+
+            {/* Three email cards — full width row */}
+            <div className="sm:col-span-2 grid sm:grid-cols-3 gap-4">
+              {([
+                { variant: 'hello',   label: tx('emailGeneral'), address: 'hello@finomik.com' },
+                { variant: 'schools', label: tx('emailSchools'), address: 'schools@finomik.com' },
+                { variant: 'banks',   label: tx('emailBanks'),   address: 'banks@finomik.com' },
+              ] as const).map(({ variant, label, address }) => (
+                <a
+                  key={variant}
+                  href={buildMailto(variant, lang)}
+                  className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-5 flex items-start gap-3 hover:shadow-md hover:border-[#5574A7] transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-[#F5C518]" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">{label}</p>
+                    <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors break-all">
+                      {address}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
 
             <a
               href="tel:+34673319335"

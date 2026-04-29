@@ -40,6 +40,8 @@ export default function MoreInfo() {
     org: '', role: '', interest: '', message: '', source: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const set = (key: keyof typeof fields) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
@@ -124,10 +126,42 @@ export default function MoreInfo() {
   const canProceedStep1 = fields.name.trim() !== '' && fields.email.trim() !== '';
   const canProceedStep2 = fields.orgType !== '';
 
-  const handleNext = (e: React.FormEvent) => {
+  const handleNext = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (step < TOTAL_STEPS) setStep(s => s + 1);
-    else setSubmitted(true);
+    if (step < TOTAL_STEPS) {
+      setStep(s => s + 1);
+      return;
+    }
+    setIsSubmitting(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch('https://formspree.io/f/xpqkvboz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          '01_Nombre':              fields.name,
+          '02_Email':               fields.email,
+          '03_Teléfono':            fields.phone || '—',
+          '04_Tipo de perfil':      fields.orgType,
+          '05_Organización':        fields.org || '—',
+          '06_Cargo':               fields.role || '—',
+          '07_Usuarios potenciales': fields.size || '—',
+          '08_Qué busca':           fields.interest,
+          '09_Mensaje':             fields.message || '—',
+          '10_Cómo nos conoció':    fields.source || '—',
+          _language:                lang,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -313,20 +347,32 @@ export default function MoreInfo() {
                       </>
                     )}
 
+                    {/* Error message */}
+                    {submitError && (
+                      <p className="text-sm text-red-500 font-medium text-center bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                        {l === 'es' ? 'Ha habido un error al enviar. Por favor, inténtalo de nuevo o escríbenos a hello@finomik.com'
+                        : l === 'ca' ? "Hi ha hagut un error en enviar. Si us plau, torna-ho a intentar o escriu-nos a hello@finomik.com"
+                        : 'There was an error sending. Please try again or email us at hello@finomik.com'}
+                      </p>
+                    )}
+
                     {/* Navigation */}
                     <div className={`flex gap-3 pt-1 ${step > 1 ? 'justify-between' : 'justify-end'}`}>
                       {step > 1 && (
                         <button type="button" onClick={() => setStep(s => s - 1)}
-                          className="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#C8D0DD] text-[#0B3064] font-semibold text-sm hover:bg-[#f0f5fc] transition-colors">
+                          disabled={isSubmitting}
+                          className="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#C8D0DD] text-[#0B3064] font-semibold text-sm hover:bg-[#f0f5fc] transition-colors disabled:opacity-40">
                           <ArrowLeft className="w-4 h-4" />
                           {tx('prev')}
                         </button>
                       )}
                       <button type="submit"
-                        disabled={step === 1 ? !canProceedStep1 : step === 2 ? !canProceedStep2 : false}
+                        disabled={isSubmitting || (step === 1 ? !canProceedStep1 : step === 2 ? !canProceedStep2 : false)}
                         className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0B3064] text-white font-extrabold text-sm hover:bg-[#114076] transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
-                        {step === TOTAL_STEPS ? tx('submit') : tx('next')}
-                        {step < TOTAL_STEPS && <ArrowRight className="w-4 h-4" />}
+                        {isSubmitting
+                          ? (l === 'es' ? 'Enviando...' : l === 'ca' ? 'Enviant...' : 'Sending...')
+                          : step === TOTAL_STEPS ? tx('submit') : tx('next')}
+                        {!isSubmitting && step < TOTAL_STEPS && <ArrowRight className="w-4 h-4" />}
                       </button>
                     </div>
                   </form>
