@@ -32,40 +32,103 @@ const EMAIL_CONFIG = {
   hello: {
     address: 'hello@finomik.com',
     subject: {
-      es: 'Información sobre Finomik',
-      en: 'Information about Finomik',
-      ca: 'Informació sobre Finomik',
+      es: 'Me ha interesado Finomik, quiero saber más',
+      en: "I'm interested in Finomik — I'd like to know more",
+      ca: "M'ha interessat Finomik, vull saber-ne més",
     },
     body: {
-      es: 'Hola, me gustaría obtener más información sobre Finomik.',
-      en: 'Hello, I would like to get more information about Finomik.',
-      ca: "Hola, m'agradaria obtenir més informació sobre Finomik.",
+      es: `Hola equipo de Finomik,
+
+He visto vuestra plataforma y me ha parecido muy interesante. Me gustaría saber más sobre cómo funciona y explorar si encaja con lo que estoy buscando.
+
+¿Cuándo podríamos conectar para que me contéis más?
+
+Gracias,
+[Tu nombre]`,
+      en: `Hi Finomik team,
+
+I came across your platform and found it really interesting. I'd like to learn more about how it works and explore whether it could be a good fit for what I'm looking for.
+
+When could we connect so you can tell me more?
+
+Thanks,
+[Your name]`,
+      ca: `Hola equip de Finomik,
+
+He vist la vostra plataforma i m'ha semblat molt interessant. M'agradaria saber més sobre com funciona i explorar si encaixa amb el que estic buscant.
+
+Quan podríem connectar perquè m'ho expliquéssiu?
+
+Gràcies,
+[El teu nom]`,
     },
   },
   schools: {
     address: 'schools@finomik.com',
     subject: {
-      es: 'Finomik para Colegios',
-      en: 'Finomik for Schools',
-      ca: 'Finomik per a Col·legis',
+      es: 'Me ha interesado Finomik para nuestro colegio, quiero saber más',
+      en: "I'm interested in Finomik for our school — I'd like to know more",
+      ca: "M'ha interessat Finomik per al nostre centre, vull saber-ne més",
     },
     body: {
-      es: 'Hola, soy responsable de un colegio y me gustaría conocer más sobre el programa de Finomik para centros educativos.',
-      en: 'Hello, I am a school representative and I would like to learn more about the Finomik programme for schools.',
-      ca: "Hola, soc responsable d'un col·legi i m'agradaria conèixer més sobre el programa de Finomik per a centres educatius.",
+      es: `Hola equipo de Finomik,
+
+He visto vuestra plataforma y me ha parecido muy interesante para nuestro centro educativo. Me gustaría saber más sobre el programa para colegios y explorar si encaja con lo que buscamos.
+
+¿Cuándo podríamos conectar para que me contéis más?
+
+Gracias,
+[Tu nombre]`,
+      en: `Hi Finomik team,
+
+I came across your platform and found it really interesting for our school. I'd like to learn more about the programme for schools and explore whether it could be a good fit for us.
+
+When could we connect so you can tell me more?
+
+Thanks,
+[Your name]`,
+      ca: `Hola equip de Finomik,
+
+He vist la vostra plataforma i m'ha semblat molt interessant per al nostre centre educatiu. M'agradaria saber més sobre el programa per a col·legis i explorar si encaixa amb el que busquem.
+
+Quan podríem connectar perquè m'ho expliquéssiu?
+
+Gràcies,
+[El teu nom]`,
     },
   },
   banks: {
     address: 'banks@finomik.com',
     subject: {
-      es: 'Finomik para Bancos',
-      en: 'Finomik for Banks',
-      ca: 'Finomik per a Bancs',
+      es: 'Me ha interesado Finomik para nuestro banco, quiero saber más',
+      en: "I'm interested in Finomik for our bank — I'd like to know more",
+      ca: "M'ha interessat Finomik per al nostre banc, vull saber-ne més",
     },
     body: {
-      es: 'Hola, represento a una entidad bancaria y me gustaría obtener más información sobre la integración de Finomik.',
-      en: 'Hello, I represent a banking institution and I would like to learn more about integrating Finomik.',
-      ca: "Hola, represento una entitat bancària i m'agradaria obtenir més informació sobre la integració de Finomik.",
+      es: `Hola equipo de Finomik,
+
+He visto vuestra plataforma y me ha parecido muy interesante para nuestra entidad. Me gustaría saber más sobre cómo funciona la integración para bancos y explorar si encaja con lo que buscamos.
+
+¿Cuándo podríamos conectar para que me contéis más?
+
+Gracias,
+[Tu nombre]`,
+      en: `Hi Finomik team,
+
+I came across your platform and found it really interesting for our institution. I'd like to learn more about how the integration works for banks and explore whether it could be a good fit for us.
+
+When could we connect so you can tell me more?
+
+Thanks,
+[Your name]`,
+      ca: `Hola equip de Finomik,
+
+He vist la vostra plataforma i m'ha semblat molt interessant per a la nostra entitat. M'agradaria saber més sobre com funciona la integració per a bancs i explorar si encaixa amb el que busquem.
+
+Quan podríem connectar perquè m'ho expliquéssiu?
+
+Gràcies,
+[El teu nom]`,
     },
   },
 };
