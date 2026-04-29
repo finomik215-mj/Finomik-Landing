@@ -113,7 +113,7 @@ export default function Contact() {
                   <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
                     {tx('phoneLabel')}
                   </p>
-                  <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
+                  <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors whitespace-nowrap">
                     +34 673 319 335
                   </p>
                 </div>
