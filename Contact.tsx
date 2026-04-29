@@ -92,10 +92,12 @@ export default function Contact() {
                   <div className="w-9 h-9 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
                     <Mail className="w-4 h-4 text-[#F5C518]" />
                   </div>
-                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest w-28 flex-shrink-0">{label}</p>
-                  <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors">
-                    {address}
-                  </p>
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-0.5">{label}</p>
+                    <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors truncate">
+                      {address}
+                    </p>
+                  </div>
                 </a>
               ))}
             </div>
