@@ -78,7 +78,7 @@ export default function Contact() {
           <div className="grid sm:grid-cols-2 gap-5 mb-12">
 
             {/* Three email cards — full width row */}
-            <div className="sm:col-span-2 grid sm:grid-cols-3 gap-4">
+            <div className="sm:col-span-2 flex flex-col gap-3">
               {([
                 { variant: 'hello',   label: tx('emailGeneral'), address: 'hello@finomik.com' },
                 { variant: 'schools', label: tx('emailSchools'), address: 'schools@finomik.com' },
@@ -87,17 +87,15 @@ export default function Contact() {
                 <a
                   key={variant}
                   href={buildMailto(variant, lang)}
-                  className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-5 flex items-start gap-3 hover:shadow-md hover:border-[#5574A7] transition-all group"
+                  className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm px-5 py-4 flex items-center gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
                 >
                   <div className="w-9 h-9 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
                     <Mail className="w-4 h-4 text-[#F5C518]" />
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">{label}</p>
-                    <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors break-all">
-                      {address}
-                    </p>
-                  </div>
+                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest w-28 flex-shrink-0">{label}</p>
+                  <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors">
+                    {address}
+                  </p>
                 </a>
               ))}
             </div>
