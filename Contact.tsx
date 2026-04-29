@@ -74,44 +74,87 @@ export default function Contact() {
             {tx('subtitle')}
           </p>
 
-          {/* Contact cards — all rows */}
-          <div className="flex flex-col gap-3 mb-12">
+          {/* Contact cards */}
+          <div className="grid sm:grid-cols-2 gap-5 mb-12">
 
-            {/* Email rows */}
-            {([
-              { variant: 'hello',   label: tx('emailGeneral'), value: 'hello@finomik.com',   href: buildMailto('hello', lang),   icon: <Mail className="w-4 h-4 text-[#F5C518]" />,     clickable: true  },
-              { variant: 'schools', label: tx('emailSchools'), value: 'schools@finomik.com', href: buildMailto('schools', lang), icon: <Mail className="w-4 h-4 text-[#F5C518]" />,     clickable: true  },
-              { variant: 'banks',   label: tx('emailBanks'),   value: 'banks@finomik.com',   href: buildMailto('banks', lang),   icon: <Mail className="w-4 h-4 text-[#F5C518]" />,     clickable: true  },
-              { variant: 'phone',   label: tx('phoneLabel'),   value: '+34 673 319 335',      href: 'tel:+34673319335',           icon: <Phone className="w-4 h-4 text-[#F5C518]" />,    clickable: true  },
-              { variant: 'loc',     label: tx('locationLabel'),value: tx('location'),          href: null,                         icon: <MapPin className="w-4 h-4 text-[#F5C518]" />,   clickable: false },
-              { variant: 'li',      label: 'LinkedIn',         value: 'Finomik',               href: 'https://www.linkedin.com/company/finomik', icon: <Linkedin className="w-4 h-4 text-[#F5C518]" />, clickable: true, external: true },
-            ] as const).map(({ variant, label, value, href, icon, clickable, external }: any) => {
-              const inner = (
-                <>
-                  <div className="w-9 h-9 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
-                    {icon}
-                  </div>
-                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest w-32 flex-shrink-0">{label}</p>
-                  <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors">
-                    {value}
-                  </p>
-                </>
-              );
-              const base = "bg-white rounded-2xl border border-[#E8EDF5] shadow-sm px-5 py-4 flex items-center gap-4 transition-all";
-              if (!clickable || !href) {
-                return <div key={variant} className={base}>{inner}</div>;
-              }
-              return (
+            {/* Three email rows — full width */}
+            <div className="sm:col-span-2 flex flex-col gap-3">
+              {([
+                { variant: 'hello',   label: tx('emailGeneral'), address: 'hello@finomik.com' },
+                { variant: 'schools', label: tx('emailSchools'), address: 'schools@finomik.com' },
+                { variant: 'banks',   label: tx('emailBanks'),   address: 'banks@finomik.com' },
+              ] as const).map(({ variant, label, address }) => (
                 <a
                   key={variant}
-                  href={href}
-                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className={`${base} group hover:shadow-md hover:border-[#5574A7]`}
+                  href={buildMailto(variant, lang)}
+                  className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm px-5 py-4 flex items-center gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
                 >
-                  {inner}
+                  <div className="w-9 h-9 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-[#F5C518]" />
+                  </div>
+                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest w-28 flex-shrink-0">{label}</p>
+                  <p className="text-[#0B3064] font-extrabold text-sm group-hover:text-[#5574A7] transition-colors">
+                    {address}
+                  </p>
                 </a>
-              );
-            })}
+              ))}
+            </div>
+
+            {/* Phone */}
+            <a
+              href="tel:+34673319335"
+              className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                <Phone className="w-5 h-5 text-[#F5C518]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
+                  {tx('phoneLabel')}
+                </p>
+                <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
+                  +34 673 319 335
+                </p>
+              </div>
+            </a>
+
+            {/* Location */}
+            <div className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 text-[#F5C518]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
+                  {tx('locationLabel')}
+                </p>
+                <p className="text-[#0B3064] font-extrabold">
+                  {tx('location')}
+                </p>
+              </div>
+            </div>
+
+            {/* LinkedIn — centered below */}
+            <div className="sm:col-span-2 flex justify-center">
+              <a
+                href="https://www.linkedin.com/company/finomik"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-2xl border border-[#E8EDF5] shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-[#5574A7] transition-all group w-full sm:w-80"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#0B3064] flex items-center justify-center flex-shrink-0">
+                  <Linkedin className="w-5 h-5 text-[#F5C518]" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-[#8F9EB7] uppercase tracking-widest mb-1">
+                    LinkedIn
+                  </p>
+                  <p className="text-[#0B3064] font-extrabold group-hover:text-[#5574A7] transition-colors">
+                    Finomik
+                  </p>
+                </div>
+              </a>
+            </div>
+
           </div>
 
           {/* CTA to request form */}
