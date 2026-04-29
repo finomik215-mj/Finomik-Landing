@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
+import { buildMailto } from './components/PageFooter';
 import { 
   ArrowRight, 
   ShieldCheck, 
@@ -1874,7 +1875,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-12">
           {/* Contact info row */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-5 text-xs text-white/50">
-            <a href="mailto:info@finomik.com?subject=Informaci%C3%B3n%20sobre%20Finomik&body=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Finomik." className="hover:text-white transition-colors">info@finomik.com</a>
+            <a href={buildMailto('hello', lang)} className="hover:text-white transition-colors">hello@finomik.com</a>
             <a href="tel:+34673319335" className="hover:text-white transition-colors">+34 673 319 335</a>
             <a href="https://www.linkedin.com/company/finomik" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           </div>

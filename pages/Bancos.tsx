@@ -322,6 +322,7 @@ export default function Bancos() {
           en: "Let's talk about integrating it in your bank",
           ca: 'Parlem de com integrar-ho al teu banc',
         }}
+        contactEmail="banks"
       />
 
       {/* Sticky mobile CTA */}

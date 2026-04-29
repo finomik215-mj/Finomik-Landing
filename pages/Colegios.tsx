@@ -748,6 +748,7 @@ export default function Colegios() {
           en: "Let's talk about your school",
           ca: 'Parlem del teu centre',
         }}
+        contactEmail="schools"
       />
 
       {/* Sticky mobile CTA */}

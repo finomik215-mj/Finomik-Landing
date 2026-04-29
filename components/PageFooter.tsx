@@ -11,6 +11,7 @@ interface LangString {
 interface PageFooterProps {
   topTitle?: LangString;
   ctaLabel?: LangString;
+  contactEmail?: 'hello' | 'schools' | 'banks';
 }
 
 const WaveFooter = () => (
@@ -27,7 +28,59 @@ const WaveFooter = () => (
   </svg>
 );
 
-export const PageFooter: React.FC<PageFooterProps> = ({ topTitle, ctaLabel }) => {
+const EMAIL_CONFIG = {
+  hello: {
+    address: 'hello@finomik.com',
+    subject: {
+      es: 'Información sobre Finomik',
+      en: 'Information about Finomik',
+      ca: 'Informació sobre Finomik',
+    },
+    body: {
+      es: 'Hola, me gustaría obtener más información sobre Finomik.',
+      en: 'Hello, I would like to get more information about Finomik.',
+      ca: "Hola, m'agradaria obtenir més informació sobre Finomik.",
+    },
+  },
+  schools: {
+    address: 'schools@finomik.com',
+    subject: {
+      es: 'Finomik para Colegios',
+      en: 'Finomik for Schools',
+      ca: 'Finomik per a Col·legis',
+    },
+    body: {
+      es: 'Hola, soy responsable de un colegio y me gustaría conocer más sobre el programa de Finomik para centros educativos.',
+      en: 'Hello, I am a school representative and I would like to learn more about the Finomik programme for schools.',
+      ca: "Hola, soc responsable d'un col·legi i m'agradaria conèixer més sobre el programa de Finomik per a centres educatius.",
+    },
+  },
+  banks: {
+    address: 'banks@finomik.com',
+    subject: {
+      es: 'Finomik para Bancos',
+      en: 'Finomik for Banks',
+      ca: 'Finomik per a Bancs',
+    },
+    body: {
+      es: 'Hola, represento a una entidad bancaria y me gustaría obtener más información sobre la integración de Finomik.',
+      en: 'Hello, I represent a banking institution and I would like to learn more about integrating Finomik.',
+      ca: "Hola, represento una entitat bancària i m'agradaria obtenir més informació sobre la integració de Finomik.",
+    },
+  },
+};
+
+export function buildMailto(variant: 'hello' | 'schools' | 'banks', lang: string): string {
+  const l = lang === 'ca' ? 'ca' : lang === 'en' ? 'en' : 'es';
+  const cfg = EMAIL_CONFIG[variant];
+  return `mailto:${cfg.address}?subject=${encodeURIComponent(cfg.subject[l])}&body=${encodeURIComponent(cfg.body[l])}`;
+}
+
+export const PageFooter: React.FC<PageFooterProps> = ({
+  topTitle,
+  ctaLabel,
+  contactEmail = 'hello',
+}) => {
   const { lang } = useI18n();
   const l = lang === 'ca' ? 'ca' : lang === 'en' ? 'en' : 'es';
 
@@ -45,6 +98,8 @@ export const PageFooter: React.FC<PageFooterProps> = ({ topTitle, ctaLabel }) =>
 
   const title = topTitle ?? defaultTitle;
   const cta = ctaLabel ?? defaultCta;
+  const mailtoHref = buildMailto(contactEmail, lang);
+  const emailAddress = EMAIL_CONFIG[contactEmail].address;
 
   return (
     <footer className="overflow-hidden">
@@ -68,11 +123,8 @@ export const PageFooter: React.FC<PageFooterProps> = ({ topTitle, ctaLabel }) =>
       <div className="bg-[#0B3064] pt-6 pb-8">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-5 text-xs text-white/50">
-            <a
-              href="mailto:info@finomik.com?subject=Informaci%C3%B3n%20sobre%20Finomik&body=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Finomik."
-              className="hover:text-white transition-colors"
-            >
-              info@finomik.com
+            <a href={mailtoHref} className="hover:text-white transition-colors">
+              {emailAddress}
             </a>
             <a href="tel:+34673319335" className="hover:text-white transition-colors">
               +34 673 319 335
@@ -90,13 +142,13 @@ export const PageFooter: React.FC<PageFooterProps> = ({ topTitle, ctaLabel }) =>
             <span>© {new Date().getFullYear()} Finomik. Financial Education.</span>
             <nav className="flex gap-5">
               <Link to="/contact" className="hover:text-white transition-colors">
-                {lang === 'ca' ? 'Contacte' : lang === 'es' ? 'Contacto' : 'Contact'}
+                {l === 'ca' ? 'Contacte' : l === 'es' ? 'Contacto' : 'Contact'}
               </Link>
               <Link to="/privacy" className="hover:text-white transition-colors">
-                {lang === 'ca' ? 'Privadesa' : lang === 'es' ? 'Privacidad' : 'Privacy'}
+                {l === 'ca' ? 'Privadesa' : l === 'es' ? 'Privacidad' : 'Privacy'}
               </Link>
               <Link to="/terms" className="hover:text-white transition-colors">
-                {lang === 'ca' ? 'Termes' : lang === 'es' ? 'Términos' : 'Terms'}
+                {l === 'ca' ? 'Termes' : l === 'es' ? 'Términos' : 'Terms'}
               </Link>
             </nav>
           </div>
