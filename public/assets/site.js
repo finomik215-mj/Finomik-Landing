@@ -424,7 +424,7 @@ if ($('#convo')) {
     const colegio = $('#cvSchool').value.trim(), rol = ($('#convo .opts2 .chip.on') || {}).textContent || '';
     try {
       const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ rol, colegio, email: $('#cvMail').value.trim(), idioma: EN ? 'en' : 'es', pagina: location.pathname, _subject: `Nueva solicitud de demo · ${colegio}` }) });
+        body: JSON.stringify({ rol, colegio, email: $('#cvMail').value.trim(), idioma: EN ? 'en' : 'es', pagina: location.pathname, _gotcha: ($('#cvHp') || {}).value || '', _subject: `Nueva solicitud de demo · ${colegio}` }) });
       if (!r.ok) throw new Error(r.status);
       go(3);
     } catch (e) { if (err) err.hidden = false; next.textContent = tx('Enviar', 'Send'); }

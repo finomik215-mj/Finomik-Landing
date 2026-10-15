@@ -56,8 +56,8 @@ META = {
                   "en": ("Programmes · Finomik", "Four financial education programmes for secondary schools (Adult life, Investing, Entrepreneurship and Economics) that fit your timetable.")},
     "porque": {"es": ("Por qué Finomik · Educación financiera para colegios", "Por qué la educación financiera importa en el colegio y en qué se diferencia Finomik de un libro de texto, una charla o una app."),
                "en": ("Why Finomik · Financial education for schools", "Why financial education matters at school, and how Finomik differs from a textbook, a one-off talk or an app.")},
-    "blog": {"es": ("Blog · Finomik", "Ideas para el aula, datos sobre educación financiera y novedades de Finomik."),
-             "en": ("Blog · Finomik", "Classroom ideas, data on financial education and news from Finomik.")},
+    "blog": {"es": ("Blog de educación financiera · Finomik", "Ideas para el aula, datos sobre educación financiera y novedades de Finomik."),
+             "en": ("Financial education blog · Finomik", "Classroom ideas, data on financial education and news from Finomik.")},
     "demo": {"es": ("Pide una demo · Finomik", "Te enseñamos Finomik en 20 minutos con un caso de tu colegio. Sin compromiso."),
              "en": ("Book a demo · Finomik", "We'll show you Finomik in 20 minutes with a case from your school. No commitment.")},
     "bancos": {"es": ("Finomik para entidades financieras", "Finomik integra la educación financiera en la relación entre el banco y sus clientes: clientes mejor educados, decisiones más sólidas."),
@@ -146,7 +146,8 @@ def head(lang, title, desc, path, alt, extra_ld=(), og_type="website", extra="",
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{SITE}{path}">
 <meta property="og:image" content="{SITE}{og_img or f"/og-{lang}.png"}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="{'Blog de Finomik' if lang == 'es' else 'Finomik blog'}" href="{'/rss.xml' if lang == 'es' else '/en/rss.xml'}">
 <meta name="theme-color" content="#0B3064">
 <link rel="preload" href="/assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 {extra}<script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)}</script>
@@ -391,6 +392,22 @@ for es_u, en_u in SITEMAP:
     for u in (es_u, en_u):
         xs.append(f'<url><loc>{SITE}{u}</loc><lastmod>{hoy}</lastmod><xhtml:link rel="alternate" hreflang="es" href="{SITE}{es_u}"/><xhtml:link rel="alternate" hreflang="en" href="{SITE}{en_u}"/></url>')
 (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(xs) + "\n</urlset>\n", encoding="utf-8")
+# ---------- RSS del blog (para lectores de noticias y agregadores) ----------
+from email.utils import format_datetime
+from datetime import datetime, timezone
+for lang in LANGS:
+    items = "".join(f"""<item><title>{esc(p["title"])}</title><link>{SITE}{purl(p, lang)}</link><guid>{SITE}{purl(p, lang)}</guid>"""
+                    f"""<pubDate>{format_datetime(datetime.fromisoformat(p["date"]).replace(hour=9, tzinfo=timezone.utc))}</pubDate><category>{esc(p["cat"])}</category><description>{esc(p["intro"])}</description></item>"""
+                    for p in POSTS[lang] if not p.get("draft"))
+    nombre = "Blog de Finomik" if lang == "es" else "Finomik blog"
+    rss = (f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{nombre}</title><link>{SITE}{url("blog", lang)}</link>'
+           f'<atom:link href="{SITE}{"/rss.xml" if lang == "es" else "/en/rss.xml"}" rel="self" type="application/rss+xml"/><description>{esc(META["blog"][lang][1])}</description><language>{lang}</language>{items}</channel></rss>\n')
+    (OUT / ("rss.xml" if lang == "es" else "en/rss.xml")).write_text(rss, encoding="utf-8")
+# manifiesto: nombre e icono si alguien guarda la web en la pantalla de inicio del móvil
+(OUT / "site.webmanifest").write_text(json.dumps({"name": "Finomik", "short_name": "Finomik", "description": META["index"]["es"][1], "start_url": "/", "display": "browser",
+    "background_color": "#ffffff", "theme_color": "#0B3064", "icons": [{"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"}, {"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}]}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+(OUT / ".well-known").mkdir(exist_ok=True)
+(OUT / ".well-known" / "security.txt").write_text(f"Contact: mailto:hello@finomik.com\nExpires: {date.today().year + 1}-12-31T23:00:00.000Z\nPreferred-Languages: es, en\nCanonical: {SITE}/.well-known/security.txt\n", encoding="utf-8")
 (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 llms = [f"# Finomik\n\n> Finomik es una plataforma gamificada de educación financiera para colegios de Secundaria. Los alumnos aprenden decidiendo (retos, simulador de inversión con monedas virtuales, noticias explicadas a su nivel y Finny, un tutor con IA que solo habla de educación financiera). El profesor puede dar la clase o dejar que la plataforma explique, y sigue el progreso de cada alumno desde su panel. Datos guardados en la Unión Europea (Alemania), sin publicidad. Disponible en español e inglés. Contacto: hello@finomik.com\n",
         "## Páginas principales (español)\n"] + [f"- [{META[k]['es'][0]}]({SITE}{url(k, 'es')}): {META[k]['es'][1]}" for k in ["index", "alumnos", "profesores", "programas", "porque", "demo", "bancos", "nosotros"]] + \
@@ -408,7 +425,9 @@ redir = [("/articulo/alumnado-sin-educacion-financiera-basica-espana", "/blog/al
 vercel = {"framework": None, "installCommand": "echo sin dependencias", "buildCommand": "echo web ya montada en public", "outputDirectory": "public",
           "cleanUrls": True, "trailingSlash": False,
           "redirects": [{"source": a, "destination": b, "permanent": True} for a, b in redir],
-          "headers": [{"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
+          "headers": [{"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+                                                    {"key": "X-Frame-Options", "value": "SAMEORIGIN"}, {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"}]},
+                      {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
                       {"source": "/media/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=604800"}]}]}
 if not VISTA: (R / "vercel.json").write_text(json.dumps(vercel, indent=2) + "\n", encoding="utf-8")
 print("ok ·", len(list(OUT.rglob("*.html"))), "páginas")

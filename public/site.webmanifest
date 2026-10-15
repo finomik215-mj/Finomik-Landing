@@ -1,0 +1,21 @@
+{
+ "name": "Finomik",
+ "short_name": "Finomik",
+ "description": "Finomik prepara a tus alumnos para las decisiones de la vida adulta con retos, simulación e IA. Y tú lo ves todo desde tu panel.",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#ffffff",
+ "theme_color": "#0B3064",
+ "icons": [
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "/apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  }
+ ]
+}

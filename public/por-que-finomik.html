@@ -11,7 +11,8 @@
 <meta property="og:title" content="Por qué Finomik · Educación financiera para colegios"><meta property="og:description" content="Por qué la educación financiera importa en el colegio y en qué se diferencia Finomik de un libro de texto, una charla o una app."><meta property="og:url" content="https://finomik.com/por-que-finomik">
 <meta property="og:image" content="https://finomik.com/og-es.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Blog de Finomik" href="/rss.xml">
 <meta name="theme-color" content="#0B3064">
 <link rel="preload" href="/assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/montserrat.css">
@@ -49,7 +50,7 @@
   .noise.good small { color:#b48f00; }
 
   .headline { position:absolute; inset:0; display:grid; place-items:center; text-align:center; pointer-events:none; z-index:20; padding:0 16px; }
-  .headline h1 { font-weight:900; letter-spacing:-.05em; line-height:.9; font-size:clamp(3.4rem,11vw,11rem); position:relative; }
+  .headline h1, .h-calm h2 { font-weight:900; letter-spacing:-.05em; line-height:.9; font-size:clamp(3.4rem,11vw,11rem); position:relative; }
   .h-noise { color:#fff; }
   .h-noise span { position:relative; display:inline-block; }
   .glitch::before, .glitch::after { content:attr(data-t); position:absolute; inset:0; pointer-events:none; opacity:0; }
@@ -58,8 +59,8 @@
   .glitch.on::before { opacity:.85; transform:translate(-6px,2px); clip-path:inset(10% 0 55% 0); }
   .glitch.on::after { opacity:.85; transform:translate(6px,-2px); clip-path:inset(55% 0 8% 0); }
   .h-calm { position:absolute; inset:0; display:grid; place-items:center; align-content:center; color:var(--navy); opacity:0; }
-  .h-calm h1 { padding-bottom:.06em; }
-  .h-calm h1 em { font-style:normal; color:var(--gold); }
+  .h-calm h2 { padding-bottom:.06em; }
+  .h-calm h2 em { font-style:normal; color:var(--gold); }
   .h-calm p { margin-top:20px; max-width:34rem; font-size:clamp(16px,1.5vw,20px); line-height:1.5; color:var(--ink); font-weight:500; }
   .h-calm .btn { margin-top:26px; pointer-events:auto; }
   .hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:21; font-weight:700; font-size:12px; letter-spacing:.14em; color:var(--mist); text-align:center; }
@@ -114,7 +115,7 @@
   .tag a { text-decoration:underline; }
   @media (max-width:700px) {
     .noise.good { white-space:normal; width:min(43vw,190px); font-size:12.5px; line-height:1.25; }
-    .h-calm { padding:21vh 20px 0; align-content:start; } .h-calm p { max-width:100%; font-size:16px; } .h-calm h1 { font-size:clamp(2.9rem,13vw,4.2rem); }
+    .h-calm { padding:21vh 20px 0; align-content:start; } .h-calm p { max-width:100%; font-size:16px; } .h-calm h2 { font-size:clamp(2.9rem,13vw,4.2rem); }
   }
   .stage { isolation:isolate; z-index:0; } #field { position:absolute; inset:0; z-index:1; } .nav { z-index:100 !important; transform:translateZ(0); }
   .pq-foot { background:var(--navy); color:rgba(255,255,255,.7); padding:28px clamp(16px,4vw,48px); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font:600 13px Montserrat, sans-serif; border-top:1px solid rgba(255,255,255,.1); }
@@ -162,7 +163,7 @@
   <div class="headline">
     <h1 class="h-noise" id="hn" aria-label="Demasiado ruido. Por qué la educación financiera importa"><span class="glitch" data-t="Demasiado">Demasiado</span><br><span class="glitch" data-t="ruido.">ruido.</span></h1>
     <div class="h-calm" id="hc">
-      <h1>Criterio<em>.</em></h1>
+      <h2>Criterio<em>.</em></h2>
       <p>Finomik enseña a tus alumnos a distinguir lo que importa entre tanto ruido. Y a decidir por sí mismos.</p>
       <a class="btn btn-gold" href="/demo">Pide una demo</a>
     </div>

@@ -42,7 +42,7 @@
   .noise.good small { color:#b48f00; }
 
   .headline { position:absolute; inset:0; display:grid; place-items:center; text-align:center; pointer-events:none; z-index:20; padding:0 16px; }
-  .headline h1 { font-weight:900; letter-spacing:-.05em; line-height:.9; font-size:clamp(3.4rem,11vw,11rem); position:relative; }
+  .headline h1, .h-calm h2 { font-weight:900; letter-spacing:-.05em; line-height:.9; font-size:clamp(3.4rem,11vw,11rem); position:relative; }
   .h-noise { color:#fff; }
   .h-noise span { position:relative; display:inline-block; }
   .glitch::before, .glitch::after { content:attr(data-t); position:absolute; inset:0; pointer-events:none; opacity:0; }
@@ -51,8 +51,8 @@
   .glitch.on::before { opacity:.85; transform:translate(-6px,2px); clip-path:inset(10% 0 55% 0); }
   .glitch.on::after { opacity:.85; transform:translate(6px,-2px); clip-path:inset(55% 0 8% 0); }
   .h-calm { position:absolute; inset:0; display:grid; place-items:center; align-content:center; color:var(--navy); opacity:0; }
-  .h-calm h1 { padding-bottom:.06em; }
-  .h-calm h1 em { font-style:normal; color:var(--gold); }
+  .h-calm h2 { padding-bottom:.06em; }
+  .h-calm h2 em { font-style:normal; color:var(--gold); }
   .h-calm p { margin-top:20px; max-width:34rem; font-size:clamp(16px,1.5vw,20px); line-height:1.5; color:var(--ink); font-weight:500; }
   .h-calm .btn { margin-top:26px; pointer-events:auto; }
   .hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:21; font-weight:700; font-size:12px; letter-spacing:.14em; color:var(--mist); text-align:center; }
@@ -107,7 +107,7 @@
   .tag a { text-decoration:underline; }
   @media (max-width:700px) {
     .noise.good { white-space:normal; width:min(43vw,190px); font-size:12.5px; line-height:1.25; }
-    .h-calm { padding:21vh 20px 0; align-content:start; } .h-calm p { max-width:100%; font-size:16px; } .h-calm h1 { font-size:clamp(2.9rem,13vw,4.2rem); }
+    .h-calm { padding:21vh 20px 0; align-content:start; } .h-calm p { max-width:100%; font-size:16px; } .h-calm h2 { font-size:clamp(2.9rem,13vw,4.2rem); }
   }
   .stage { isolation:isolate; z-index:0; } #field { position:absolute; inset:0; z-index:1; } .nav { z-index:100 !important; transform:translateZ(0); }
 </style>
@@ -126,7 +126,7 @@
   <div class="headline">
     <h1 class="h-noise" id="hn" aria-label="Demasiado ruido. Por qué la educación financiera importa"><span class="glitch" data-t="Demasiado">Demasiado</span><br><span class="glitch" data-t="ruido.">ruido.</span></h1>
     <div class="h-calm" id="hc">
-      <h1>Criterio<em>.</em></h1>
+      <h2>Criterio<em>.</em></h2>
       <p>Finomik enseña a tus alumnos a distinguir lo que importa entre tanto ruido. Y a decidir por sí mismos.</p>
       <a class="btn btn-gold" href="sitio/demo.html">Pide una demo</a>
     </div>
