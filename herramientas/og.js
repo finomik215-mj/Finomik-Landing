@@ -1,4 +1,4 @@
-// Genera las imágenes para compartir (1200x630): public/og-es.png, public/og-en.png y public/og/<idioma>-<slug>.png
+// Genera las imágenes para compartir (1200x630, JPG de menos de 300 KB: WhatsApp no enseña las más pesadas): public/og-es.jpg, public/og-en.jpg y public/og/<idioma>-<slug>.jpg
 // Uso: node herramientas/og.js   (necesita puppeteer-core; ver GUIA-PUBLICAR.md)
 const path = require('path'), fs = require('fs');
 const puppeteer = require(process.env.PUPPETEER || 'puppeteer-core');
@@ -22,16 +22,16 @@ ${p.stat ? `<div class="st"><b>${esc(p.stat)}</b><small>${esc(p.statLabel)}</sma
 (async () => {
   const b = await puppeteer.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true, args: ['--no-first-run', '--allow-file-access-from-files'] });
   const pg = await b.newPage(); await pg.setViewport({ width: 1200, height: 630 });
-  const shot = async (html, out) => { const tmp = path.join(PUB, '_og_tmp.html'); fs.writeFileSync(tmp, html); await pg.goto('file://' + tmp, { waitUntil: 'load' }); await pg.evaluate(() => document.fonts.ready); await pg.screenshot({ path: out }); fs.unlinkSync(tmp); console.log(path.relative(R, out)); };
+  const shot = async (html, out) => { const tmp = path.join(PUB, '_og_tmp.html'); fs.writeFileSync(tmp, html); await pg.goto('file://' + tmp, { waitUntil: 'load' }); await pg.evaluate(() => document.fonts.ready); await pg.screenshot({ path: out, type: 'jpeg', quality: 82 }); fs.unlinkSync(tmp); console.log(path.relative(R, out)); };
   fs.mkdirSync(path.join(PUB, 'og'), { recursive: true });
   for (const lang of ['es', 'en']) {
-    await shot(general(lang), path.join(PUB, `og-${lang}.png`));
+    await shot(general(lang), path.join(PUB, `og-${lang}.jpg`));
     const dir = path.join(R, 'src/blog/posts');
     for (const f of fs.readdirSync(dir).filter((f) => f.endsWith('.json'))) {
       const x = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
       if (x.estado !== 'publicado') continue;
       const d = x[lang], p = { slug: d.slug, title: d.titulo, cat: d.categoria, stat: d.dato, statLabel: d.dato_texto };
-      await shot(article(p, lang), path.join(PUB, 'og', `${lang}-${p.slug}.png`));
+      await shot(article(p, lang), path.join(PUB, 'og', `${lang}-${p.slug}.jpg`));
     }
   }
   await b.close();

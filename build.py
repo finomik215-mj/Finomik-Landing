@@ -144,7 +144,7 @@ def head(lang, title, desc, path, alt, extra_ld=(), og_type="website", extra="",
 <link rel="alternate" hreflang="es" href="{SITE}{es_u}"><link rel="alternate" hreflang="en" href="{SITE}{en_u}"><link rel="alternate" hreflang="x-default" href="{SITE}{es_u}">
 <meta property="og:type" content="{og_type}"><meta property="og:site_name" content="Finomik"><meta property="og:locale" content="{T[lang]['locale']}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{SITE}{path}">
-<meta property="og:image" content="{SITE}{og_img or f"/og-{lang}.png"}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="{SITE}{og_img or f"/og-{lang}.jpg"}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{'Blog de Finomik' if lang == 'es' else 'Finomik blog'}" href="{'/rss.xml' if lang == 'es' else '/en/rss.xml'}">
@@ -372,10 +372,10 @@ for lang in LANGS:
                 f'<p class="pmeta" style="margin-top:28px"><span class="pcat">{esc(p["cat"])}</span> <time datetime="{p["date"]}">{fecha(p["date"], lang)}</time> · {esc(p["read"])} {t["read"]}</p>'
                 f'<h1>{esc(p["title"])}</h1>{portada}{stat}<p class="intro">{esc(p["intro"])}</p>{secs}{cta}</article>\n'
                 f'<section class="sec"><div class="wrap"><p class="eyebrow"><i></i>{t["keep"]}</p><div class="posts" id="related" style="margin-top:22px">{"".join(card(x, lang) for x in rel)}</div></div></section>')
-        ld = {"@type": "BlogPosting", "headline": p["title"], "description": p["intro"], "datePublished": p["date"], "inLanguage": lang, "image": SITE + (f"/og/{lang}-{p['slug']}.png" if (PUB / "og" / f"{lang}-{p['slug']}.png").exists() else f"/og-{lang}.png"),
+        ld = {"@type": "BlogPosting", "headline": p["title"], "description": p["intro"], "datePublished": p["date"], "inLanguage": lang, "image": SITE + (f"/og/{lang}-{p['slug']}.jpg" if (PUB / "og" / f"{lang}-{p['slug']}.jpg").exists() else f"/og-{lang}.jpg"),
               "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": SITE + purl(p, lang)}
         alt = url("blog", "en" if lang == "es" else "es") + "/" + other_slug(p, lang)
-        page("articulo", lang, body, title=f'{p["title"]} · Finomik', desc=p["intro"][:155], ld=[ld], path=purl(p, lang), alt=alt, og_type="article", og_img=(f"/og/{lang}-{p['slug']}.png" if (PUB / "og" / f"{lang}-{p['slug']}.png").exists() else None))
+        page("articulo", lang, body, title=f'{p["title"]} · Finomik', desc=p["intro"][:155], ld=[ld], path=purl(p, lang), alt=alt, og_type="article", og_img=(f"/og/{lang}-{p['slug']}.jpg" if (PUB / "og" / f"{lang}-{p['slug']}.jpg").exists() else None))
 SITEMAP.append((url("blog", "es"), url("blog", "en")))
 for p in POSTS["es"]:
     SITEMAP.append((purl(p, "es"), url("blog", "en") + "/" + p["other"]))
