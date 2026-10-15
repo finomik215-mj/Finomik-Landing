@@ -1,0 +1,109 @@
+<!-- ============ 1 · INICIO ============ -->
+<header class="hero" id="inicio" data-dark>
+  <div class="film" id="film">
+    <div class="scene on" style="background-image:url(/media/piso-1920.webp?v=1);background-image:image-set(url(/media/piso-1920.webp?v=1) 1x, url(/media/piso.webp?v=1) 2x);--m:url(/media/piso-m.webp?v=1)"></div>
+    <div class="scene" style="background-image:url(/media/trabajo-1920.webp?v=1);background-image:image-set(url(/media/trabajo-1920.webp?v=1) 1x, url(/media/trabajo.webp?v=1) 2x);--m:url(/media/trabajo-m.webp?v=1)"></div>
+    <div class="scene" style="background-image:url(/media/negocio-1920.webp?v=1);background-image:image-set(url(/media/negocio-1920.webp?v=1) 1x, url(/media/negocio.webp?v=1) 2x);--m:url(/media/negocio-m.webp?v=1)"></div>
+    <div class="scene" style="background-image:url(/media/contrato-1920.webp?v=1);background-image:image-set(url(/media/contrato-1920.webp?v=1) 1x, url(/media/contrato.webp?v=1) 2x);--m:url(/media/contrato-m.webp?v=1)"></div>
+  </div>
+  <div class="hero-copy">
+    <p class="eyebrow" style="color:rgba(255,255,255,.75)"><i></i>Educación financiera para colegios</p>
+    <h1><span>Su primer</span> <span class="rot" id="rot"><span><b>piso</b>,</span><span><b>trabajo</b>,</span><span><b>negocio</b>,</span><span><b>contrato</b>,</span></span> <span style="display:block">sin improvisar.</span></h1>
+    <div class="hero-row">
+      <div>
+        <p class="lead">Finomik prepara a tus alumnos para las decisiones de la vida adulta con retos, simulación e IA. Y tú lo ves todo desde tu panel.</p>
+        <div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Pide una demo</a><a class="btn btn-ghost" href="#como">Cómo funciona ↓</a></div>
+        {{redes}}
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2 · EL PROBLEMA: LA PRIMERA NÓMINA ============ -->
+<section class="ch" id="problema" style="padding-top:12px" data-dark>
+  <div class="stage navy dark" style="padding:clamp(70px,10vh,110px) 0">
+    <div class="wrap">
+      <p class="eyebrow"><i></i>El problema</p>
+      <h2 class="h2">Les dijeron 1.500 al mes.<br><span>¿Sabrían cuánto cobran?</span></h2>
+      <p class="lead">Es su primer contrato. Antes de ver su recibo de sueldo, calcula tú: ¿cuánto llega de verdad a la cuenta?</p>
+      <div class="payslip-game">
+        <div class="offer">
+          <span class="tag">ACEPTADA</span>
+          <small>Oferta de trabajo · Tu primer contrato</small>
+          <p class="big">1.500 <span>brutos al mes</span></p>
+          <div class="guess">
+            <label for="guessR">¿Cuánto crees que cobra cada mes?</label>
+            <p class="guess-val" id="guessV">1.500</p>
+            <input type="range" id="guessR" min="900" max="1500" step="5" value="1500">
+            <button class="btn btn-gold" id="reveal" style="margin-top:18px">Ver su recibo</button>
+          </div>
+        </div>
+        <div class="slip" id="slip">
+          <div class="lock" id="slipLock"><span class="lk"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b>Mueve la barra y pulsa<br>"Ver su recibo"</b></span></div>
+          <div id="slipBody" style="display:none">
+            <h4>Recibo de sueldo · Octubre <small>Datos de ejemplo</small></h4>
+            <div class="row"><span>Salario bruto</span><b>1.500,00</b></div>
+            <div class="row"><span>Aportes a la seguridad social</span><b class="neg">−97,35</b></div>
+            <div class="row"><span>Impuestos retenidos</span><b class="neg">−157,35</b></div>
+            <div class="row total"><span>Líquido a percibir</span><b>1.245,30</b></div>
+            <p class="verdict" id="verdict"></p>
+          </div>
+        </div>
+      </div>
+      <div class="whys" id="whys">
+        <button class="chip" data-a="Porque el <b>bruto</b> no es lo que cobras: se descuentan los aportes sociales y los impuestos. Lo que llega es el <b>neto</b>.">¿Por qué cobra menos?</button>
+        <button class="chip" data-a="Un contrato dice <b>periodo de prueba, horas, vacaciones y salario</b>. Firmar sin leerlo es aceptar lo que no conoces.">¿Qué está firmando?</button>
+        <button class="chip" data-a="Una regla para empezar: <b>primero ahorra, después gasta</b>. Aunque sea poco, cada mes.">¿Cuánto debería ahorrar?</button>
+      </div>
+      <p class="why-ans" id="whyAns">Nadie se lo explica en el colegio. <b>Hasta ahora.</b></p>
+      <a class="more" href="{{url:porque}}" style="color:#fff">Por qué la educación financiera importa →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="sec" id="como">
+  <div class="wrap">
+    <p class="eyebrow"><i></i>Cómo funciona</p>
+    <h2 class="h2">Tres piezas.<br><span>Una sola plataforma.</span></h2>
+    <div class="doors" id="doors">
+      <article class="door a on" tabindex="0">
+        <span class="num">01 · ALUMNOS</span><span class="plus">+</span>
+        <h3>Aprenden decidiendo.</h3>
+        <p>Situaciones reales, retos que suman monedas y un simulador para invertir sin riesgo.</p>
+        <div class="mini"><div class="mq" id="mq"><b>¿Qué le conviene a Lucía?</b><div class="o">Pagar el celular a plazos</div><div class="o">Ahorrar 4 meses y pagarlo <span class="plus50">+50</span></div></div></div>
+        <a class="go" href="{{url:alumnos}}">Ver cómo aprenden →</a>
+      </article>
+      <article class="door b" tabindex="0">
+        <span class="num">02 · PROFESORES</span><span class="plus">+</span>
+        <h3>Tú lo ves y lo controlas todo.</h3>
+        <p>Quién avanza y quién se atasca, qué contenido ve tu clase y exámenes listos en Word.</p>
+        <div class="mini"><div class="ml" id="ml"><div class="r">Lucía<span class="t"><i style="width:92%"></i></span>92 %</div><div class="r">Marc<span class="t"><i style="width:74%"></i></span>74 %</div><div class="r">Pablo<span class="t"><i class="w" style="width:18%"></i></span>18 %</div><div class="al"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg> Pablo lleva 2 lecciones sin entrar</div></div></div>
+        <a class="go" href="{{url:profesores}}">Ver el panel del profesor →</a>
+      </article>
+      <article class="door c" tabindex="0">
+        <span class="num">03 · TU COLEGIO</span><span class="plus">+</span>
+        <h3>Se adapta a tu horario.</h3>
+        <p>Elige programas y horas a la semana: el trimestre se monta solo.</p>
+        <div class="mini"><div class="mc" id="mc"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <a class="go" href="{{url:programas}}">Ver los programas →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONFIANZA ============ -->
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow"><i></i>Confianza</p>
+    <h2 class="h2">Seguro para tus alumnos.<br><span>Fácil para tu equipo.</span></h2>
+    <div class="trust">
+      <div><b>Datos en la UE</b><span>Guardados en servidores en Alemania. Sin publicidad y sin vender datos.</span></div>
+      <div><b>El profesor decide</b><span>Activa o desactiva vídeos, retos o la IA para cada clase.</span></div>
+      <div><b>Sin instalar nada</b><span>En el navegador, en español e inglés.</span></div>
+    </div>
+  </div>
+</section>
+<section class="sec"><div class="stage navy dark cta-band"><h2>Que decidan<br>con <em>criterio</em>.</h2><p>Te enseñamos Finomik en 20 minutos, con un caso de tu colegio.</p><div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Pide una demo</a><a class="btn btn-ghost" href="{{url:porque}}">Por qué Finomik</a></div></div></section>

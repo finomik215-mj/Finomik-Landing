@@ -1,0 +1,93 @@
+<header class="phead"><div class="wrap"><p class="eyebrow"><i></i>Para el profesor</p><h1>Tu clase, <em>a tu manera</em>.</h1><p class="lead">Finomik es híbrido: puedes dar tú la clase o dejar que tus alumnos avancen por su cuenta. Y cambiar de una forma a otra cuando quieras.</p></div></header>
+<section class="sec" id="hibrido" style="padding-top:0">
+  <div class="wrap">
+    <div class="hy" id="hy">
+      <div class="hy-modes">
+        <button class="hy-mode on" data-m="0"><span class="hy-ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l4-4 4 4M7 9h6M7 12h10"/></svg></span><span><b>Tú das la clase</b><small>Finomik pone las actividades</small></span></button>
+        <button class="hy-mode" data-m="1"><span class="hy-ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15l-3-3c1-4 4-8 10-9-1 6-5 9-9 10z"/><path d="M9 12l-4 1-2 4 5-1M12 15l-1 4-4 2 1-5"/><circle cx="15" cy="9" r="1.5"/></svg></span><span><b>Aprenden por su cuenta</b><small>La plataforma explica sola</small></span></button>
+        <ul class="hy-list" id="hyList"></ul>
+        <p class="hy-note">Puedes cambiar de modo cuando quieras: por clase, por lección o según el día.</p>
+      </div>
+      <div class="hy-stage">
+        <div class="hy-room" id="hyRoom">
+          <div class="hy-board"><span class="hy-who" id="hyWho">Tú explicas en clase</span><b id="hyBoardT">El presupuesto, explicado a tu manera</b><i class="hy-dot"></i></div>
+          <div class="hy-lesson">
+            <p class="hy-lt">Lección · La regla 50/30/20 <span id="hyTag">Vista del alumno</span></p>
+            <div class="hy-b" data-k="t"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></svg></span><span>Teoría<small>Lectura · 3 min</small></span><em class="hy-off">Oculta por ti</em></div>
+            <div class="hy-b" data-k="v"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></span><span>Vídeo<small>Los gastos hormiga · 30 s</small></span><em class="hy-off">Oculto por ti</em></div>
+            <div class="hy-b" data-k="f"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span><span>Finny, tutor con IA<small>Resuelve sus dudas</small></span><em class="hy-off">Apagado en clase</em></div>
+            <div class="hy-b on" data-k="r"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></span><span>Retos<small>Se corrigen solos · +50 monedas</small></span><em class="hy-off"></em></div>
+            <div class="hy-live" id="hyLive"><i></i><span id="hyLiveT">Tú ves los resultados al momento</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 5 · PROFESORES ============ -->
+<section class="sec" id="profesores">
+  <div class="wrap"><p class="eyebrow"><i></i>Tu panel</p><h2 class="h2" style="font-size:clamp(2rem,3.6vw,3.4rem)">Y en los dos casos,<br><span>lo ves todo desde tu panel.</span></h2>
+
+    
+    <div class="tabs" id="tabsT"><button class="on">Seguimiento</button><button>Intervención</button><button>Mensajes</button><button>Exámenes</button></div>
+    <p class="tab-copy" id="tabCopy"></p>
+    <div style="margin-top:22px">
+      <div class="device" id="devT">
+        <div class="app">
+          <aside class="side"><img src="/media/logo-blanco.png" alt=""><button type="button" class="sl on"><i></i>Mi clase</button><button type="button" class="sl"><i></i>Intervención</button><button type="button" class="sl"><i></i>Mensajes</button><button type="button" class="sl"><i></i>Exportar</button></aside>
+          <div class="top"><b>Clase 4B · Módulo Presupuesto</b><div class="stats"><span>María, profesora</span></div></div>
+          <div class="screens">
+            <!-- seguimiento -->
+            <div class="screen on">
+              <div class="metrics"><div class="card"><b class="cnt" data-v="25">0</b><small>alumnos</small></div><div class="card alert"><b class="cnt" data-v="3">0</b><small>alertas activas</small></div><div class="card"><b class="cnt" data-v="413">0</b><small>XP media de la clase</small></div></div>
+              <div class="cls"><div class="card" style="padding:calc(1.2cqw * var(--k))"><div id="studs"></div></div>
+                <div class="card"><p style="font-weight:900;font-size:calc(1.5cqw * var(--k))">Alertas</p><div class="alerts" style="margin-top:calc(1cqw * var(--k))"><div class="al"><i></i>Pablo lleva 2 lecciones sin entrar.</div><div class="al"><i></i>4 alumnos fallan el reto de la regla 50/30/20.</div><div class="al"><i></i>Hugo va por debajo del ritmo de la clase.</div></div></div></div>
+              <aside class="ficha" id="ficha"><button class="x" id="fichaX" aria-label="Cerrar">✕</button><img id="fImg" src="/media/av/astronauta.webp?v=2" alt=""><p class="fn" id="fName" role="heading" aria-level="3"></p><div class="r"><span>Progreso del curso</span><b id="fPct"></b></div><div class="r"><span>Retos acertados</span><b id="fOk"></b></div><div class="r"><span>Última conexión</span><b id="fLast"></b></div><div class="r"><span>Le cuesta</span><b id="fHard"></b></div><button class="mini-btn gold" id="skipL">Saltarle esta lección</button></aside>
+              <div class="toast" id="toastT"></div>
+            </div>
+            <!-- intervención -->
+            <div class="screen">
+              <div class="rules">
+                <div class="card"><p style="font-weight:900;font-size:calc(1.5cqw * var(--k))">Reglas de esta clase</p>
+                  <button class="tg" data-k="video"><span>Vídeos<small>Las píldoras en vídeo</small></span><span class="sw"></span></button>
+                  <button class="tg" data-k="teoria"><span>Teoría<small>Lecturas e infografías</small></span><span class="sw"></span></button>
+                  <button class="tg" data-k="retos"><span>Retos<small>Actividades que dan monedas</small></span><span class="sw"></span></button>
+                  <button class="tg" data-k="finny"><span>Finny, tutor con IA<small>Ayuda generada con inteligencia artificial</small></span><span class="sw"></span></button>
+                  <button class="tg" data-k="cert"><span>Certificados<small>Al terminar el programa</small></span><span class="sw"></span></button></div>
+                <div class="card"><p style="font-weight:900;font-size:calc(1.5cqw * var(--k))">Lo que verá el alumno</p><p class="sub">Vista previa en directo</p>
+                  <div class="preview"><div class="pv" data-k="video"><i style="background:#e8eef8"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></i>Vídeo · Los gastos hormiga</div><div class="pv" data-k="teoria"><i style="background:#e8eef8"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></svg></i>Lectura · La regla 50/30/20</div><div class="pv" data-k="retos"><i style="background:#fff6d1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></i>Reto · ¿Qué le conviene a Lucía?</div><div class="pv" data-k="finny"><i style="background:var(--gold)">F</i>Pregúntale a Finny</div><div class="pv" data-k="cert"><i style="background:var(--okbg)"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg></i>Certificado al terminar</div></div></div>
+              </div>
+            </div>
+            <!-- mensajes -->
+            <div class="screen">
+              <div class="compose"><div class="card"><p style="font-weight:900;font-size:calc(1.5cqw * var(--k))">Nuevo mensaje · a toda la clase</p>
+                  <div class="field" id="mSubj"></div><div class="field area" id="mBody"></div>
+                  <button class="mini-btn gold" id="mSend" style="margin-top:calc(1.2cqw * var(--k))">Enviar a 25 alumnos</button></div>
+                <div class="card"><p style="font-weight:900;font-size:calc(1.5cqw * var(--k))">Enviados</p><div class="sent-list" id="sent"><div>Bienvenidos al módulo de Ahorro<small>Hace 6 días · 25 alumnos</small></div></div></div></div>
+              <div class="toast" id="toastM"></div>
+            </div>
+            <!-- exámenes -->
+            <div class="screen">
+              <div class="exp"><div class="card"><p style="font-weight:900;font-size:calc(1.5cqw * var(--k))">Elige qué entra en el examen</p>
+                  <div id="cks" style="margin-top:calc(.8cqw * var(--k))">
+                    <button class="ck on" data-n="12"><i>✓</i>Módulo 1 · Vida adulta<small>12 preguntas</small></button>
+                    <button class="ck on" data-n="14"><i>✓</i>Módulo 2 · Presupuesto<small>14 preguntas</small></button>
+                    <button class="ck" data-n="10"><i>✓</i>Módulo 3 · Tu primer trabajo<small>10 preguntas</small></button>
+                    <button class="ck" data-n="9"><i>✓</i>Módulo 4 · Ahorro e inversión<small>9 preguntas</small></button>
+                  </div>
+                  <button class="tg" id="solTg" style="margin-top:calc(.6cqw * var(--k))"><span>Incluir soluciones al final<small>Una página extra con las respuestas</small></span><span class="sw"></span></button></div>
+                <div class="card" style="text-align:center"><p class="sub" style="margin:0">Preguntas seleccionadas</p><p class="big-n" id="qN">26</p>
+                  <div class="docgen"><div class="doc" id="docEl"><i style="width:60%"></i><i></i><i style="width:85%"></i><i></i><i style="width:70%"></i><i style="width:90%"></i></div></div>
+                  <button class="mini-btn gold" id="dl" style="margin-top:calc(1.2cqw * var(--k))">⬇ Descargar en Word</button></div></div>
+              <div class="toast" id="toastE"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="demo-note">Demo con datos de ejemplo. Pulsa un alumno, un interruptor o un botón.</p>
+    </div>
+    
+  </div>
+</section>
+
+<section class="sec"><div class="stage navy dark cta-band"><h2>Que decidan<br>con <em>criterio</em>.</h2><p>Te enseñamos Finomik en 20 minutos, con un caso de tu colegio.</p><div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Pide una demo</a><a class="btn btn-ghost" href="{{url:porque}}">Por qué Finomik</a></div></div></section>

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · Panel de Finomik</title>
+<link rel="icon" href="/favicon-32.png">
+<link rel="stylesheet" href="/assets/fonts/montserrat.css">
+<style>
+  :root { --navy:#0B3064; --gold:#F5C518; --mist:#C8D0DD; --line:#e3e8f0; --fog:#627491; --sky:#4B6A9E; --ink:#3C4C67; --paper:#F4F6FA; --ok:#1c8a52; --okbg:#e7f6ee; --bad:#d1344b; --ease:cubic-bezier(.16,1,.3,1); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Montserrat, system-ui, sans-serif; background:var(--paper); color:var(--navy); -webkit-font-smoothing:antialiased; font-size:16px; }
+  button, input, textarea { font:inherit; color:inherit; } button { cursor:pointer; } a { color:inherit; }
+  /* cabecera */
+  .top { position:sticky; top:0; z-index:30; display:flex; align-items:center; gap:14px; padding:14px clamp(16px,4vw,40px); background:var(--navy); color:#fff; }
+  .top img { height:26px; } .top .t { font-weight:800; font-size:14px; opacity:.75; } .top .sp { flex:1; }
+  .top a.lnk { font-weight:700; font-size:14px; opacity:.85; text-decoration:none; padding:8px 12px; border-radius:999px; } .top a.lnk:hover { background:rgba(255,255,255,.1); }
+  .btn { border:0; border-radius:999px; padding:12px 22px; font-weight:800; font-size:15px; display:inline-flex; align-items:center; justify-content:center; gap:8px; transition:transform .25s var(--ease), opacity .2s, background .2s; white-space:nowrap; text-decoration:none; }
+  .btn:hover { transform:translateY(-1px); } .btn:disabled { opacity:.45; transform:none; cursor:default; }
+  .gold { background:var(--gold); color:var(--navy); } .navy { background:var(--navy); color:#fff; } .ghost { background:#fff; border:1.5px solid var(--mist); color:var(--navy); } .red { background:#fff; border:1.5px solid #f2b8c2; color:var(--bad); } .plain { background:none; color:var(--sky); padding-left:4px; padding-right:4px; }
+  .page { max-width:1120px; margin:0 auto; padding:clamp(28px,5vw,56px) clamp(16px,4vw,40px) 140px; }
+  .narrow { max-width:820px; }
+  h1.big { font-size:clamp(2.2rem,4.5vw,3.2rem); font-weight:900; letter-spacing:-.04em; line-height:1; }
+  p.lead { margin-top:12px; color:var(--ink); font-weight:500; line-height:1.6; font-size:17px; max-width:44rem; }
+  .head { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+  /* lista */
+  .tools-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:36px; }
+  .search { flex:1; min-width:220px; border:1.5px solid var(--mist); background:#fff; border-radius:999px; padding:13px 20px; font-weight:600; outline:none; } .search:focus { border-color:var(--navy); }
+  .seg { display:inline-flex; background:#fff; border:1.5px solid var(--line); border-radius:999px; padding:5px; gap:2px; }
+  .seg button { border:0; background:none; border-radius:999px; padding:9px 16px; font-weight:800; font-size:14px; color:var(--fog); } .seg button.on { background:var(--navy); color:#fff; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:22px; margin-top:28px; }
+  .card { background:#fff; border-radius:22px; overflow:hidden; text-align:left; border:0; display:flex; flex-direction:column; box-shadow:0 14px 40px -30px rgba(11,48,100,.55); transition:transform .35s var(--ease), box-shadow .35s; }
+  .card:hover { transform:translateY(-4px); box-shadow:0 26px 50px -30px rgba(11,48,100,.6); }
+  .card .im { aspect-ratio:16/8; background:linear-gradient(135deg,#114076,#0B3064) center/cover; display:grid; place-items:center; color:rgba(255,255,255,.35); font-weight:900; font-size:22px; letter-spacing:-.02em; }
+  .card .bd { padding:20px 22px 22px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .card b { font-size:18px; font-weight:800; line-height:1.3; letter-spacing:-.01em; }
+  .card .en { font-size:14px; color:var(--fog); font-weight:600; line-height:1.4; }
+  .card .ft { margin-top:auto; padding-top:6px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; font-size:13px; color:var(--fog); font-weight:700; }
+  .tag { border-radius:999px; padding:4px 10px; font-size:11px; font-weight:800; letter-spacing:.06em; } .tag.pub { background:var(--okbg); color:var(--ok); } .tag.bor { background:#fff3c4; color:#7a5b00; } .tag.dest { background:var(--navy); color:var(--gold); }
+  .empty { margin-top:40px; text-align:center; color:var(--fog); font-weight:600; }
+  /* editor */
+  .back { display:inline-flex; gap:8px; font-weight:800; color:var(--sky); text-decoration:none; font-size:15px; }
+  .stepper { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:26px; }
+  .stepper a { text-decoration:none; background:#fff; border:1.5px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; flex-direction:column; gap:3px; transition:border-color .2s; }
+  .stepper a small { font-size:12px; font-weight:800; letter-spacing:.08em; color:var(--fog); } .stepper a span { font-weight:800; font-size:15px; }
+  .stepper a.on { border-color:var(--navy); background:var(--navy); color:#fff; } .stepper a.on small { color:var(--gold); }
+  .stepper a.ok:not(.on) small::after { content:" ✓"; color:var(--ok); }
+  .panel { background:#fff; border-radius:26px; padding:clamp(22px,4vw,44px); margin-top:22px; box-shadow:0 14px 40px -32px rgba(11,48,100,.5); }
+  .panel h2 { font-size:clamp(1.5rem,2.6vw,2rem); font-weight:900; letter-spacing:-.03em; } .panel > p.sub { margin-top:8px; color:var(--ink); font-weight:500; line-height:1.6; }
+  .fld { margin-top:30px; }
+  .fld > label { display:block; font-weight:800; font-size:15px; } .fld > .hint { display:block; margin-top:4px; font-size:13.5px; color:var(--fog); font-weight:600; line-height:1.5; }
+  .in { width:100%; margin-top:12px; border:1.5px solid var(--mist); border-radius:14px; padding:15px 17px; font-weight:600; font-size:16px; background:#fff; outline:none; line-height:1.55; transition:border-color .2s; }
+  .in:focus { border-color:var(--navy); box-shadow:0 0 0 4px rgba(11,48,100,.07); }
+  textarea.in { resize:vertical; font-weight:500; display:block; }
+  textarea.title { font-size:clamp(1.4rem,2.4vw,1.9rem); font-weight:900; letter-spacing:-.025em; line-height:1.2; resize:none; overflow:hidden; }
+  textarea.body { min-height:420px; font-size:16px; line-height:1.7; }
+  .url { margin-top:12px; display:flex; flex-wrap:wrap; align-items:center; gap:4px; font-size:14px; color:var(--fog); font-weight:600; }
+  .url input { border:0; border-bottom:1.5px dashed var(--mist); font-weight:800; color:var(--navy); padding:4px 2px; outline:none; min-width:260px; flex:1; font-size:14px; }
+  .two { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr); gap:14px; }
+  .fmt { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; } .fmt button { border:1.5px solid var(--mist); background:#fff; border-radius:10px; padding:8px 13px; font-weight:800; font-size:13.5px; } .fmt button:hover { border-color:var(--navy); }
+  .note { margin-top:14px; background:var(--paper); border-radius:16px; padding:16px 18px; color:var(--ink); font-size:14px; line-height:1.7; font-weight:500; } .note code { background:#fff; border-radius:6px; padding:1px 7px; font-size:13px; font-weight:700; color:var(--navy); }
+  .switch { display:flex; gap:14px; align-items:center; margin-top:14px; font-weight:700; } .switch input { width:22px; height:22px; accent-color:var(--navy); }
+  .cover { display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-top:14px; } .cover .pv { width:260px; aspect-ratio:16/9; border-radius:16px; background:var(--paper) center/cover; border:1.5px dashed var(--mist); display:grid; place-items:center; color:var(--fog); font-weight:700; font-size:14px; }
+  .cover .pv.has { border-style:solid; border-color:transparent; }
+  .estado { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px; }
+  .estado button { text-align:left; border:2px solid var(--line); background:#fff; border-radius:18px; padding:18px; display:flex; flex-direction:column; gap:6px; }
+  .estado button b { font-size:17px; font-weight:900; } .estado button span { font-size:14px; color:var(--ink); font-weight:500; line-height:1.5; }
+  .estado button.on.bor { border-color:var(--gold); background:#fffbea; } .estado button.on.pub { border-color:var(--ok); background:var(--okbg); }
+  .check { margin-top:16px; display:grid; gap:10px; } .check div { display:flex; gap:12px; align-items:center; font-weight:700; font-size:15px; } .check i { font-style:normal; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:13px; flex:none; }
+  .check .y { background:var(--okbg); color:var(--ok); } .check .n { background:#fde8eb; color:var(--bad); } .check .o { background:var(--paper); color:var(--fog); }
+  .previews { display:flex; gap:12px; flex-wrap:wrap; margin-top:16px; }
+  /* barra inferior */
+  .foot { position:fixed; left:0; right:0; bottom:0; z-index:25; background:rgba(255,255,255,.94); backdrop-filter:blur(12px); border-top:1px solid var(--line); }
+  .foot > div { max-width:820px; margin:0 auto; padding:14px clamp(16px,4vw,40px); display:flex; align-items:center; gap:12px; }
+  .foot .sp { flex:1; } .foot .st { font-size:13px; font-weight:700; color:var(--fog); display:flex; gap:8px; align-items:center; } .foot .st i { width:9px; height:9px; border-radius:50%; background:var(--ok); } .foot .st.dirty i { background:var(--gold); }
+  /* avisos y ventanas */
+  .toast { position:fixed; left:50%; bottom:96px; transform:translate(-50%,24px); opacity:0; background:var(--navy); color:#fff; padding:14px 22px; border-radius:16px; font-weight:700; font-size:14.5px; z-index:60; transition:all .35s var(--ease); max-width:min(560px,90vw); text-align:center; pointer-events:none; }
+  .toast.show { opacity:1; transform:translate(-50%,0); } .toast.err { background:var(--bad); }
+  .modal { position:fixed; inset:0; background:rgba(6,26,56,.55); display:none; place-items:center; z-index:50; padding:16px; } .modal.open { display:grid; }
+  .modal > div { background:#fff; border-radius:26px; padding:30px; width:min(580px,100%); max-height:85vh; overflow:auto; }
+  .modal h4 { font-size:22px; font-weight:900; letter-spacing:-.02em; } .modal p { margin-top:10px; color:var(--ink); line-height:1.65; font-weight:500; }
+  .modal .row { display:flex; gap:10px; justify-content:flex-end; margin-top:24px; flex-wrap:wrap; }
+  .pasos { margin-top:16px; display:grid; gap:10px; } .pasos div { display:flex; gap:12px; font-weight:700; }
+  .trash { margin-top:28px; display:grid; gap:12px; } .trash > div { background:#fff; border-radius:18px; padding:18px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; font-weight:700; }
+  @media (max-width:760px) { .top { gap:6px; padding:10px 12px; } .top img { height:22px; } .top a.lnk { font-size:13px; padding:7px 8px; } .top .btn { padding:9px 13px; font-size:13px; } .top .btn .lg { display:none; }
+    .stepper { grid-template-columns:1fr 1fr; } .two, .estado { grid-template-columns:1fr; } .top .t { display:none; } .cover .pv { width:100%; } .foot .st { display:none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <img src="/media/logo-blanco.png" alt="Finomik"><span class="t">Blog · panel</span><span class="sp"></span>
+  <a class="lnk" href="#/">Artículos</a><a class="lnk" href="#/papelera">Papelera</a>
+  <button class="btn gold" id="bPublicar">Publicar<span class="lg">&nbsp;en la web</span></button>
+</header>
+<div id="app"></div>
+<div class="modal" id="modal"><div id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+<input type="file" id="file" accept="image/*" hidden>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const api = async (url, opt = {}) => { const r = await fetch(url, { headers: { 'Content-Type': 'application/json' }, ...opt, body: opt.body && JSON.stringify(opt.body) }); const d = await r.json().catch(() => ({})); if (!r.ok) throw Object.assign(new Error(d.error || 'Algo ha fallado'), { data: d }); return d; };
+const slugify = (t) => (t || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+const fecha = (f) => { try { return new Date(f + 'T12:00').toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' }); } catch { return f; } };
+function toast(m, err) { const t = $('#toast'); t.textContent = m; t.className = 'toast show' + (err ? ' err' : ''); clearTimeout(t._t); t._t = setTimeout(() => (t.className = 'toast'), err ? 6500 : 2800); }
+function modal(html) { $('#modalBox').innerHTML = html; $('#modal').classList.add('open'); }
+const cerrar = () => $('#modal').classList.remove('open');
+$('#modal').onclick = (e) => { if (e.target.id === 'modal') cerrar(); };
+
+let lista = [], filtro = '', busca = '', post = null, sucio = false, cats = { es: [], en: [] };
+const PASOS = [['ajustes', 'Ajustes'], ['es', 'Castellano'], ['en', 'Inglés'], ['revisar', 'Revisar y publicar']];
+
+/* ---------- rutas ---------- */
+async function ruta() {
+  const h = location.hash.slice(1) || '/';
+  const m = h.match(/^\/articulo\/([a-z0-9-]+)(?:\/([a-z]+))?$/);
+  scrollTo(0, 0);
+  if (m) return editor(m[1], m[2] || 'ajustes');
+  if (h === '/papelera') return papelera();
+  return inicio();
+}
+addEventListener('hashchange', async (e) => {
+  if (sucio && post && !location.hash.startsWith('#/articulo/' + post.id)) {
+    if (!confirm('Tienes cambios sin guardar. ¿Salir sin guardar?')) { history.replaceState(null, '', e.oldURL); return; }
+    sucio = false;
+  }
+  ruta();
+});
+
+/* ---------- inicio: lista ---------- */
+async function inicio() {
+  post = null; lista = await api('/api/posts');
+  $('#app').innerHTML = `<div class="page">
+    <div class="head"><div><h1 class="big">Blog</h1><p class="lead">Todo lo que se publica en finomik.com/blog. Los borradores no se ven en la web hasta que los marques como publicados y pulses <b>Publicar en la web</b>.</p></div>
+    <button class="btn navy" id="bNuevo">+ Nuevo artículo</button></div>
+    <div class="tools-row"><input class="search" id="q" placeholder="Buscar por título" value="${esc(busca)}">
+      <div class="seg" id="filt"><button data-f="">Todos</button><button data-f="publicado">Publicados</button><button data-f="borrador">Borradores</button></div></div>
+    <div class="grid" id="grid"></div></div>`;
+  $$('#filt button').forEach((b) => { b.classList.toggle('on', b.dataset.f === filtro); b.onclick = () => { filtro = b.dataset.f; inicio(); }; });
+  $('#q').oninput = (e) => { busca = e.target.value; pintarGrid(); };
+  $('#bNuevo').onclick = async () => { const x = await api('/api/posts', { method: 'POST' }); location.hash = `#/articulo/${x.id}/ajustes`; toast('Borrador creado.'); };
+  pintarGrid();
+}
+function pintarGrid() {
+  const q = busca.toLowerCase(), v = lista.filter((x) => (!filtro || x.estado === filtro) && (x.titulo_es + ' ' + x.titulo_en).toLowerCase().includes(q));
+  $('#grid').innerHTML = v.map((x) => `<a class="card" href="#/articulo/${x.id}/ajustes" style="text-decoration:none">
+      <div class="im" style="${x.imagen ? `background-image:url('${esc(x.imagen)}')` : ''}">${x.imagen ? '' : 'Finomik'}</div>
+      <div class="bd"><b>${esc(x.titulo_es || 'Sin título')}</b>${x.titulo_en ? `<span class="en">${esc(x.titulo_en)}</span>` : ''}
+      <div class="ft"><span class="tag ${x.estado === 'publicado' ? 'pub' : 'bor'}">${x.estado === 'publicado' ? 'PUBLICADO' : 'BORRADOR'}</span>${x.destacado ? '<span class="tag dest">DESTACADO</span>' : ''}<span>${fecha(x.fecha)}</span></div></div></a>`).join('');
+  if (!v.length) $('#grid').insertAdjacentHTML('afterend', '<p class="empty" id="vacio">No hay artículos con ese filtro.</p>'); else $('#vacio')?.remove();
+}
+
+/* ---------- editor por pasos ---------- */
+async function editor(id, paso) {
+  if (!post || post.id !== id) { try { post = await api('/api/posts/' + id); sucio = false; } catch { location.hash = '#/'; return; } }
+  if (!cats.es.length) cats = await api('/api/categorias');
+  const i = PASOS.findIndex((p) => p[0] === paso), sig = PASOS[i + 1], ant = PASOS[i - 1];
+  const hecho = { ajustes: !!post.fecha, es: !!(post.es.titulo && post.es.texto), en: !!(post.en.titulo && post.en.texto), revisar: post.estado === 'publicado' };
+  $('#app').innerHTML = `<div class="page narrow">
+    <a class="back" href="#/">← Todos los artículos</a>
+    <h1 class="big" style="margin-top:18px;font-size:clamp(1.8rem,3.6vw,2.6rem)">${esc(post.es.titulo || post.en.titulo || 'Artículo nuevo')}</h1>
+    <nav class="stepper">${PASOS.map(([k, n], j) => `<a href="#/articulo/${post.id}/${k}" class="${k === paso ? 'on' : ''}${hecho[k] ? ' ok' : ''}"><small>PASO ${j + 1}</small><span>${n}</span></a>`).join('')}</nav>
+    <section class="panel">${paso === 'ajustes' ? pAjustes() : paso === 'revisar' ? pRevisar() : pIdioma(paso)}</section>
+  </div>
+  <div class="foot"><div>
+    ${ant ? `<a class="btn ghost" href="#/articulo/${post.id}/${ant[0]}">← ${ant[1]}</a>` : '<a class="btn ghost" href="#/">← Artículos</a>'}
+    <span class="sp"></span><span class="st${sucio ? ' dirty' : ''}" id="st"><i></i><span>${sucio ? 'Sin guardar' : 'Guardado'}</span></span>
+    <button class="btn navy" id="bGuardar">Guardar</button>
+    ${sig ? `<a class="btn gold" href="#/articulo/${post.id}/${sig[0]}" id="bSig">${sig[1]} →</a>` : ''}
+  </div></div>`;
+  enlazar(paso);
+}
+const fld = (label, hint, html) => `<div class="fld"><label>${label}</label>${hint ? `<span class="hint">${hint}</span>` : ''}${html}</div>`;
+function pAjustes() {
+  const x = post;
+  return `<h2>Ajustes del artículo</h2><p class="sub">Lo que comparten las dos versiones del artículo.</p>
+    ${fld('Fecha de publicación', 'Ordena el blog: los más recientes salen primero.', `<input class="in" type="date" id="fecha" value="${esc(x.fecha)}" style="max-width:260px">`)}
+    ${fld('Artículo destacado', 'El destacado sale en grande arriba del todo del blog. Solo puede haber uno.', `<label class="switch"><input type="checkbox" id="destacado" ${x.destacado ? 'checked' : ''}> Destacar este artículo</label>`)}
+    ${fld('Imagen de portada', 'Opcional. Se ve arriba del artículo y en su tarjeta del blog. Mejor horizontal.', `<div class="cover"><div class="pv${x.imagen ? ' has' : ''}" style="${x.imagen ? `background-image:url('${esc(x.imagen)}')` : ''}">${x.imagen ? '' : 'Sin imagen'}</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost" id="bCover">${x.imagen ? 'Cambiar imagen' : 'Subir imagen'}</button>${x.imagen ? '<button class="btn red" id="bCoverX">Quitar</button>' : ''}</div></div>`)}`;
+}
+function pIdioma(l) {
+  const es = l === 'es', p = post[l];
+  return `<h2>${es ? 'Versión en castellano' : 'Versión en inglés'}</h2><p class="sub">${es ? 'Lo que se ve en finomik.com/blog.' : 'Lo que se ve en finomik.com/en/blog. Puedes copiar la estructura de la versión en castellano.'}</p>
+    ${fld(es ? 'Título' : 'Title', es ? 'Claro y concreto. Si hay un dato, mejor en el título.' : 'Clear and specific.', `<textarea class="in title" rows="1" data-k="titulo" placeholder="${es ? 'Escribe el título' : 'Write the title'}">${esc(p.titulo)}</textarea>
+      <div class="url">finomik.com${es ? '' : '/en'}/blog/<input data-k="slug" value="${esc(p.slug)}" aria-label="Dirección"></div>`)}
+    ${fld(es ? 'Categoría' : 'Category', es ? 'Elige una de las que ya hay o escribe una nueva.' : 'Pick an existing one or write a new one.', `<input class="in" data-k="categoria" list="cats" value="${esc(p.categoria)}" placeholder="${es ? 'Ej.: Investigación y datos' : 'E.g. Research and data'}"><datalist id="cats">${cats[l].map((c) => `<option value="${esc(c)}">`).join('')}</datalist>`)}
+    ${fld(es ? 'Entradilla' : 'Intro', es ? 'Dos o tres frases. Aparece en la lista del blog y en Google.' : 'Two or three sentences. Shown in the blog list and on Google.', `<textarea class="in" rows="4" data-k="entradilla">${esc(p.entradilla)}</textarea>`)}
+    ${fld(es ? 'Texto del artículo' : 'Article body', es ? 'Usa los botones para títulos, negritas, enlaces, listas e imágenes.' : 'Use the buttons for headings, bold, links, lists and images.', `<div class="fmt"><button type="button" data-a="h2">Título</button><button type="button" data-a="h3">Subtítulo</button><button type="button" data-a="b"><b>Negrita</b></button><button type="button" data-a="a">Enlace</button><button type="button" data-a="ul">Lista</button><button type="button" data-a="img">Imagen</button></div>
+      <textarea class="in body" data-k="texto" placeholder="${es ? '## Título de una sección\n\nUn párrafo. Deja una línea en blanco entre párrafos.' : '## Section title\n\nA paragraph.'}">${esc(p.texto)}</textarea>
+      <div class="note">Deja una línea en blanco entre párrafos. <code>## Título</code> · <code>### Subtítulo</code> · <code>**negrita**</code> · <code>[texto](https://enlace)</code> · líneas que empiezan por <code>- </code> forman una lista.</div>`)}
+    ${fld(es ? 'Dato destacado' : 'Key figure', es ? 'Opcional. Sale en grande al principio del artículo y en la tarjeta.' : 'Optional. Shown big at the top.', `<div class="two"><input class="in" data-k="dato" value="${esc(p.dato)}" placeholder="45%"><input class="in" data-k="dato_texto" value="${esc(p.dato_texto)}" placeholder="${es ? 'Qué significa el dato' : 'What the figure means'}"></div>
+      <input class="in" data-k="fuente" value="${esc(p.fuente)}" placeholder="${es ? 'Fuente. Ej.: OCDE, PISA 2022' : 'Source. E.g. OECD, PISA 2022'}">`)}
+    ${fld(es ? 'Frase final' : 'Closing line', es ? 'Opcional. Va antes del botón de pedir una demo.' : 'Optional. Shown before the demo button.', `<textarea class="in" rows="3" data-k="llamada">${esc(p.llamada)}</textarea>`)}`;
+}
+function pRevisar() {
+  const x = post, c = (ok, txt, opc) => `<div><i class="${ok ? 'y' : opc ? 'o' : 'n'}">${ok ? '✓' : opc ? '–' : '✕'}</i>${txt}</div>`;
+  return `<h2>Revisar y publicar</h2><p class="sub">Comprueba que está todo y elige si el artículo sale en la web.</p>
+    ${fld('Lo que tiene el artículo', '', `<div class="check">
+      ${c(x.es.titulo && x.es.entradilla && x.es.texto, 'Versión en castellano completa (título, entradilla y texto)')}
+      ${c(x.en.titulo && x.en.entradilla && x.en.texto, 'Versión en inglés completa (título, entradilla y texto)')}
+      ${c(x.es.categoria && x.en.categoria, 'Categoría en los dos idiomas', true)}
+      ${c(x.imagen, 'Imagen de portada', true)}
+      ${c(x.es.dato || x.en.dato, 'Dato destacado', true)}</div>`)}
+    ${fld('Vista previa', 'Se abre en otra pestaña tal y como se verá en la web (aunque sea borrador).', `<div class="previews"><button class="btn ghost" data-vista="es">Ver en castellano</button><button class="btn ghost" data-vista="en">Ver en inglés</button></div>`)}
+    ${fld('Estado', '', `<div class="estado" id="estado"><button data-e="borrador" class="bor${x.estado !== 'publicado' ? ' on' : ''}"><b>Borrador</b><span>Solo se ve aquí y en la vista previa.</span></button><button data-e="publicado" class="pub${x.estado === 'publicado' ? ' on' : ''}"><b>Publicado</b><span>Sale en la web la próxima vez que pulses «Publicar en la web».</span></button></div>`)}
+    ${fld('Eliminar', 'Se va a la papelera y se puede recuperar.', `<button class="btn red" id="bBorrar" style="margin-top:14px">Eliminar artículo</button>`)}`;
+}
+function enlazar(paso) {
+  const l = paso === 'es' || paso === 'en' ? paso : null;
+  const grow = (t) => { t.style.height = 'auto'; t.style.height = t.scrollHeight + 'px'; };
+  $$('#app [data-k]').forEach((el) => {
+    if (el.classList.contains('title')) grow(el);
+    el.oninput = () => {
+      post[l][el.dataset.k] = el.value; marcar();
+      if (el.classList.contains('title')) { grow(el); const s = $('#app input[data-k="slug"]'); if (!post[l]._slugTocado) { post[l].slug = slugify(el.value); s.value = post[l].slug; } }
+      if (el.dataset.k === 'slug') post[l]._slugTocado = true;
+    };
+  });
+  if ($('#fecha')) $('#fecha').oninput = (e) => { post.fecha = e.target.value; marcar(); };
+  if ($('#destacado')) $('#destacado').onchange = (e) => { post.destacado = e.target.checked; marcar(); };
+  if ($('#bCover')) $('#bCover').onclick = () => subir((u) => { post.imagen = u; marcar(); editor(post.id, 'ajustes'); });
+  if ($('#bCoverX')) $('#bCoverX').onclick = () => { post.imagen = ''; marcar(); editor(post.id, 'ajustes'); };
+  $$('#estado button').forEach((b) => (b.onclick = () => { post.estado = b.dataset.e; $$('#estado button').forEach((x) => x.classList.toggle('on', x === b)); marcar(); }));
+  $$('#app [data-vista]').forEach((b) => (b.onclick = () => vista(b.dataset.vista)));
+  $$('#app .fmt button').forEach((b) => (b.onclick = () => formato(l, b.dataset.a)));
+  if ($('#bBorrar')) $('#bBorrar').onclick = borrar;
+  $('#bGuardar').onclick = () => guardar();
+  if ($('#bSig')) $('#bSig').onclick = async (e) => { const href = e.currentTarget.getAttribute('href'); if (sucio) { e.preventDefault(); if (await guardar()) location.hash = href; } };
+}
+const marcar = () => { sucio = true; const s = $('#st'); if (s) { s.classList.add('dirty'); s.lastChild.textContent = 'Sin guardar'; } };
+function formato(l, a) {
+  const ta = $('#app textarea[data-k="texto"]'), s = ta.selectionStart, e = ta.selectionEnd, sel = ta.value.slice(s, e), es = l === 'es';
+  const poner = (txt) => { ta.setRangeText(txt, s, e, 'end'); ta.focus(); ta.dispatchEvent(new Event('input')); };
+  const bloque = (txt) => { const antes = ta.value.slice(0, s), sep = !antes || antes.endsWith('\n\n') ? '' : antes.endsWith('\n') ? '\n' : '\n\n'; poner(sep + txt + '\n\n'); };
+  if (a === 'h2') bloque('## ' + (sel || (es ? 'Título de la sección' : 'Section title')));
+  if (a === 'h3') bloque('### ' + (sel || (es ? 'Subtítulo' : 'Subtitle')));
+  if (a === 'b') poner(`**${sel || (es ? 'texto' : 'text')}**`);
+  if (a === 'a') { const u = prompt('Pega la dirección del enlace (https://…)'); if (u) poner(`[${sel || (es ? 'texto del enlace' : 'link text')}](${u.trim()})`); }
+  if (a === 'ul') bloque((sel || (es ? 'Primer punto\nSegundo punto' : 'First point\nSecond point')).split('\n').map((x) => '- ' + x.replace(/^- /, '')).join('\n'));
+  if (a === 'img') subir((u) => { const alt = prompt(es ? 'Pie de foto (opcional)' : 'Caption (optional)') || ''; bloque(`![${alt}](${u})`); });
+}
+function subir(cb) {
+  const inp = $('#file'); inp.value = '';
+  inp.onchange = async () => { const f = inp.files[0]; if (!f) return; try { toast('Subiendo imagen…'); const data = await reducir(f); const r = await api('/api/imagen', { method: 'POST', body: { nombre: f.name, data } }); cb(r.url); toast('Imagen subida.'); } catch (e) { toast(e.message, true); } };
+  inp.click();
+}
+function reducir(file) {
+  return new Promise((res, rej) => {
+    if (file.type === 'image/gif') { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.onerror = rej; fr.readAsDataURL(file); return; }
+    const img = new Image(); img.onload = () => { const k = Math.min(1, 1800 / Math.max(img.width, img.height)), c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL('image/webp', .85)); URL.revokeObjectURL(img.src); };
+    img.onerror = () => rej(new Error('No se pudo leer la imagen')); img.src = URL.createObjectURL(file);
+  });
+}
+async function guardar() {
+  try {
+    const limpio = JSON.parse(JSON.stringify(post)); delete limpio.es._slugTocado; delete limpio.en._slugTocado;
+    const r = await api('/api/posts/' + post.id, { method: 'PUT', body: limpio });
+    post = Object.assign(r, { es: Object.assign(r.es, { _slugTocado: post.es._slugTocado }), en: Object.assign(r.en, { _slugTocado: post.en._slugTocado }) });
+    sucio = false; const s = $('#st'); if (s) { s.classList.remove('dirty'); s.lastChild.textContent = 'Guardado'; }
+    toast(post.estado === 'publicado' ? 'Guardado. Saldrá en la web cuando pulses «Publicar en la web».' : 'Borrador guardado.'); return true;
+  } catch (e) { toast(e.message, true); return false; }
+}
+function borrar() {
+  modal(`<h4>¿Eliminar este artículo?</h4><p>«${esc(post.es.titulo || post.en.titulo || 'Sin título')}» se va a la papelera, en los dos idiomas. Puedes recuperarlo desde allí. Si ya estaba en la web, desaparecerá la próxima vez que publiques.</p>
+    <div class="row"><button class="btn ghost" id="mNo">Cancelar</button><button class="btn red" id="mSi">Eliminar</button></div>`);
+  $('#mNo').onclick = cerrar;
+  $('#mSi').onclick = async () => { await api('/api/posts/' + post.id, { method: 'DELETE' }); cerrar(); sucio = false; post = null; location.hash = '#/'; toast('Enviado a la papelera.'); };
+}
+async function vista(l) {
+  if (sucio && !(await guardar())) return;
+  const w = window.open('', '_blank'); w.document.write('<p style="font-family:sans-serif;padding:40px">Preparando la vista previa…</p>');
+  try { const r = await api(`/api/vista/${post.id}?lang=${l}`, { method: 'POST' }); w.location = r.url; } catch (e) { w.close(); toast(e.message, true); }
+}
+
+/* ---------- papelera ---------- */
+async function papelera() {
+  post = null; const l = await api('/api/papelera');
+  $('#app').innerHTML = `<div class="page narrow"><h1 class="big">Papelera</h1><p class="lead">Artículos eliminados. Al recuperarlos vuelven tal y como estaban.</p>
+    <div class="trash">${l.map((x) => `<div><span>${esc(x.titulo_es || x.titulo_en || 'Sin título')}</span><button class="btn ghost" data-r="${x.archivo}">Recuperar</button></div>`).join('') || '<p class="empty">La papelera está vacía.</p>'}</div></div>`;
+  $$('[data-r]').forEach((b) => (b.onclick = async () => { try { await api(`/api/papelera/${b.dataset.r}/restaurar`, { method: 'POST' }); toast('Recuperado.'); papelera(); } catch (e) { toast(e.message, true); } }));
+}
+
+/* ---------- publicar ---------- */
+$('#bPublicar').onclick = async () => {
+  if (sucio && !(await guardar())) return;
+  const cfg = await api('/api/config'), n = (await api('/api/posts')).filter((x) => x.estado === 'publicado').length;
+  modal(`<h4>Publicar en la web</h4><p>Se montará el blog con los <b>${n} artículos publicados</b>. Los borradores no salen. ${cfg.publicar ? 'Después se subirá a finomik.com.' : '<br><br><b>Todavía no hay servidor conectado:</b> la web quedará lista en el ordenador, pero aún no se sube a finomik.com.'}</p>
+    <div class="pasos" id="pasos"></div><div class="row"><button class="btn ghost" id="mNo">Cancelar</button><button class="btn gold" id="mSi">Publicar</button></div>`);
+  $('#mNo').onclick = cerrar;
+  $('#mSi').onclick = async () => {
+    $('#mSi').disabled = $('#mNo').disabled = true; $('#pasos').innerHTML = '<div>Trabajando… puede tardar un minuto.</div>';
+    let r; try { r = await api('/api/publicar', { method: 'POST' }); } catch (e) { r = e.data || { ok: false, pasos: [['Error', 1]] }; }
+    $('#pasos').innerHTML = (r.pasos || []).map(([t, c]) => `<div>${c ? '✕' : '✓'} ${esc(t)}</div>`).join('') + (r.ok ? `<div>✓ ${r.subido ? 'Web actualizada.' : 'Listo en el ordenador. Se subirá cuando el servidor esté conectado.'}</div>` : '<div>✕ Algo ha fallado. La web publicada no ha cambiado.</div>');
+    $('#mNo').disabled = false; $('#mNo').textContent = 'Cerrar'; $('#mSi').remove();
+  };
+};
+addEventListener('beforeunload', (e) => { if (sucio) { e.preventDefault(); e.returnValue = ''; } });
+addEventListener('keydown', (e) => { if ((e.metaKey || e.ctrlKey) && e.key === 's' && post) { e.preventDefault(); guardar(); } });
+ruta();
+</script>
+</body>
+</html>

@@ -1,3 +1,95 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "framework": null,
+  "installCommand": "echo sin dependencias",
+  "buildCommand": "echo web ya montada en public",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/articulo/alumnado-sin-educacion-financiera-basica-espana",
+      "destination": "/blog/alumnado-sin-educacion-financiera-basica",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacidad",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/aviso-legal",
+      "permanent": true
+    },
+    {
+      "source": "/more-info",
+      "destination": "/demo",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/demo",
+      "permanent": true
+    },
+    {
+      "source": "/colegios",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/schools",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/universities",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/platform",
+      "destination": "/alumnos",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/technology",
+      "destination": "/por-que-finomik",
+      "permanent": true
+    },
+    {
+      "source": "/articulo/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/index",
+      "destination": "/en",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ]
 }

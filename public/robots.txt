@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Google puede rastrear todo el sitio para generar fragmentos
 Sitemap: https://finomik.com/sitemap.xml

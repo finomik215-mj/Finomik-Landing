@@ -1,0 +1,108 @@
+<!-- ============ 1 · HOME ============ -->
+<header class="hero" id="inicio" data-dark>
+  <div class="film" id="film">
+    <div class="scene on" style="background-image:url(/media/piso-1920.webp?v=1);background-image:image-set(url(/media/piso-1920.webp?v=1) 1x, url(/media/piso.webp?v=1) 2x);--m:url(/media/piso-m.webp?v=1)"></div>
+    <div class="scene" style="background-image:url(/media/trabajo-1920.webp?v=1);background-image:image-set(url(/media/trabajo-1920.webp?v=1) 1x, url(/media/trabajo.webp?v=1) 2x);--m:url(/media/trabajo-m.webp?v=1)"></div>
+    <div class="scene" style="background-image:url(/media/negocio-1920.webp?v=1);background-image:image-set(url(/media/negocio-1920.webp?v=1) 1x, url(/media/negocio.webp?v=1) 2x);--m:url(/media/negocio-m.webp?v=1)"></div>
+    <div class="scene" style="background-image:url(/media/contrato-1920.webp?v=1);background-image:image-set(url(/media/contrato-1920.webp?v=1) 1x, url(/media/contrato.webp?v=1) 2x);--m:url(/media/contrato-m.webp?v=1)"></div>
+  </div>
+  <div class="hero-copy">
+    <p class="eyebrow" style="color:rgba(255,255,255,.75)"><i></i>Financial education for schools</p>
+    <h1><span>Their first</span> <span class="rot" id="rot"><span><b>home</b>,</span><span><b>job</b>,</span><span><b>business</b>,</span><span><b>contract</b>,</span></span> <span style="display:block">without guessing.</span></h1>
+    <div class="hero-row">
+      <div>
+        <p class="lead">Finomik prepares your students for the decisions of adult life with challenges, simulation and AI. And you see it all from your dashboard.</p>
+        <div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Book a demo</a><a class="btn btn-ghost" href="#como">How it works ↓</a></div>
+        {{redes}}
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2 · THE PROBLEM: THE FIRST PAYSLIP ============ -->
+<section class="ch" id="problema" style="padding-top:12px" data-dark>
+  <div class="stage navy dark" style="padding:clamp(70px,10vh,110px) 0">
+    <div class="wrap">
+      <p class="eyebrow"><i></i>The problem</p>
+      <h2 class="h2">They were told 1,500 a month.<br><span>Would they know what they take home?</span></h2>
+      <p class="lead">It's their first contract. Before you see their payslip, have a guess: how much actually reaches their account?</p>
+      <div class="payslip-game">
+        <div class="offer">
+          <span class="tag">ACCEPTED</span>
+          <small>Job offer · Their first contract</small>
+          <p class="big">1,500 <span>gross per month</span></p>
+          <div class="guess">
+            <label for="guessR">How much do you think they get each month?</label>
+            <p class="guess-val" id="guessV">1,500</p>
+            <input type="range" id="guessR" min="900" max="1500" step="5" value="1500">
+            <button class="btn btn-gold" id="reveal" style="margin-top:18px">See their payslip</button>
+          </div>
+        </div>
+        <div class="slip" id="slip">
+          <div class="lock" id="slipLock"><span class="lk"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b>Move the slider and click<br>"See their payslip"</b></span></div>
+          <div id="slipBody" style="display:none">
+            <h4>Payslip · October <small>Sample data</small></h4>
+            <div class="row"><span>Gross salary</span><b>1,500.00</b></div>
+            <div class="row"><span>Social security contributions</span><b class="neg">−97.35</b></div>
+            <div class="row"><span>Tax withheld</span><b class="neg">−157.35</b></div>
+            <div class="row total"><span>Net pay</span><b>1,245.30</b></div>
+            <p class="verdict" id="verdict"></p>
+          </div>
+        </div>
+      </div>
+      <div class="whys" id="whys">
+        <button class="chip" data-a="Because <b>gross</b> is not what you get: social contributions and taxes are taken off. What arrives is the <b>net</b>.">Why do they get less?</button>
+        <button class="chip" data-a="A contract sets out the <b>probation period, hours, holidays and salary</b>. Signing without reading it means accepting what you don't know.">What are they signing?</button>
+        <button class="chip" data-a="A rule to start with: <b>save first, then spend</b>. Even if it's a little, every month.">How much should they save?</button>
+      </div>
+      <p class="why-ans" id="whyAns">Nobody explains this at school. <b>Until now.</b></p>
+      <a class="more" href="{{url:porque}}" style="color:#fff">Why financial education matters →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="sec" id="como">
+  <div class="wrap">
+    <p class="eyebrow"><i></i>How it works</p>
+    <h2 class="h2">Three pieces.<br><span>One platform.</span></h2>
+    <div class="doors" id="doors">
+      <article class="door a on" tabindex="0">
+        <span class="num">01 · STUDENTS</span><span class="plus">+</span>
+        <h3>They learn by deciding.</h3>
+        <p>Real-life situations, challenges that earn coins and a simulator to invest without risk.</p>
+        <div class="mini"><div class="mq" id="mq"><b>What's best for Lucía?</b><div class="o">Pay for the phone in instalments</div><div class="o">Save for 4 months and pay for it <span class="plus50">+50</span></div></div></div>
+        <a class="go" href="{{url:alumnos}}">See how they learn →</a>
+      </article>
+      <article class="door b" tabindex="0">
+        <span class="num">02 · TEACHERS</span><span class="plus">+</span>
+        <h3>You see and control everything.</h3>
+        <p>Who is moving ahead and who is stuck, what content your class sees, and exams ready in Word.</p>
+        <div class="mini"><div class="ml" id="ml"><div class="r">Lucía<span class="t"><i style="width:92%"></i></span>92%</div><div class="r">Marc<span class="t"><i style="width:74%"></i></span>74%</div><div class="r">Pablo<span class="t"><i class="w" style="width:18%"></i></span>18%</div><div class="al"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></svg> Pablo hasn't opened 2 lessons</div></div></div>
+        <a class="go" href="{{url:profesores}}">See the teacher dashboard →</a>
+      </article>
+      <article class="door c" tabindex="0">
+        <span class="num">03 · YOUR SCHOOL</span><span class="plus">+</span>
+        <h3>It fits your timetable.</h3>
+        <p>Choose programmes and hours per week: the term plans itself.</p>
+        <div class="mini"><div class="mc" id="mc"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <a class="go" href="{{url:programas}}">See the programmes →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow"><i></i>Trust</p>
+    <h2 class="h2">Safe for your students.<br><span>Easy for your team.</span></h2>
+    <div class="trust">
+      <div><b>Data in the EU</b><span>Stored on servers in Germany. No ads and no selling of data.</span></div>
+      <div><b>The teacher decides</b><span>Turn videos, challenges or the AI on or off for each class.</span></div>
+      <div><b>Nothing to install</b><span>Runs in the browser, in Spanish and English.</span></div>
+    </div>
+  </div>
+</section>
+<section class="sec"><div class="stage navy dark cta-band"><h2>So they decide<br>with <em>judgement</em>.</h2><p>We'll show you Finomik in 20 minutes, with a case from your school.</p><div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Book a demo</a><a class="btn btn-ghost" href="{{url:porque}}">Why Finomik</a></div></div></section>

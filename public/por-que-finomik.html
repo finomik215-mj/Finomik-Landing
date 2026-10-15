@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Por qué Finomik · Educación financiera para colegios</title>
+<meta name="description" content="Por qué la educación financiera importa en el colegio y en qué se diferencia Finomik de un libro de texto, una charla o una app.">
+<link rel="canonical" href="https://finomik.com/por-que-finomik">
+<link rel="alternate" hreflang="es" href="https://finomik.com/por-que-finomik"><link rel="alternate" hreflang="en" href="https://finomik.com/en/why-finomik"><link rel="alternate" hreflang="x-default" href="https://finomik.com/por-que-finomik">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Finomik"><meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Por qué Finomik · Educación financiera para colegios"><meta property="og:description" content="Por qué la educación financiera importa en el colegio y en qué se diferencia Finomik de un libro de texto, una charla o una app."><meta property="og:url" content="https://finomik.com/por-que-finomik">
+<meta property="og:image" content="https://finomik.com/og-es.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0B3064">
+<link rel="preload" href="/assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/montserrat.css">
+<link rel="stylesheet" href="/assets/footer.css">
+<style>
+  :root { --gap:clamp(56px,7.5vw,104px); --navy:#0B3064; --gold:#F5C518; --mist:#C8D0DD; --ink:#3C4C67; --paper:#F4F6FA; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { background:var(--navy); overflow-x:clip; }
+  body { font-family:Montserrat, system-ui, sans-serif; color:#fff; -webkit-font-smoothing:antialiased; background:#fff; }
+  a { color:inherit; text-decoration:none; }
+  .nav { position:fixed; inset:0 0 auto; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:20px clamp(16px,4vw,48px); color:#fff; transition:color .4s; }
+  .nav img { height:32px; width:auto; display:block; } .nav .lb { display:none; }
+  .nav.light { color:var(--navy); background:rgba(255,255,255,.9); backdrop-filter:blur(14px); box-shadow:0 10px 30px -22px rgba(11,48,100,.5); padding-top:12px; padding-bottom:12px; }
+  .nav { transition:color .4s, background .4s, padding .4s; } .nav.light .lw { display:none; } .nav.light .lb { display:block; }
+  .nav ul { display:flex; gap:32px; list-style:none; font-weight:700; font-size:15px; }
+  @media (max-width:900px){ .nav ul{display:none} }
+  .lng { display:flex; gap:2px; font-size:12px; font-weight:800; opacity:.75; } .lng a { padding:6px 8px; border-radius:999px; } .lng a.on { background:currentColor; } .lng a.on span { color:var(--navy); } .nav.light .lng a.on span { color:#fff; }
+  .nav-r { display:flex; align-items:center; gap:14px; }
+  @media (max-width:900px){ .lng{display:none} }
+  .btn { display:inline-flex; align-items:center; gap:10px; border-radius:999px; padding:14px 24px; font-weight:800; font-size:15px; border:0; cursor:pointer; transition:transform .4s cubic-bezier(.16,1,.3,1); }
+  .btn:hover { transform:translateY(-2px); }
+  .btn-gold { background:var(--gold); color:var(--navy); }
+
+  .stage { position:relative; height:100svh; overflow:hidden; background:var(--navy); perspective:900px; cursor:default; }
+  .bg-white { position:absolute; inset:0; background:#fff; opacity:0; }
+  .noise { position:absolute; left:0; top:0; will-change:transform; user-select:none; touch-action:none; cursor:grab;
+    padding:12px 16px; border-radius:16px; font-weight:700; font-size:14px; line-height:1.25; white-space:nowrap;
+    background:rgba(255,255,255,.96); color:#1b2b45; box-shadow:0 18px 40px -16px rgba(0,0,0,.5); }
+  .noise:active { cursor:grabbing; }
+  .noise small { display:block; font-size:10px; letter-spacing:.12em; font-weight:800; color:#d1344b; margin-bottom:4px; }
+  .noise.big { font-size:20px; font-weight:900; padding:14px 20px; }
+  .noise.red { background:#ff4d5e; color:#fff; } .noise.red small { color:#ffe0e3; }
+  .noise.dark { background:#061a38; color:#fff; border:1px solid rgba(255,255,255,.15); } .noise.dark small { color:var(--gold); }
+  .noise.good { background:#fff; color:var(--navy); border:2px solid var(--gold); }
+  .noise.good small { color:#b48f00; }
+
+  .headline { position:absolute; inset:0; display:grid; place-items:center; text-align:center; pointer-events:none; z-index:20; padding:0 16px; }
+  .headline h1 { font-weight:900; letter-spacing:-.05em; line-height:.9; font-size:clamp(3.4rem,11vw,11rem); position:relative; }
+  .h-noise { color:#fff; }
+  .h-noise span { position:relative; display:inline-block; }
+  .glitch::before, .glitch::after { content:attr(data-t); position:absolute; inset:0; pointer-events:none; opacity:0; }
+  .glitch::before { color:var(--gold); }
+  .glitch::after { color:#5574A7; }
+  .glitch.on::before { opacity:.85; transform:translate(-6px,2px); clip-path:inset(10% 0 55% 0); }
+  .glitch.on::after { opacity:.85; transform:translate(6px,-2px); clip-path:inset(55% 0 8% 0); }
+  .h-calm { position:absolute; inset:0; display:grid; place-items:center; align-content:center; color:var(--navy); opacity:0; }
+  .h-calm h1 { padding-bottom:.06em; }
+  .h-calm h1 em { font-style:normal; color:var(--gold); }
+  .h-calm p { margin-top:20px; max-width:34rem; font-size:clamp(16px,1.5vw,20px); line-height:1.5; color:var(--ink); font-weight:500; }
+  .h-calm .btn { margin-top:26px; pointer-events:auto; }
+  .hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:21; font-weight:700; font-size:12px; letter-spacing:.14em; color:var(--mist); text-align:center; }
+  .hint b { color:var(--gold); }
+  .kick { position:absolute; top:22vh; left:0; right:0; text-align:center; z-index:21; font-weight:700; font-size:13px; letter-spacing:.14em; color:var(--mist); }
+
+  .next { background:#fff; color:var(--navy); padding:var(--gap) clamp(16px,4vw,48px); }
+  .next h2 { font-weight:900; font-size:clamp(2.2rem,5vw,4.8rem); letter-spacing:-.045em; line-height:1; max-width:15ch; }
+  .rows { margin-top:70px; border-top:2px solid var(--navy); }
+  .row { display:grid; grid-template-columns:120px 1fr auto; align-items:center; gap:24px; padding:30px 0; border-bottom:1px solid var(--mist); cursor:default; transition:padding .5s cubic-bezier(.16,1,.3,1), background .4s; }
+  .row:hover { padding-left:20px; background:var(--paper); }
+  .row b { font-size:15px; color:#b48f00; font-weight:800; }
+  .row h3 { font-weight:900; font-size:clamp(1.4rem,2.6vw,2.4rem); letter-spacing:-.03em; }
+  .row span { font-weight:600; color:var(--ink); max-width:24rem; }
+  @media (max-width:800px){ .row{grid-template-columns:1fr} }
+  /* mismo hueco entre secciones que el resto de la web (--gap) */
+  .sec { background:#fff; color:var(--navy); padding:var(--gap) clamp(16px,4vw,48px); }
+  .sec.paper { background:var(--paper); }
+  .eb { color:#4B6A9E !important; display:flex; align-items:center; gap:12px; font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#5574A7; }
+  .eb i { width:28px; height:2px; background:var(--gold); display:block; }
+  .h2 { margin-top:16px; font-weight:900; letter-spacing:-.045em; line-height:.98; font-size:clamp(2.3rem,5.2vw,5rem); }
+  .h2 em { font-style:normal; color:var(--gold); }
+  .stat { margin-top:20px; display:grid; grid-template-columns:auto 1fr; gap:clamp(20px,4vw,60px); align-items:center; }
+  .stat .n { font-weight:900; letter-spacing:-.05em; line-height:.9; font-size:clamp(4rem,12vw,11rem); white-space:nowrap; }
+  .stat .n .g { color:#d9a900; }
+  .stat .t { font-weight:800; font-size:clamp(1.4rem,2.6vw,2.4rem); line-height:1.15; letter-spacing:-.02em; max-width:20ch; }
+  .stat .src { margin-top:12px; font-weight:600; color:#8F9EB7; font-size:14px; }
+  @media (max-width:800px){ .stat{grid-template-columns:1fr} }
+  .cmp { margin-top:48px; background:#fff; border-radius:28px; padding:10px clamp(10px,2vw,24px); overflow-x:auto; }
+  .cmp .r { display:grid; grid-template-columns:minmax(200px,1.6fr) repeat(4,minmax(110px,1fr)); align-items:center; border-bottom:1px solid var(--mist); min-width:680px; }
+  .cmp .r:last-child { border-bottom:0; }
+  .cmp .r { align-items:stretch; border-bottom:0; } .cmp span { display:flex; align-items:center; justify-content:center; } .cmp span:first-child { justify-content:flex-start; }
+  .cmp .r + .r > span:not(.f) { border-top:1px solid var(--mist); } .cmp .r + .r > .f { box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+  .cmp span { padding:18px 10px; font-weight:700; text-align:center; color:var(--ink); }
+  .cmp span.no { color:#8F9EB7; font-weight:600; }
+  .cmp span:first-child { text-align:left; color:var(--navy); font-weight:800; }
+  .cmp .h span { font-weight:900; color:var(--navy); font-size:15px; }
+  .cmp .f { background:var(--navy); color:var(--gold) !important; font-weight:900 !important; font-size:18px; }
+  .cmp .h .f { border-radius:18px 18px 0 0; color:#fff !important; font-size:15px; }
+  .cmp .r:last-child .f { border-radius:0 0 18px 18px; }
+  .faq { margin-top:48px; border-top:2px solid var(--navy); max-width:980px; }
+  .faq details { border-bottom:1px solid var(--mist); }
+  .faq summary { list-style:none; cursor:pointer; padding:26px 50px 26px 0; position:relative; font-weight:800; font-size:clamp(18px,1.8vw,24px); letter-spacing:-.01em; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:"+"; position:absolute; right:6px; top:50%; transform:translateY(-50%); width:34px; height:34px; border-radius:50%; background:var(--paper); display:grid; place-items:center; font-weight:900; transition:transform .4s cubic-bezier(.16,1,.3,1), background .3s; }
+  .faq details[open] summary::after { transform:translateY(-50%) rotate(45deg); background:var(--gold); }
+  .faq p { padding:0 50px 26px 0; color:var(--ink); font-size:17px; line-height:1.6; font-weight:500; }
+  .blue { background:var(--navy); color:#fff; padding:calc(var(--gap) * 1.3) clamp(16px,4vw,48px); text-align:center; }
+  .blue h2 { font-weight:900; font-size:clamp(2.4rem,6vw,6rem); letter-spacing:-.05em; line-height:.95; }
+  .blue h2 em { font-style:normal; color:var(--gold); }
+  .tag { position:fixed; left:16px; bottom:16px; z-index:60; background:var(--gold); color:var(--navy); font:700 12px Montserrat; padding:8px 12px; border-radius:999px; }
+  .tag a { text-decoration:underline; }
+  @media (max-width:700px) {
+    .noise.good { white-space:normal; width:min(43vw,190px); font-size:12.5px; line-height:1.25; }
+    .h-calm { padding:21vh 20px 0; align-content:start; } .h-calm p { max-width:100%; font-size:16px; } .h-calm h1 { font-size:clamp(2.9rem,13vw,4.2rem); }
+  }
+  .stage { isolation:isolate; z-index:0; } #field { position:absolute; inset:0; z-index:1; } .nav { z-index:100 !important; transform:translateZ(0); }
+  .pq-foot { background:var(--navy); color:rgba(255,255,255,.7); padding:28px clamp(16px,4vw,48px); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font:600 13px Montserrat, sans-serif; border-top:1px solid rgba(255,255,255,.1); }
+  .pq-burger { display:none; width:40px; height:40px; border-radius:50%; border:0; background:var(--navy); color:#fff; font-size:19px; cursor:pointer; }
+  .pq-menu { position:fixed; inset:0; z-index:90; background:#fff; color:var(--navy); padding:24px; clip-path:inset(0 0 100% 0); transition:clip-path .6s cubic-bezier(.16,1,.3,1); }
+  .pq-menu.open { clip-path:inset(0); }
+  .pq-menu ul { list-style:none; margin-top:60px; display:grid; gap:14px; } .pq-menu a { font-weight:900; font-size:28px; letter-spacing:-.03em; }
+  .pq-lang { position:absolute; left:24px; right:24px; bottom:28px; text-align:center; font-weight:800; font-size:15px !important; color:#5574A7; }
+  .pq-x { position:absolute; top:18px; right:18px; width:44px; height:44px; border-radius:50%; border:0; background:var(--paper); font-size:18px; cursor:pointer; color:var(--navy); }
+  @media (max-width:900px) {
+    .pq-burger { display:grid; place-items:center; } .lng { display:none; }
+    .nav { padding:12px 14px; } .nav img { height:26px; } .nav .btn { padding:10px 15px; font-size:13.5px; } .nav-r { gap:8px; }
+    #field { position:absolute; inset:0; z-index:1; } .headline { z-index:20; }
+    .headline .h-noise { text-shadow:0 6px 30px rgba(6,26,56,.7); }
+    .noise { font-size:12px; padding:9px 12px; border-radius:12px; } .noise small { font-size:9px; } .noise.big { font-size:15px; padding:10px 14px; }
+    .kick { top:16vh; padding:0 20px; font-size:11px; } .hint { width:calc(100% - 40px); font-size:11px; z-index:22; }
+    .next, .sec, .blue { padding-left:18px; padding-right:18px; } .blue { padding-top:76px; padding-bottom:76px; }
+    .stat .n { font-size:clamp(3.6rem,17vw,5rem); }
+    .cmp { padding:8px 10px 10px; border-radius:22px; overflow:visible; margin-top:32px; }
+    .cmp .r { min-width:0; grid-template-columns:minmax(0,1.45fr) repeat(4,minmax(0,1fr)); }
+    .cmp span { padding:16px 4px; font-size:13px; line-height:1.3; } .cmp span:first-child { font-size:13px; line-height:1.35; padding:16px 10px 16px 12px; }
+    .cmp .h span { padding-top:14px; padding-bottom:14px; }
+    .cmp .h span { font-size:10.5px; line-height:1.2; } .cmp .h .f { font-size:11px; } .cmp .f { font-size:15px; }
+    .faq summary { font-size:17px; padding:20px 46px 20px 0; } .faq p { font-size:15.5px; padding-right:0; }
+  }
+  .pq-foot a { color:#fff; } .pq-foot a:hover { text-decoration:underline; } .pq-foot nav { display:flex; gap:18px; flex-wrap:wrap; }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://finomik.com/#org", "name": "Finomik", "url": "https://finomik.com/", "logo": "https://finomik.com/icon-512.png", "email": "hello@finomik.com", "telephone": "+34673319335", "sameAs": ["https://www.linkedin.com/company/finomik", "https://www.youtube.com/@Finomik-app", "https://www.instagram.com/finomik.app/", "https://www.tiktok.com/@finomikapp", "https://www.facebook.com/profile.php?id=61595023097070"], "legalName": "EduFin Tech, S.L.", "taxID": "B26790485", "address": {"@type": "PostalAddress", "streetAddress": "Passeig de Sant Gervasi, 10, 4.º 3.ª", "postalCode": "08022", "addressLocality": "Barcelona", "addressCountry": "ES"}, "description": "Plataforma gamificada de educación financiera para colegios de Secundaria."}, {"@type": "WebSite", "@id": "https://finomik.com/#web", "url": "https://finomik.com/", "name": "Finomik", "inLanguage": ["es", "en"], "publisher": {"@id": "https://finomik.com/#org"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es Finomik?", "acceptedAnswer": {"@type": "Answer", "text": "Finomik es una plataforma gamificada de educación financiera para colegios. Los alumnos practican decisiones de la vida adulta con retos, simulación e inteligencia artificial, y el profesor sigue el progreso de toda la clase."}}, {"@type": "Question", "name": "¿Para qué cursos es?", "acceptedAnswer": {"@type": "Answer", "text": "Para Secundaria. Vida adulta, Inversión y Emprendimiento valen para cualquier curso; Economía, para los últimos cursos."}}, {"@type": "Question", "name": "¿Cuántas horas necesita?", "acceptedAnswer": {"@type": "Answer", "text": "Entre 1 y 2 horas a la semana durante un trimestre. El programa se adapta a las horas que tengáis."}}, {"@type": "Question", "name": "¿Tiene que ser experto el profesor?", "acceptedAnswer": {"@type": "Answer", "text": "No. La plataforma puede explicar la teoría por sí sola, y el profesor decide si da él la clase y usa Finomik solo para las actividades."}}, {"@type": "Question", "name": "¿Es segura la IA para los alumnos?", "acceptedAnswer": {"@type": "Answer", "text": "El asistente solo responde sobre educación financiera, adapta la explicación al nivel del alumno y el profesor puede desactivarlo para su clase."}}, {"@type": "Question", "name": "¿Dónde se guardan los datos?", "acceptedAnswer": {"@type": "Answer", "text": "En servidores de la Unión Europea, en Alemania. No hay publicidad ni se venden datos."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del número de alumnos y de programas. Te lo contamos en una demo de 20 minutos."}}, {"@type": "Question", "name": "¿En qué idiomas está?", "acceptedAnswer": {"@type": "Answer", "text": "En español e inglés."}}]}]}</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script type="speculationrules">{"prerender": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/admin*"}}]}, "eagerness": "moderate"}]}</script>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="/"><img class="lw" src="/media/logo-blanco.png" alt="Finomik" width="101" height="32"><img class="lb" src="/media/logo-azul.png" alt="Finomik" width="101" height="32"></a>
+  <ul><li><a href="/alumnos">Alumnos</a></li><li><a href="/profesores">Profesores</a></li><li><a href="/programas">Programas</a></li><li><a href="/por-que-finomik" style="border-bottom:2px solid var(--gold)">Por qué Finomik</a></li><li><a href="/blog">Blog</a></li></ul>
+  <div class="nav-r"><div class="lng"><a class="on" href="/por-que-finomik"><span>ES</span></a><a href="/en/why-finomik" hreflang="en">EN</a></div><a class="btn btn-gold" href="/demo">Pide una demo</a><button class="pq-burger" id="pqBurger" aria-label="Menú">☰</button></div>
+</nav>
+<div class="pq-menu" id="pqMenu" role="dialog" aria-label="Menú"><img src="/media/logo-azul.png" alt="Finomik" width="88" height="28" style="height:28px;width:auto"><button class="pq-x" id="pqClose" aria-label="Cerrar">✕</button><ul><li><a href="/">Inicio</a></li><li><a href="/alumnos">Alumnos</a></li><li><a href="/profesores">Profesores</a></li><li><a href="/programas">Programas</a></li><li><a href="/por-que-finomik">Por qué Finomik</a></li><li><a href="/blog">Blog</a></li><li><a href="/demo">Pide una demo</a></li></ul><a class="pq-lang" href="/en/why-finomik" hreflang="en">English</a></div>
+
+<section class="stage" id="stage">
+  <div class="bg-white" id="bgw"></div>
+  <div id="field"></div>
+  <p class="kick" id="kick">POR QUÉ FINOMIK · EL MUNDO EN EL QUE CRECEN TUS ALUMNOS</p>
+  <div class="headline">
+    <h1 class="h-noise" id="hn" aria-label="Demasiado ruido. Por qué la educación financiera importa"><span class="glitch" data-t="Demasiado">Demasiado</span><br><span class="glitch" data-t="ruido.">ruido.</span></h1>
+    <div class="h-calm" id="hc">
+      <h1>Criterio<em>.</em></h1>
+      <p>Finomik enseña a tus alumnos a distinguir lo que importa entre tanto ruido. Y a decidir por sí mismos.</p>
+      <a class="btn btn-gold" href="/demo">Pide una demo</a>
+    </div>
+  </div>
+  <p class="hint" id="hint">ARRASTRA, LANZA O APARTA EL RUIDO &nbsp;·&nbsp; <b>DESLIZA PARA PONER ORDEN ↓</b></p>
+</section>
+
+<section class="sec" id="dato">
+  <p class="eb"><i></i>El problema</p>
+  <div class="stat"><p class="n"><span>1</span> de cada <span class="g">5</span></p><div><p class="t">alumnos de 15 años no alcanza el nivel básico de competencia financiera (18 % de media en la OCDE).</p><p class="src">Fuente: OCDE, PISA 2022 (publicado en 2024).</p></div></div>
+</section>
+
+<section class="sec paper" id="diferencia">
+  <p class="eb"><i></i>La diferencia</p>
+  <h2 class="h2">Leer sobre decidir<br>no es <em>decidir</em>.</h2>
+  <div class="cmp" role="table" aria-label="Comparativa">
+    <div class="r h" role="row"><span role="columnheader"></span><span role="columnheader">Libro de texto</span><span role="columnheader">Charla puntual</span><span role="columnheader">App genérica</span><span role="columnheader" class="f">Finomik</span></div>
+    <div class="r" role="row"><span role="cell">Practican decisiones reales</span><span role="cell" class="no">No</span><span role="cell" class="no">No</span><span role="cell">A veces</span><span role="cell" class="f">✓</span></div>
+    <div class="r" role="row"><span role="cell">Pensado para el aula</span><span role="cell">✓</span><span role="cell">A medias</span><span role="cell" class="no">No</span><span role="cell" class="f">✓</span></div>
+    <div class="r" role="row"><span role="cell">El profesor ve el progreso</span><span role="cell" class="no">No</span><span role="cell" class="no">No</span><span role="cell" class="no">No</span><span role="cell" class="f">✓</span></div>
+    <div class="r" role="row"><span role="cell">Se adapta a cada alumno</span><span role="cell" class="no">No</span><span role="cell" class="no">No</span><span role="cell">A veces</span><span role="cell" class="f">✓</span></div>
+    <div class="r" role="row"><span role="cell">Dura todo el trimestre</span><span role="cell">✓</span><span role="cell" class="no">No</span><span role="cell" class="no">No</span><span role="cell" class="f">✓</span></div>
+    <div class="r" role="row"><span role="cell">Sin publicidad</span><span role="cell">✓</span><span role="cell">✓</span><span role="cell" class="no">No</span><span role="cell" class="f">✓</span></div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <p class="eb"><i></i>Preguntas frecuentes</p>
+  <h2 class="h2">Lo que nos preguntan<br>los <em>colegios</em>.</h2>
+  <div class="faq">
+    <details><summary>¿Qué es Finomik?</summary><p>Finomik es una plataforma gamificada de educación financiera para colegios. Los alumnos practican decisiones de la vida adulta con retos, simulación e inteligencia artificial, y el profesor sigue el progreso de toda la clase.</p></details>
+    <details><summary>¿Para qué cursos es?</summary><p>Para Secundaria. Vida adulta, Inversión y Emprendimiento valen para cualquier curso; Economía, para los últimos cursos.</p></details>
+    <details><summary>¿Cuántas horas necesita?</summary><p>Entre 1 y 2 horas a la semana durante un trimestre. El programa se adapta a las horas que tengáis.</p></details>
+    <details><summary>¿Tiene que ser experto el profesor?</summary><p>No. La plataforma puede explicar la teoría por sí sola, y el profesor decide si da él la clase y usa Finomik solo para las actividades.</p></details>
+    <details><summary>¿Es segura la IA para los alumnos?</summary><p>El asistente solo responde sobre educación financiera, adapta la explicación al nivel del alumno y el profesor puede desactivarlo para su clase.</p></details>
+    <details><summary>¿Dónde se guardan los datos?</summary><p>En servidores de la Unión Europea, en Alemania. No hay publicidad ni se venden datos.</p></details>
+    <details><summary>¿Cuánto cuesta?</summary><p>Depende del número de alumnos y de programas. Te lo contamos en una demo de 20 minutos.</p></details>
+    <details><summary>¿En qué idiomas está?</summary><p>En español e inglés.</p></details>
+  </div>
+</section>
+
+<section class="blue" id="cta"><h2>Menos ruido.<br>Más <em>criterio</em>.</h2><a class="btn btn-gold" href="/demo" style="margin-top:34px">Pide una demo</a></section>
+<footer class="site-foot">
+  <div class="fcols">
+    <div><img src="/media/logo-blanco.png" alt="Finomik" width="95" height="30"><p>Educación financiera para colegios.</p><p style="margin-top:10px"><a href="mailto:hello@finomik.com">hello@finomik.com</a><br><a href="tel:+34673319335">+34 673 319 335</a></p><div class="foot-social"><a href="https://www.linkedin.com/company/finomik" rel="noopener" target="_blank" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5v8M6.5 6.5v.01M10.5 17.5v-8M10.5 13a3 3 0 0 1 6 0v4.5"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></a><a href="https://www.youtube.com/@Finomik-app" rel="noopener" target="_blank" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2l5 2.8-5 2.8z"/></svg></a><a href="https://www.instagram.com/finomik.app/" rel="noopener" target="_blank" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg></a><a href="https://www.tiktok.com/@finomikapp" rel="noopener" target="_blank" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"/></svg></a><a href="https://www.facebook.com/profile.php?id=61595023097070" rel="noopener" target="_blank" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-7.5h2.6l.4-3H14V8.7c0-.9.3-1.5 1.6-1.5H17V4.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 3.9v2.2H8.5v3H11V21"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></a></div></div>
+    <div><p class="fh">PLATAFORMA</p><a href="/alumnos">Para alumnos</a><a href="/profesores">Para profesores</a><a href="/programas">Programas</a></div><div><p class="fh">POR QUÉ FINOMIK</p><a href="/por-que-finomik">El problema</a><a href="/por-que-finomik#diferencia">La diferencia</a><a href="/por-que-finomik#faq">Preguntas frecuentes</a></div><div><p class="fh">RECURSOS</p><a href="/blog">Blog</a></div><div><p class="fh">EMPRESA</p><a href="/sobre-nosotros">Sobre nosotros</a><a href="/demo">Contacto</a><a href="/bancos">Entidades financieras</a><a href="https://www.linkedin.com/company/finomik" rel="noopener" target="_blank">LinkedIn</a></div>
+  </div>
+  <p class="bigword" id="bigword">FINOMIK</p>
+  <div class="fine"><span>© 2026 Finomik</span><span class="fl"><a href="/aviso-legal">Aviso legal</a><a href="/privacidad">Privacidad</a><a href="/cookies">Cookies</a></span></div>
+</footer>
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const lenis = new Lenis({ lerp: .18, wheelMultiplier: 1.1 }); lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+
+const NOISE = [
+  ['OFERTA', 'Compra ahora, paga en 3 plazos', ''], ['ANUNCIO', 'Gana 500 al día desde casa', 'red'],
+  ['', '−70 %', 'big red'], ['NOTIFICACIÓN', 'Tu suscripción se ha renovado', 'dark'],
+  ['INFLUENCER', '"Yo invierto aquí, ¿y tú?"', ''], ['', '¡ÚLTIMAS UNIDADES!', 'big'],
+  ['PRÉSTAMO', 'Aprobado en 5 minutos', 'dark'], ['CRIPTO', 'Este token va a x100', 'red'],
+  ['', 'Solo hoy', 'big dark'], ['TIENDA', 'Envío gratis si gastas 20 más', ''],
+  ['APP', 'Desbloquea el pase premium', 'dark'], ['SORTEO', 'Has ganado un iPhone', 'red'],
+  ['OFERTA', '2x1 en todo', ''], ['GRUPO', '"Todos lo están comprando"', 'dark'],
+  ['', '¿Seguro que no lo quieres?', ''], ['ALERTA', 'Quedan 3 en stock', 'red'],
+  ['CASINO', 'Bono de bienvenida de 100', 'dark'], ['', 'NO TE LO PIERDAS', 'big'],
+  ['MENSAJE', 'Invierte con mi método', ''], ['TARJETA', 'Aplaza tus compras sin pensar', 'dark'],
+  ['', '¡Gratis!*', 'big red'], ['ANUNCIO', 'Hazte rico antes de los 25', ''],
+];
+const GOOD = [
+  ['CRITERIO', 'Compara antes de comprar'], ['CRITERIO', 'Lee la letra pequeña'],
+  ['CRITERIO', 'Mira el precio total, no la cuota'], ['CRITERIO', 'Pregunta antes de firmar'],
+  ['CRITERIO', 'Si es urgente, espera un día'],
+];
+const mobile = innerWidth < 700;
+const field = document.getElementById('field'), stage = document.getElementById('stage');
+const list = (mobile ? NOISE.slice(0, 9) : NOISE).map(n => ({ n, good: false })).concat(GOOD.map(n => ({ n, good: true })));
+const bodies = list.map(({ n, good }) => {
+  const el = document.createElement('div');
+  el.className = 'noise ' + (good ? 'good' : n[2]);
+  el.innerHTML = (n[0] ? `<small>${n[0]}</small>` : '') + n[1];
+  field.append(el);
+  return { el, good, x: Math.random() * innerWidth, y: Math.random() * innerHeight, vx: (Math.random() - .5) * 1.2, vy: (Math.random() - .5) * 1.2,
+           r: (Math.random() - .5) * 24, vr: (Math.random() - .5) * .2, z: Math.random() * 260 - 120, w: 0, h: 0, drag: false, seed: Math.random() * 1000 };
+});
+/* Dónde acaba cada tarjeta buena al ordenar: en filas centradas según su ancho real, justo debajo del botón
+   (así no se montan entre sí ni tapan el texto, sea cual sea el idioma o el alto de la pantalla). */
+function layoutGoods() {
+  bodies.forEach(b => { b.w = b.el.offsetWidth; b.h = b.el.offsetHeight; });
+  const W = innerWidth, H = stage.offsetHeight, gap = mobile ? 10 : 14, maxW = W - (mobile ? 24 : 80);
+  const goods = bodies.filter(b => b.good), rows = [[]];
+  goods.forEach(b => { const row = rows[rows.length - 1], used = row.reduce((a, x) => a + x.w + gap, 0); if (row.length && used + b.w > maxW) rows.push([b]); else row.push(b); });
+  const rowH = rows.map(row => Math.max(...row.map(b => b.h))), total = rowH.reduce((a, h) => a + h + gap, -gap);
+  const btn = document.querySelector('#hc .btn');
+  let y = btn ? btn.offsetTop + btn.offsetHeight + (mobile ? 36 : 52) : H * .7;
+  y = Math.max(80, Math.min(y, H - total - (mobile ? 24 : 32)));
+  rows.forEach((row, k) => {
+    let x = W / 2 - (row.reduce((a, b) => a + b.w, 0) + gap * (row.length - 1)) / 2;
+    row.forEach(b => { b.gx = x; b.gy = y + (rowH[k] - b.h) / 2; x += b.w + gap; });
+    y += rowH[k] + gap;
+  });
+}
+requestAnimationFrame(layoutGoods);
+document.fonts.ready.then(layoutGoods);
+addEventListener('resize', layoutGoods);
+
+/* pointer: repel + drag & throw */
+const ptr = { x: -999, y: -999, px: 0, py: 0 };
+let held = null;
+stage.addEventListener('pointermove', e => { const r = stage.getBoundingClientRect(); ptr.px = ptr.x; ptr.py = ptr.y; ptr.x = e.clientX - r.left; ptr.y = e.clientY - r.top; });
+stage.addEventListener('pointerleave', () => { ptr.x = ptr.y = -999; });
+bodies.forEach(b => b.el.addEventListener('pointerdown', e => {
+  if (order > .05) return;
+  held = b; b.drag = true; b.el.setPointerCapture(e.pointerId); b.el.style.zIndex = 30;
+  gsap.to(b.el, { scale: 1.08, duration: .2 });
+}));
+addEventListener('pointerup', () => {
+  if (!held) return;
+  held.vx = (ptr.x - ptr.px) * .9; held.vy = (ptr.y - ptr.py) * .9; held.vr = held.vx * .05;
+  held.drag = false; held.el.style.zIndex = ''; gsap.to(held.el, { scale: 1, duration: .3 }); held = null;
+});
+
+/* scroll-driven order (0 = chaos, 1 = criterio) */
+let order = 0;
+function tick() {
+  const W = innerWidth, H = stage.offsetHeight, t = performance.now() / 1000;
+  bodies.forEach(b => {
+    if (!b.drag) {
+      // wander
+      b.vx += Math.sin(t * .7 + b.seed) * .03; b.vy += Math.cos(t * .6 + b.seed * 1.3) * .03;
+      // repel from pointer
+      const dx = b.x + b.w / 2 - ptr.x, dy = b.y + b.h / 2 - ptr.y, d = Math.hypot(dx, dy);
+      if (d < 200 && d > 0) { const f = (200 - d) / 200 * 1.6; b.vx += dx / d * f; b.vy += dy / d * f; b.vr += (dx > 0 ? 1 : -1) * f * .05; }
+      b.vx *= .96; b.vy *= .96; b.vr *= .95;
+      b.x += b.vx; b.y += b.vy; b.r += b.vr;
+      // soft bounds
+      if (b.x < -b.w * .4) b.vx += .6; if (b.x > W - b.w * .6) b.vx -= .6;
+      if (b.y < 40) b.vy += .6; if (b.y > H - b.h - (mobile ? 80 : 10)) b.vy -= .6;
+      // en móvil, las tarjetas se apartan de la franja del titular para que se lea
+      if (mobile) { const cy = b.y + b.h / 2; if (cy > H * .34 && cy < H * .64) b.vy += cy < H * .49 ? -.45 : .45; }
+    } else { b.x = ptr.x - b.w / 2; b.y = ptr.y - b.h / 2; }
+
+    // blend towards the ordered state
+    let tx = b.x, ty = b.y, tr = b.r, tz = b.z, op = 1;
+    if (order > 0) {
+      if (b.good) {
+        tx = b.gx; ty = b.gy; tr = 0; tz = 0;
+      } else {
+        const ang = Math.atan2(b.y - H / 2, b.x - W / 2);
+        tx = b.x + Math.cos(ang) * W * .9; ty = b.y + Math.sin(ang) * H * .9; tr = b.r * 3; tz = 300;
+        op = 1 - order * 1.6;
+      }
+    }
+    const k = gsap.parseEase('power2.inOut')(order);
+    const x = b.x + (tx - b.x) * k, y = b.y + (ty - b.y) * k, r = b.r + (tr - b.r) * k, z = b.z + (tz - b.z) * k;
+    b.el.style.transform = `translate3d(${x}px,${y}px,${z}px) rotate(${r}deg)`;
+    b.el.style.opacity = Math.max(0, op);
+  });
+  if (running) requestAnimationFrame(tick);
+}
+let running = true;
+new IntersectionObserver(([e]) => { const was = running; running = e.isIntersecting; if (running && !was) requestAnimationFrame(tick); }).observe(stage);
+requestAnimationFrame(tick);
+
+/* entrance: cards pop in, title slams */
+gsap.from('#hn span', { scale: 1.6, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: .12, delay: .3 });
+gsap.from('#kick, #hint', { opacity: 0, y: 20, duration: 1, delay: 1 });
+gsap.from(field, { opacity: 0, duration: 1.2 });
+
+/* glitch flicker */
+const gl = document.querySelectorAll('.glitch');
+(function flick() { gl.forEach(g => g.classList.add('on')); setTimeout(() => gl.forEach(g => g.classList.remove('on')), 120 + Math.random() * 140); setTimeout(flick, 1400 + Math.random() * 2200); })();
+
+/* pinned: scrolling puts order in the chaos */
+ScrollTrigger.create({
+  trigger: '#stage', pin: true, start: 'top top', end: '+=160%', scrub: .6,
+  onUpdate: s => {
+    order = gsap.utils.clamp(0, 1, s.progress * 1.25);
+    const p = s.progress;
+    gsap.set('#bgw', { opacity: gsap.utils.clamp(0, 1, (p - .25) * 2.5) });
+    gsap.set('#hn', { opacity: 1 - gsap.utils.clamp(0, 1, p * 3), scale: 1 + p * .6, filter: `blur(${p * 18}px)` });
+    gsap.set('#hc', { opacity: gsap.utils.clamp(0, 1, (p - .35) * 3), y: (1 - gsap.utils.clamp(0, 1, (p - .35) * 3)) * 40 });
+    gsap.killTweensOf('#kick, #hint'); // la animación de entrada no debe volver a mostrarlos
+    gsap.set('#kick, #hint', { opacity: 1 - gsap.utils.clamp(0, 1, p * 4), y: 0 });
+    document.getElementById('nav').classList.toggle('light', p > .45);
+  },
+  onLeave: () => document.getElementById('nav').classList.add('light'),
+});
+ScrollTrigger.create({ trigger: '#cta', start: 'top 60px', end: 'bottom 60px', onToggle: s => document.getElementById('nav').classList.toggle('light', !s.isActive) });
+['#dato', '#diferencia', '#faq'].forEach(id => gsap.from(id + ' .h2, ' + id + ' .stat > *, ' + id + ' .cmp .r, ' + id + ' .faq details', { y: 50, opacity: 0, stagger: .06, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: id, start: 'top 75%' } }));
+gsap.from('#cta h2', { scale: .85, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.blue', start: 'top 65%' } });
+</script>
+<script>(() => { const m = document.getElementById('pqMenu'); document.getElementById('pqBurger').onclick = () => m.classList.add('open'); document.getElementById('pqClose').onclick = () => m.classList.remove('open'); gsap.to('#bigword', { backgroundSize: '100% 100%', ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top 80%', end: 'bottom bottom', scrub: true } }); })();</script>
+</body>
+</html>

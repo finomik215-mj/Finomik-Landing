@@ -1,0 +1,188 @@
+<header class="phead"><div class="wrap"><p class="eyebrow"><i></i>Para los alumnos</p><h1>Aprenden <em>decidiendo</em>.</h1><p class="lead">Seis cosas que hacen dentro de Finomik. Pruébalas tú: elige un paso y toca la pantalla.</p></div></header>
+<!-- ============ 3 · ALUMNOS ============ -->
+<section class="sec" id="alumnos" style="padding-top:0">
+  <div class="wrap">
+    
+    <div class="tour" id="tourA" style="margin-top:0">
+      <div>
+        <ol class="steps" id="stepsA">
+          <li><button class="on"><i class="bar"></i><em class="n">01</em>Su camino<span>Un mapa de módulos: qué han hecho, dónde están y qué viene después. Pulsa el punto dorado.</span></button></li>
+          <li><button><i class="bar"></i><em class="n">02</em>Píldoras de 3 minutos<span>Vídeo, lectura o infografía. Cortas, con apuntes siempre a mano.</span></button></li>
+          <li><button><i class="bar"></i><em class="n">03</em>Retos que suman<span>Responden, fallan, vuelven a intentarlo. Cada acierto, monedas.</span></button></li>
+          <li><button><i class="bar"></i><em class="n">04</em>Invierten sin riesgo<span>Con sus monedas, en un simulador con precios reales. Y Finomik comenta su cartera.</span></button></li>
+          <li><button><i class="bar"></i><em class="n">05</em>Leen el Eduario<span>Noticias reales explicadas a su nivel, con lo que significan para ellos.</span></button></li>
+          <li><button><i class="bar"></i><em class="n">06</em>Su avatar<span>Lo que ganan, lo gastan en su figura. Pequeños premios, gran motivación.</span></button></li>
+        </ol>
+        <div class="counter"><button id="prevA" aria-label="Anterior">←</button><span id="cntA">1 / 6</span><button id="nextA" aria-label="Siguiente">→</button></div>
+        
+      </div>
+      <div>
+        <div class="device" id="devA">
+          <div class="app">
+            <aside class="side"><img src="/media/logo-blanco.png" alt="">
+              <button type="button" class="sl on" data-s="0"><i></i>Aprender</button><button type="button" class="sl" data-s="1"><i></i>Lección</button><button type="button" class="sl" data-s="2"><i></i>Retos</button><button type="button" class="sl" data-s="3"><i></i>Simulador</button><button type="button" class="sl" data-s="4"><i></i>Eduario</button><button type="button" class="sl" data-s="5"><i></i>Perfil</button>
+            </aside>
+            <div class="top"><b id="topA">Tu camino financiero</b><div class="stats"><span>Nivel 4</span><span>680 XP</span><span><i class="coin"></i><em id="coinsA" style="font-style:normal">1.240</em></span></div></div>
+            <div class="screens">
+              <!-- 01 camino -->
+              <div class="screen on">
+                <p class="sub">Módulo 2 de 6 · 40 % completado</p>
+                <div class="map" id="pathA">
+                  <div class="map-col">
+                    <div class="unit done"><span><small>Módulo 1</small><b>Vida adulta</b></span><i class="uck"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></i></div>
+                    <div class="unit cur"><span><small>Módulo 2 · Ahora</small><b>Presupuesto</b></span><span class="upct"><i style="width:40%"></i></span></div>
+                    <div class="trail">
+                      <button type="button" class="stop done" style="--x:.3" title="Ingresos y gastos fijos" aria-label="Ingresos y gastos fijos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></button>
+                      <button type="button" class="stop cur" id="curNode" style="--x:-.8" aria-label="La regla 50/30/20">2<span class="tipx">La regla 50/30/20<em>Empezar →</em></span></button>
+                      <button type="button" class="stop" style="--x:-.5" title="Gastos hormiga" aria-label="Gastos hormiga">3</button>
+                      <button type="button" class="stop" style="--x:.5" title="Tu primer presupuesto" aria-label="Tu primer presupuesto">4</button>
+                      <button type="button" class="stop star" style="--x:.9" title="Reto final del módulo" aria-label="Reto final del módulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z"/></svg></button>
+                    </div>
+                    <div class="unit next"><span><small>Módulo 3</small><b>Tu primer trabajo</b></span></div>
+                  </div>
+                  <div class="pop card open" id="popA"><p class="ttl" style="font-size:calc(1.9cqw * var(--k))">Presupuesto</p><p class="sub">4 lecciones · 5 píldoras · 6 retos</p>
+                    <ul><li><i style="background:var(--ok)"></i>Ingresos y gastos fijos</li><li><i style="background:var(--gold)"></i>La regla 50/30/20</li><li><i></i>Gastos hormiga</li><li><i></i>Tu primer presupuesto</li></ul>
+                    <button class="btnx" id="goLesson">Seguir con la lección →</button></div>
+                </div>
+              </div>
+              <!-- 02 píldoras -->
+              <div class="screen">
+                <div class="les">
+                  <aside class="card les-idx">
+                    <p class="kicker">Presupuesto · Lección 2</p>
+                    <p class="les-n">La regla 50/30/20</p>
+                    <div class="les-bar"><i id="lesBar"></i></div><p class="les-pct" id="lesPct"></p>
+                    <div class="les-list" id="lesList">
+                      <button class="li" data-v="0"><i>1</i><span>Vídeo<small>Los gastos hormiga · 30 s</small></span></button>
+                      <button class="li" data-v="1"><i>2</i><span>Lectura<small>Divide en tres · 3 min</small></span></button>
+                      <button class="li" data-v="2"><i>3</i><span>Infografía<small>¿A dónde va tu dinero?</small></span></button>
+                      <button class="li" data-v="3"><i><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></i><span>Reto<small>+50 monedas</small></span></button>
+                    </div>
+                  </aside>
+                  <div class="card les-main">
+                    <div class="les-head"><span class="kind" id="lesKind">VÍDEO</span><button class="mini-btn" id="notesBtn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg> Mis apuntes</button></div>
+                    <div class="les-views">
+                      <div class="lv" data-v="0">
+                        <div class="vid"><video id="lesVid" src="/media/pildoras/gastos-hormiga.mp4?v=4" poster="/media/pildoras/gastos-hormiga.jpg?v=3" playsinline preload="metadata"></video><button class="play" id="playBtn" aria-label="Reproducir con sonido">▶</button><button class="vmute" id="vidMute" aria-label="Silenciar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button><div class="vbar"><i id="vidProg"></i></div></div>
+                        <p class="lv-h">Los gastos hormiga</p><p class="lv-p">Pequeños gastos que casi no notas y que, sumados en un año, se comen casi tres cuartas partes de un sueldo.</p>
+                      </div>
+                      <div class="lv" data-v="1">
+                        <p class="lv-h">Divide lo que cobras en tres</p><p class="lv-p">Una regla sencilla para empezar a organizarte. No es perfecta, pero funciona.</p>
+                        <div class="split3" id="split3"><span class="s1" style="flex:50"><b>50 %</b><em class="amt" id="a1">623</em>Necesidades<small>casa, comida, transporte</small></span><span class="s2" style="flex:30"><b>30 %</b><em class="amt" id="a2">374</em>Deseos<small>ocio y caprichos</small></span><span class="s3" style="flex:20"><b>20 %</b><em class="amt" id="a3">249</em>Ahorro<small>tu colchón</small></span></div>
+                        <div class="lv-try"><label for="salR">Prueba con un sueldo de <b id="salV">1.245</b> monedas</label><input type="range" id="salR" min="400" max="3000" step="5" value="1245"></div>
+                      </div>
+                      <div class="lv" data-v="2">
+                        <p class="lv-h">¿A dónde va tu dinero cada mes?</p><p class="lv-p">Un sueldo de 1.245 monedas, gasto a gasto.</p>
+                        <div class="hbars" id="hbars">
+                          <div><span>Casa</span><i style="--w:72%;background:var(--navy)"></i><b>450</b></div>
+                          <div><span>Comida</span><i style="--w:35%;background:var(--sky)"></i><b>220</b></div>
+                          <div><span>Ocio</span><i style="--w:26%;background:var(--fog)"></i><b>160</b></div>
+                          <div><span>Transporte</span><i style="--w:15%;background:var(--mist)"></i><b>90</b></div>
+                          <div><span>Suscripciones</span><i style="--w:8%;background:var(--bad)"></i><b>45</b></div>
+                          <div><span>Ahorro</span><i style="--w:40%;background:var(--gold)"></i><b>249</b></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="les-foot"><button class="mini-btn" id="lesPrev">← Anterior</button><button class="mini-btn gold" id="lesNext">Siguiente →</button></div>
+                  </div>
+                  <aside class="notes" id="notes"><p class="les-n">Mis apuntes</p><p><mark>Gastos hormiga</mark>: antes de pagar algo pequeño, multiplícalo por 12.</p><p>50 % necesidades · 30 % deseos · <mark>20 % ahorro</mark>.</p><p>Revisar mis suscripciones.</p><button class="mini-btn" id="notesClose">Cerrar</button></aside>
+                </div>
+              </div>
+              <!-- 03 retos -->
+              <div class="screen">
+                <div class="quiz">
+                  <span class="mini-btn" style="background:var(--navy);color:#fff">Reto · Elige la mejor opción</span>
+                  <p class="q">Lucía cobra 1.245 monedas y quiere un celular de 900. ¿Qué le conviene más?</p>
+                  <div class="opts" id="optsA">
+                    <button class="opt" data-ok="0" data-f="Las cuotas parecen pequeñas, pero sin ahorro cualquier imprevisto la ahoga."><i>A</i>Pagarlo a plazos desde hoy</button>
+                    <button class="opt" data-ok="1" data-f="¡Correcto! Ahorrar unos meses le evita intereses y deudas."><i>B</i>Ahorrar 4 meses y pagarlo sin deber nada</button>
+                    <button class="opt" data-ok="0" data-f="Pedir prestado a amigos también es deuda, y puede salir cara."><i>C</i>Pedir el dinero prestado</button>
+                  </div>
+                  <p class="fb" id="fbA">Elige una respuesta.</p>
+                </div>
+                <div class="toast" id="toastA">✓ ¡Correcto! Has ganado <b>+50 monedas</b></div>
+              </div>
+              <!-- 04 simulador -->
+              <div class="screen">
+                <div class="simx">
+                  <div class="simx-top"><div class="segx" id="simTabs"><button class="on" data-t="m">Mercado</button><button data-t="c">Mi cartera <em id="portN">0</em></button></div><span class="cash">Disponible <b id="cashS">1.240</b> monedas</span></div>
+                  <div class="simx-pane on" data-p="m">
+                    <div class="card mkx"><p class="kicker">Activos</p><div class="mk" id="mk"></div></div>
+                    <div class="card chx">
+                      <div class="chx-h"><div><p class="chart-name" id="chName"></p><p class="kicker" id="chType" style="margin:0"></p></div><div class="segx sm" id="rng"><button>1S</button><button class="on">1M</button><button>1A</button></div></div>
+                      <p class="chart-price"><span id="chPrice"></span> <small>monedas</small> <span class="pill-chg" id="chChg"></span></p>
+                      <svg class="chsvg" viewBox="0 0 300 110" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F5C518" stop-opacity=".35"/><stop offset="1" stop-color="#F5C518" stop-opacity="0"/></linearGradient></defs><path id="chArea" fill="url(#sg)"/><path id="chLine" fill="none" stroke="#F5C518" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+                      <div class="buyrow"><span class="kicker" style="margin:0">¿Cuánto inviertes?</span><div class="amounts" id="amts"><button data-a="50">50</button><button class="on" data-a="100">100</button><button data-a="200">200</button></div><button class="buy" id="buy">Comprar</button></div>
+                    </div>
+                  </div>
+                  <div class="simx-pane" data-p="c">
+                    <div class="card pfx"><p class="kicker">Mi cartera</p><div class="donutwrap"><svg class="donut" id="donut" viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.9" fill="none" stroke="#eef1f6" stroke-width="5"/></svg><div class="dc"><b id="invTot">0</b><small>invertido</small></div></div><div class="legend" id="legend"><p class="sub">Todavía no has comprado nada. Ve a Mercado.</p></div></div>
+                    <div class="cmx"><p class="kicker">Finomik comenta tu cartera</p><div id="comments"><div class="cm">Compra algún activo y te diremos qué tal está repartida tu cartera.</div></div>
+                      <div class="card riskc"><p class="kicker" style="margin:0">Nivel de riesgo</p><div class="risk"><i id="riskMark"></i></div><div class="risk-l"><span>Bajo</span><span>Medio</span><span>Alto</span></div></div></div>
+                  </div>
+                </div>
+                <div class="toast" id="toastS"></div>
+              </div>
+              <!-- 05 eduario -->
+              <div class="screen">
+                <div class="edu">
+                  <div class="card edu-main">
+                    <div class="edu-hero" id="eduHero"><div class="edu-bars" id="eduBars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="edu-tag" id="eduTag"></span><p class="edu-kpi" id="eduKpi"></p></div>
+                    <div class="edu-row"><span class="kicker" style="margin:0" id="eduDate"></span><div class="segx sm" id="lvlSw"><button class="on">Básico</button><button>Intermedio</button><button>Avanzado</button></div></div>
+                    <p class="news-h" id="eduH"></p><p class="news-t" id="newsT"></p>
+                    <div class="edu-means"><b>¿Qué significa para ti?</b><p id="eduMean"></p></div>
+                  </div>
+                  <aside class="edu-side"><p class="kicker">Más del Eduario</p><div id="eduList"></div><div class="card qd"><p class="kicker" style="margin:0">Pregunta del día · +10 monedas</p><p class="qd-q">Si el oro sube, ¿suben también todas las acciones?</p><div class="qd-o"><button data-ok="0">Sí</button><button data-ok="1">No</button></div><p class="qd-f" id="qdF"></p></div><a class="mini-btn gold" href="#finny" id="askFinny"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg> Pregúntale a Finny</a></aside>
+                </div>
+              </div>
+              <!-- 06 avatar -->
+              <div class="screen">
+                <div class="av">
+                  <div class="card av-card"><div class="av-me"><img id="avImg" src="/media/av/astronauta.webp?v=2" alt="Tu avatar"></div><p class="les-n" style="text-align:center">Lucía</p><p class="kicker" style="text-align:center;margin:0">Nivel 4 · Ahorradora</p></div>
+                  <div class="card"><div class="chx-h"><div><p class="les-n" style="margin:0">Tienda de figuras</p><p class="kicker" style="margin:0">Lo que compras, es tuyo para siempre</p></div></div>
+                    <div class="shop" id="shop">
+                      <button class="on own" data-img="astronauta" data-p="0"><img src="/media/av/astronauta.webp?v=2" alt="" loading="lazy" width="120" height="120">Astronauta<small>Tuya</small></button>
+                      <button data-img="economista" data-p="300"><img src="/media/av/economista.webp?v=2" alt="" loading="lazy" width="120" height="120">Economista<small><i class="coin"></i> 300</small></button>
+                      <button data-img="chica-basket" data-p="250"><img src="/media/av/chica-basket.webp?v=2" alt="" loading="lazy" width="120" height="120">Basket<small><i class="coin"></i> 250</small></button>
+                      <button data-img="ceo" data-p="500"><img src="/media/av/ceo.webp?v=2" alt="" loading="lazy" width="120" height="120">CEO<small><i class="coin"></i> 500</small></button>
+                      <button data-img="futbolista" data-p="350"><img src="/media/av/futbolista.webp?v=2" alt="" loading="lazy" width="120" height="120">Futbolista<small><i class="coin"></i> 350</small></button>
+                      <button data-img="dj" data-p="400"><img src="/media/av/dj.webp?v=2" alt="" loading="lazy" width="120" height="120">DJ<small><i class="coin"></i> 400</small></button>
+                    </div></div>
+                </div>
+                <div class="toast" id="toastAv"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-note">Demo con datos de ejemplo. Toca dentro de la pantalla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · FINNY ============ -->
+<section class="sec" id="finny" data-dark>
+  <div class="stage deep dark" style="padding:clamp(70px,10vh,110px) 0">
+    <div class="wrap finny">
+      <div>
+        <p class="eyebrow"><i></i>Tutor con IA</p>
+        <h2 class="h2">Finny nunca se<br>cansa de <em>explicar</em>.</h2>
+        <p class="lead">Si un alumno se atasca, pregunta. Finny responde a su nivel, con ejemplos de su vida. Y solo habla de educación financiera.</p>
+        <button class="teacher-sw" id="finnySw"><span><b>Finny activado en esta clase</b><small>El profesor decide si su clase lo usa. Pruébalo.</small></span><span class="sw"></span></button>
+      </div>
+      <div class="chatbox">
+        <div class="chat-head"><b><i>F</i>Finny</b><div class="seg" id="finnyLvl"><button class="on">Básico</button><button>Intermedio</button><button>Avanzado</button></div></div>
+        <div class="msgs" id="msgs"><div class="b ai">¡Hola! Soy Finny. ¿Qué te gustaría entender hoy?</div></div>
+        <p class="try">PRUEBA UNA</p>
+        <div class="pills-ai" id="pillsAi">
+          <button class="chip" data-k="infl">¿Qué es la inflación, pero fácil?</button>
+          <button class="chip" data-k="div">¿Por qué no meto todo en una sola acción?</button>
+          <button class="chip" data-k="ret">¿Por qué me descuentan impuestos del sueldo?</button>
+        </div>
+        <div class="offcover" id="offcover"><div><b>Finny está desactivado</b><p>El profesor lo ha apagado para esta clase. Los alumnos siguen con sus lecciones y retos.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec"><div class="stage navy dark cta-band"><h2>Que decidan<br>con <em>criterio</em>.</h2><p>Te enseñamos Finomik en 20 minutos, con un caso de tu colegio.</p><div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Pide una demo</a><a class="btn btn-ghost" href="{{url:porque}}">Por qué Finomik</a></div></div></section>

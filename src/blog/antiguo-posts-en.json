@@ -1,0 +1,313 @@
+[
+ {
+  "slug": "new-website",
+  "date": "2026-10-15",
+  "cat": "Finomik news",
+  "read": "2 min",
+  "stat": null,
+  "statLabel": "",
+  "source": "",
+  "title": "Our new website: the new face of Finomik",
+  "intro": "We've rebuilt our website so any school can try the platform before talking to us: the simulator, the challenges, Finny and the teacher dashboard, all with sample data.",
+  "sections": [
+   {
+    "h": "What you can try",
+    "p": [
+     "On the students page you can walk through the six things they do inside Finomik. On the teachers page, the dashboard they use to follow their class."
+    ]
+   },
+   {
+    "h": "What's next",
+    "p": [
+     "We'll post platform news, classroom ideas and data on financial education here."
+    ]
+   }
+  ],
+  "cta": "Want to see it with a case from your school? We'll show you in 20 minutes.",
+  "slug_es": "nueva-web-finomik"
+ },
+ {
+  "slug": "emergency-savings-unexpected-expenses",
+  "date": "2026-04-17",
+  "cat": "Financial education",
+  "read": "6 min",
+  "stat": "45%",
+  "statLabel": "of adults in developing economies could not get money for an emergency within 30 days without much difficulty",
+  "source": "World Bank, Global Findex 2021",
+  "title": "Almost half of adults couldn't face an unexpected expense without serious difficulty",
+  "intro": "According to the World Bank's Global Findex 2021, only 55% of adults in developing economies could get extra money for an emergency within 30 days without much difficulty. For everyone else, a surprise expense becomes a problem.",
+  "sections": [
+   {
+    "h": "What an emergency fund is and why it's the foundation of financial health",
+    "p": [
+     "An emergency fund is a reserve of easily accessible savings worth three to six months of essential spending, available without penalty and kept apart from long-term savings. It is the first level of any personal financial health structure.",
+     "Its job isn't to grow. It's to be there. It absorbs the unexpected (losing a job, a car breakdown, an uncovered medical bill, a home repair) without having to turn to consumer credit or expensive loans.",
+     "Without this cushion, any surprise becomes a financial emergency that can trigger a debt cycle that is hard to break: you borrow to cover the surprise, the loan charges interest, the interest leaves less room to save, and the cycle repeats with the next surprise."
+    ]
+   },
+   {
+    "h": "",
+    "p": [
+     "The most common explanation is that there's no room in the budget to save. But research on financial behaviour shows the link between income and saving rate is more complex than it looks. People with similar incomes save at very different rates depending on their habits and financial knowledge.",
+     "The best-documented reason is the lack of an automatic saving habit. When saving isn't automatic (when money isn't set aside before spending), it tends not to happen. This is a basic principle of behavioural finance that isn't taught at school, and it has direct consequences for the financial resilience of millions of people.",
+     "Add to this some well-documented cognitive biases: the tendency to put present consumption ahead of future wellbeing (hyperbolic discounting), the difficulty of picturing negative future scenarios, and the lack of a concrete reference for how much is \"enough\"."
+    ]
+   },
+   {
+    "h": "What happens without a cushion: the real cost of the unexpected",
+    "p": [
+     "When there's no emergency fund, the surprise is paid for with debt. The easiest options for someone with no savings tend to be the most expensive: high-interest credit cards, quick loans whose annual rate can go above 100% in some cases, or deferred payments with high fees.",
+     "That cost could have been avoided entirely with the habit of setting aside a small amount every month for a year.",
+     "For lower- and middle-income families, this cycle can be devastating. Financial fragility isn't just stress: it correlates with worse job performance, worse health decisions and greater vulnerability to any economic change."
+    ]
+   },
+   {
+    "h": "How to teach the emergency saving habit in the classroom",
+    "p": [
+     "Emergency saving isn't just a concept: it's a habit. And habits are built, not inherited. Financial education in the classroom can work on this habit in practical ways: budget simulations where savings come out first, surprise scenarios that need decisions on the spot, or personalised calculations of how big \"your cushion\" would need to be.",
+     "The most effective financial education programmes don't stop at explaining what an emergency fund is. They get students to calculate it, plan it and build it into a mock budget, creating the familiarity they need for that behaviour to be within reach when the real moment comes.",
+     "And financial education works: a meta-analysis of 76 randomised experiments (Kaiser, Lusardi, Menkhoff and Urban, Journal of Financial Economics, 2022) found that it improves both knowledge and behaviours such as saving, with effects comparable to other educational interventions."
+    ]
+   }
+  ],
+  "cta": "Finomik includes dedicated modules on saving, budgeting and financial resilience, designed to build habits from the teenage years. Start with a pilot at your school.",
+  "slug_es": "adultos-sin-colchon-emergencia-ahorro"
+ },
+ {
+  "slug": "students-basic-financial-literacy-pisa",
+  "date": "2026-04-03",
+  "cat": "Teaching and methodology",
+  "read": "5 min",
+  "stat": "18%",
+  "statLabel": "of 15-year-old students don't reach the baseline level of financial literacy (OECD average)",
+  "source": "OECD, PISA 2022 (results published in 2024)",
+  "title": "Almost 1 in 5 15-year-olds don't reach the baseline level of financial literacy",
+  "intro": "In the PISA 2022 financial literacy assessment, 18% of 15-year-olds across the OECD fell below the baseline level: they couldn't reliably apply financial knowledge to everyday situations, such as reading a bill or comparing two offers. We're not talking about investing or long-term planning, but the minimum needed to get by in everyday economic life.",
+  "sections": [
+   {
+    "h": "What PISA measures in financial literacy and what \"basic level\" means",
+    "p": [
+     "The PISA financial literacy assessment places students in five performance levels. Level 2 is the baseline: the minimum needed to apply what they know to everyday situations, such as recognising the value of a simple budget, reading simple financial documents or making basic purchase decisions.",
+     "In the 2022 round, whose results the OECD published in 2024, 18% of students across the OECD fell below that threshold. That doesn't mean they won't go on to further study or that they lack ability. It means nobody has taught them, step by step, how money works."
+    ]
+   },
+   {
+    "h": "The real situations these students will face unprepared",
+    "p": [
+     "Students who finish compulsory education below the basic level of financial literacy will, within two or three years, face situations that require exactly the skills they lack: their first salary, their first tax return, their first rental contract, their first credit card.",
+     "Many of these contracts and products include clauses that a financially literate adult would flag as a problem. An adult without that literacy signs them without understanding them, and the consequences pile up for years.",
+     "The link between low financial literacy and the use of high-cost credit is well documented."
+    ]
+   },
+   {
+    "h": "What sets apart the schools that improve these results",
+    "p": [
+     "Schools whose students do best in financial literacy share three traits: they cover financial content regularly (not as a one-off event), they use active methods that go beyond lecturing, and they connect concepts to real situations in their students' lives.",
+     "It isn't about adding a new subject. It's about bringing a financial angle into existing subjects: applied maths, economics, social sciences or cross-curricular projects. The schools that do it well build it in gradually, with a sequence designed by level and age.",
+     "The results are measurable: a meta-analysis of 76 randomised experiments (Kaiser et al., Journal of Financial Economics, 2022) found that financial education improves financial knowledge and behaviours, with effects comparable to other educational interventions."
+    ]
+   }
+  ],
+  "cta": "Finomik offers learning paths structured by level and age so your students reach 18 with the financial tools they need. Start with a pilot group.",
+  "slug_es": "alumnado-sin-educacion-financiera-basica"
+ },
+ {
+  "slug": "adults-without-basic-financial-knowledge",
+  "date": "2026-03-18",
+  "cat": "Research and data",
+  "read": "5 min",
+  "stat": "3.5B+",
+  "statLabel": "adults worldwide lack basic financial knowledge",
+  "source": "S&P Global FinLit Survey, 2015",
+  "title": "3.5 billion adults worldwide lack basic financial knowledge",
+  "intro": "According to the global survey by S&P, Gallup and the World Bank, around 3.5 billion adults lack the minimum financial knowledge to make informed decisions. It isn't an abstract figure: it's the share of humanity managing its income, its debts and its future without the tools to do it well.",
+  "sections": [
+   {
+    "h": "How we get to this number: the size of the global gap",
+    "p": [
+     "The S&P Global Financial Literacy Survey (Klapper, Lusardi & Van Oudheusden, 2015) found that only 33% of adults worldwide can be considered financially literate.",
+     "Later surveys, such as the OECD/INFE 2023 international survey, still show low levels of financial knowledge in many countries. The gap exists on every continent, Europe included."
+    ]
+   },
+   {
+    "h": "The real consequences of living without financial knowledge",
+    "p": [
+     "Low financial literacy isn't an abstract academic gap. It turns into concrete decisions with concrete consequences: taking out loans without understanding their real cost, accepting mortgage terms without knowing the difference between a fixed and a variable rate, investing in products you don't understand, or not saving for emergencies because nobody explained why it matters.",
+     "Not knowing has a literal price. Lusardi and Tufano estimated that up to a third of the card charges and fees paid by people with low debt literacy are due to that lack of knowledge. And it's paid by those who can least afford it."
+    ]
+   },
+   {
+    "h": "Why this figure will keep growing unless schools act",
+    "p": [
+     "Every year, millions of young people start work, sign their first rental contract, open their first bank account or buy their first insurance without any formal financial education. They become new members of those 3.5 billion.",
+     "Financial products are getting more complex, crypto-assets are spreading, high-risk investments are sold as safe and expensive digital credit keeps growing. Together, they make the gap between what consumers understand and what the market offers them wider every year.",
+     "The only intervention that can break this cycle in a systematic, scalable way is education during the school years. No other channel has the reach, regularity and universality of the education system."
+    ]
+   },
+   {
+    "h": "What schools can do today",
+    "p": [
+     "There's no need to wait for financial education to become compulsory by law.",
+     "The key isn't adding more content to an already full curriculum, but using methods that build financial literacy into existing learning gradually, adapted to age and with measurable impact."
+    ]
+   }
+  ],
+  "cta": "Finomik works with schools so their students don't become part of this statistic. Start with a pilot and measure the impact from the first term.",
+  "slug_es": "adultos-sin-conocimientos-financieros-basicos-mundo"
+ },
+ {
+  "slug": "retrieval-practice-gamified-learning",
+  "date": "2026-03-05",
+  "cat": "Teaching and methodology",
+  "read": "7 min",
+  "stat": "+50%",
+  "statLabel": "more recall one week later when practising by answering questions instead of rereading",
+  "source": "Roediger and Karpicke, Psychological Science, 2006",
+  "title": "Answer instead of reread: up to 50% more recall one week later",
+  "intro": "It isn't just that students prefer challenges to textbooks. Answering questions forces you to retrieve what you've learned, and that fixes knowledge far better than rereading. In Roediger and Karpicke's classic experiment (2006), those who practised by answering remembered around 50% more one week later.",
+  "sections": [
+   {
+    "h": "What gamification in education really is (and what it isn't)",
+    "p": [
+     "Gamifying isn't turning the class into a video game. It's using game design elements (challenges, points, levels, instant feedback) so students practise more, and with more purpose."
+    ]
+   },
+   {
+    "h": "Why learning by answering works",
+    "p": [
+     "Instant feedback lets students fix a mistake the moment they make it, instead of days after the exam.",
+     "And every time a student answers a question, they practise active recall, one of the best-documented learning mechanisms. Roediger and Karpicke (2006) showed that, one week later, those who had practised by answering remembered around 50% more than those who had only reread the material."
+    ]
+   },
+   {
+    "h": "What the evidence says about gamification",
+    "p": [
+     "Sailer and Homner's meta-analysis (Educational Psychology Review, 2020) found positive effects of gamification on learning, motivation and behaviour, with the effect on learning holding up in the most rigorous studies.",
+     "In financial education, a meta-analysis of 76 randomised experiments (Kaiser et al., Journal of Financial Economics, 2022) found that training improves financial knowledge and behaviours. Abstract concepts become clearer when they're practised in simulated scenarios before students face them in real life."
+    ]
+   },
+   {
+    "h": "What this means for schools' teaching methods",
+    "p": [
+     "How you teach matters as much as what you teach. A school that teaches financial education only with worksheets ticks the box, but misses what active practice can deliver.",
+     "The good news: there's no need to build these systems from scratch. Platforms designed specifically for gamified financial education can fit into the existing curriculum without replacing it."
+    ]
+   }
+  ],
+  "cta": "If you'd like to see how it works, we'll start with a pilot at your school.",
+  "slug_es": "aprendizaje-gamificado-retencion-educacion-financiera"
+ },
+ {
+  "slug": "global-adult-financial-literacy-sp",
+  "date": "2026-02-20",
+  "cat": "Research and data",
+  "read": "6 min",
+  "stat": "33%",
+  "statLabel": "of adults worldwide are financially literate",
+  "source": "S&P Global FinLit Survey, 2015",
+  "title": "Only 33% of adults worldwide have basic financial literacy",
+  "intro": "In 2015, S&P Ratings, Gallup and the World Bank carried out the largest financial literacy study ever: 150,000 adults interviewed in 148 countries. The conclusion was blunt: only 1 in 3 adults worldwide understands basic financial concepts such as compound interest, inflation or risk diversification.",
+  "sections": [
+   {
+    "h": "How it was measured: the S&P Global Financial Literacy Survey method",
+    "p": [
+     "The study assessed adults in 148 countries using four questions covering the financial concepts that matter most for everyday decisions. To count as \"financially literate\", a respondent had to answer at least three of the four correctly.",
+     "The four areas: risk diversification, inflation, simple interest and compound interest. The global result: 67% of adults got at least two of those four questions wrong."
+    ]
+   },
+   {
+    "h": "",
+    "p": [
+     "A gap that early education can close if it is designed to reach everyone equally."
+    ]
+   },
+   {
+    "h": "The concrete cost of low financial literacy",
+    "p": [
+     "Low financial literacy has measurable economic consequences: excessive consumer debt with high-cost loans, vulnerability to financial fraud, and too little saving for retirement.",
+     "Relying almost entirely on public pensions is a systemic risk that early financial education can help reduce."
+    ]
+   },
+   {
+    "h": "Why school is the most effective place to step in",
+    "p": [
+     "Financial education programmes for adults have limited impact. Financial habits that have been in place for years are hard to change.",
+     "Habits also form early: a University of Cambridge review for the Money Advice Service (Whitebread and Bingham, 2013) concluded that habits such as planning ahead and being able to wait start forming in childhood. School is where those habits can turn into sound decisions before the first real ones arrive."
+    ]
+   }
+  ],
+  "cta": "Finomik brings these skills into the classroom before students make their first financial decisions. We can start a pilot at your school in less than a week.",
+  "slug_es": "alfabetizacion-financiera-adultos-mundo-sp-global"
+ },
+ {
+  "slug": "financial-education-in-schools-support",
+  "date": "2026-02-06",
+  "cat": "Research and data",
+  "read": "5 min",
+  "stat": "88%",
+  "statLabel": "of US adults think a financial education course should be required to finish high school",
+  "source": "NEFE, 2022",
+  "title": "88% of adults want compulsory financial education in high school",
+  "intro": "When you ask adults, the answer is clear. In a National Endowment for Financial Education survey (NEFE, 2022), 88% of US adults said their state should require a financial education course to graduate from high school. It isn't a fringe demand: it's a generational one.",
+  "sections": [
+   {
+    "h": "What PISA says about students' financial literacy",
+    "p": [
+     "The Programme for International Student Assessment (PISA) assesses 15-year-olds every three years in maths, reading, science and, since 2012, financial literacy. Its 2022 round, whose results were published in 2024, covered 20 countries and economies.",
+     "The result: 18% of students across the OECD did not reach the baseline level of financial literacy.",
+     "Adult surveys complete the picture: those who didn't learn about money at school wish they had, and want their children to."
+    ]
+   },
+   {
+    "h": "Why schools have a role nobody else can take on",
+    "p": [
+     "Families pass on financial habits, but they also pass on their own biases and limits. A household facing financial hardship can hardly teach advanced budget planning. Either way, school is the only universal channel that reaches every student, whatever their background.",
+     "Behavioural economics research shows that financial habits form before the age of 20. Whatever isn't covered in that window has a measurable cost in adult life decisions.",
+     "Countries that have made financial education part of the curriculum show consistent results: higher saving among young adults, less unproductive consumer debt and better understanding of financial products. Australia, the United Kingdom and the Nordic countries have had structured programmes for more than a decade."
+    ]
+   },
+   {
+    "h": "The financial skills the OECD sets out for secondary students",
+    "p": [
+     "The PISA assessment framework sets out four content areas every student should cover before leaving compulsory education:"
+    ],
+    "sub": [
+     {
+      "h": "Money and transactions",
+      "p": [
+       "Understanding the value of money, the different ways to pay and how everyday transactions work, including debit and credit cards and digital transfers."
+      ]
+     },
+     {
+      "h": "Planning and managing finances",
+      "p": [
+       "Being able to budget income and spending, set saving goals and plan for the short and medium term. This skill correlates directly with financial stability in adult life."
+      ]
+     },
+     {
+      "h": "Risk and reward",
+      "p": [
+       "Understanding that every financial decision carries some risk. Assessing basic investment products and spotting unrealistic promises of returns."
+      ]
+     },
+     {
+      "h": "Financial landscape",
+      "p": [
+       "Understanding the setting in which financial decisions are made: consumer rights, basic regulation and how the economy affects personal finances."
+      ]
+     }
+    ]
+   },
+   {
+    "h": "What this means for school leaders and teaching teams",
+    "p": [
+     "This figure isn't just a statistic. It's a sign of the gap between what society expects from the education system and what the system currently offers on financial matters.",
+     "Schools that act now are responding to a clear social demand, getting ahead of regulations several European countries are already preparing, and giving their students tools they'll use for the rest of their lives.",
+     "The question is when. Schools that move early will have built their own approach instead of adopting one imposed on them."
+    ]
+   }
+  ],
+  "cta": "Finomik designs financial education paths adapted to the curriculum and the age of each group. If your school wants to close this gap, we'll start with a no-commitment pilot.",
+  "slug_es": "educacion-financiera-colegios-ocde-pisa-2023"
+ }
+]

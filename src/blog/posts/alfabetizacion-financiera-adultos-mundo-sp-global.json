@@ -1,0 +1,29 @@
+{
+ "id": "alfabetizacion-financiera-adultos-mundo-sp-global",
+ "estado": "publicado",
+ "fecha": "2026-02-20",
+ "destacado": false,
+ "imagen": "",
+ "es": {
+  "slug": "alfabetizacion-financiera-adultos-mundo-sp-global",
+  "titulo": "Solo el 33% de los adultos en el mundo tiene competencia financiera básica",
+  "categoria": "Investigación y datos",
+  "entradilla": "En 2015, S&P Ratings, Gallup y el Banco Mundial realizaron el mayor estudio sobre alfabetización financiera de la historia: 150.000 adultos entrevistados en 148 países. La conclusión fue contundente: solo 1 de cada 3 adultos en el mundo comprende conceptos financieros básicos como el interés compuesto, la inflación o la diversificación del riesgo.",
+  "texto": "## Cómo se midió: la metodología del S&P Global Financial Literacy Survey\n\nEl estudio evaluó a adultos de 148 países usando cuatro preguntas que representan los conceptos financieros más relevantes para las decisiones del día a día. Para ser considerado \"financieramente competente\", un entrevistado debía responder correctamente al menos tres de las cuatro.\n\nLas cuatro áreas: diversificación del riesgo, inflación, cálculo de interés simple e interés compuesto. El resultado global: el 67% de los adultos falló en al menos dos de esas cuatro preguntas.\n\nUna brecha que la educación temprana puede cerrar si es igualitaria desde el diseño.\n\n## El coste concreto de la baja alfabetización financiera\n\nLa baja competencia financiera tiene consecuencias económicas medibles: endeudamiento de consumo excesivo con créditos de alto coste, vulnerabilidad ante fraudes financieros, e infrautilización del ahorro para la jubilación.\n\nLa dependencia casi exclusiva del sistema público de pensiones representa un riesgo sistémico que la educación financiera temprana puede contribuir a reducir.\n\n## Por qué el punto de intervención más eficaz es el colegio\n\nLos programas de educación financiera para adultos tienen tasas de impacto limitadas. Los hábitos financieros con años de arraigo cambian con dificultad.\n\nAdemás, los hábitos se forman pronto: una revisión de la Universidad de Cambridge para el Money Advice Service (Whitebread y Bingham, 2013) concluyó que hábitos como planificar o saber esperar empiezan a formarse en la infancia. La escuela es el lugar donde convertir esos hábitos en decisiones con criterio antes de que lleguen las primeras decisiones reales.",
+  "dato": "33%",
+  "dato_texto": "de los adultos en el mundo es financieramente competente",
+  "fuente": "S&P Global FinLit Survey, 2015",
+  "llamada": "Finomik lleva estas competencias al aula antes de que el alumnado tome sus primeras decisiones financieras. Empezamos con un piloto en tu centro en menos de una semana."
+ },
+ "en": {
+  "slug": "global-adult-financial-literacy-sp",
+  "titulo": "Only 33% of adults worldwide have basic financial literacy",
+  "categoria": "Research and data",
+  "entradilla": "In 2015, S&P Ratings, Gallup and the World Bank carried out the largest financial literacy study ever: 150,000 adults interviewed in 148 countries. The conclusion was blunt: only 1 in 3 adults worldwide understands basic financial concepts such as compound interest, inflation or risk diversification.",
+  "texto": "## How it was measured: the S&P Global Financial Literacy Survey method\n\nThe study assessed adults in 148 countries using four questions covering the financial concepts that matter most for everyday decisions. To count as \"financially literate\", a respondent had to answer at least three of the four correctly.\n\nThe four areas: risk diversification, inflation, simple interest and compound interest. The global result: 67% of adults got at least two of those four questions wrong.\n\nA gap that early education can close if it is designed to reach everyone equally.\n\n## The concrete cost of low financial literacy\n\nLow financial literacy has measurable economic consequences: excessive consumer debt with high-cost loans, vulnerability to financial fraud, and too little saving for retirement.\n\nRelying almost entirely on public pensions is a systemic risk that early financial education can help reduce.\n\n## Why school is the most effective place to step in\n\nFinancial education programmes for adults have limited impact. Financial habits that have been in place for years are hard to change.\n\nHabits also form early: a University of Cambridge review for the Money Advice Service (Whitebread and Bingham, 2013) concluded that habits such as planning ahead and being able to wait start forming in childhood. School is where those habits can turn into sound decisions before the first real ones arrive.",
+  "dato": "33%",
+  "dato_texto": "of adults worldwide are financially literate",
+  "fuente": "S&P Global FinLit Survey, 2015",
+  "llamada": "Finomik brings these skills into the classroom before students make their first financial decisions. We can start a pilot at your school in less than a week."
+ }
+}

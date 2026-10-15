@@ -1,0 +1,313 @@
+[
+ {
+  "slug": "nueva-web-finomik",
+  "date": "2026-10-15",
+  "cat": "Novedades de Finomik",
+  "read": "2 min",
+  "stat": null,
+  "statLabel": "",
+  "source": "",
+  "title": "Estrenamos web: así es la nueva cara de Finomik",
+  "intro": "Hemos rehecho nuestra web para que cualquier colegio pueda probar la plataforma antes de hablar con nosotros: el simulador, los retos, Finny y el panel del profesor, todo con datos de ejemplo.",
+  "sections": [
+   {
+    "h": "Qué puedes probar",
+    "p": [
+     "En la página de alumnos puedes recorrer las seis cosas que hacen dentro de Finomik. En la de profesores, el panel con el que siguen a su clase."
+    ]
+   },
+   {
+    "h": "Lo que viene",
+    "p": [
+     "Iremos publicando aquí novedades de la plataforma, ideas para el aula y datos sobre educación financiera."
+    ]
+   }
+  ],
+  "cta": "¿Quieres verla con un caso de tu colegio? Te la enseñamos en 20 minutos.",
+  "slug_en": "new-website"
+ },
+ {
+  "slug": "adultos-sin-colchon-emergencia-ahorro",
+  "date": "2026-04-17",
+  "cat": "Educación financiera",
+  "read": "6 min",
+  "stat": "45%",
+  "statLabel": "de los adultos en economías en desarrollo no podría conseguir dinero para una emergencia en 30 días sin grandes dificultades",
+  "source": "Banco Mundial, Global Findex 2021",
+  "title": "Casi la mitad de los adultos no podría afrontar un imprevisto sin grandes dificultades",
+  "intro": "Según el Global Findex 2021 del Banco Mundial, solo el 55% de los adultos de las economías en desarrollo podría conseguir dinero extra para una emergencia en 30 días sin grandes dificultades. Para el resto, un imprevisto se convierte en un problema.",
+  "sections": [
+   {
+    "h": "Qué es un colchón de emergencia y por qué es la base de cualquier salud financiera",
+    "p": [
+     "Un colchón de emergencia es una reserva de ahorro líquido equivalente a entre tres y seis meses de gastos esenciales, disponible sin penalización y separada del ahorro a largo plazo. Es el primer nivel de cualquier estructura de salud financiera personal.",
+     "Su función no es crecer. Es estar ahí. Permite absorber imprevistos , pérdida de empleo, avería del vehículo, gasto médico no cubierto, reparación del hogar,  sin necesidad de recurrir a crédito de consumo o préstamos de alto coste.",
+     "Sin este colchón, cualquier imprevisto se convierte en una emergencia financiera que puede desencadenar un ciclo de endeudamiento difícil de romper: se pide un crédito para cubrir el imprevisto, el crédito genera intereses, los intereses reducen el margen para ahorrar, y el ciclo se repite ante el siguiente imprevisto."
+    ]
+   },
+   {
+    "h": "",
+    "p": [
+     "La explicación más extendida es que no hay margen económico para ahorrar. Pero la investigación en comportamiento financiero muestra que la relación entre ingresos y tasa de ahorro es más compleja de lo que parece. Personas con ingresos similares tienen tasas de ahorro muy diferentes según sus hábitos y conocimientos financieros.",
+     "La razón más documentada es la ausencia del hábito de ahorro automatizado. Cuando el ahorro no es automático (no se aparta antes de gastar), tiende a no producirse. Este es un principio básico de las finanzas del comportamiento que no se enseña en las escuelas y que tiene consecuencias directas en la resiliencia financiera de millones de personas.",
+     "A esto se suman sesgos cognitivos bien documentados: la tendencia a priorizar el consumo presente sobre el bienestar futuro (descuento hiperbólico), la dificultad para visualizar escenarios futuros negativos, y la falta de referencias concretas sobre qué cantidad es \"suficiente\"."
+    ]
+   },
+   {
+    "h": "Qué ocurre cuando no hay colchón: el coste real de los imprevistos",
+    "p": [
+     "Cuando no existe colchón de emergencia, el imprevisto se financia con deuda. Las opciones más accesibles para quien no tiene ahorro suelen ser las más caras: tarjetas de crédito con intereses altos, créditos rápidos cuyo interés anual puede superar el 100% en algunos casos, o aplazamientos de pago con comisiones elevadas.",
+     "Ese coste podría haberse evitado completamente con el hábito de apartar una pequeña cantidad cada mes durante un año.",
+     "Para las familias con ingresos medios-bajos, este ciclo puede ser devastador. La fragilidad financiera no es solo estrés: correlaciona con peor rendimiento laboral, peores decisiones de salud y mayor vulnerabilidad ante cualquier cambio económico."
+    ]
+   },
+   {
+    "h": "Cómo enseñar el hábito del ahorro de emergencia en el aula",
+    "p": [
+     "El ahorro de emergencia no es solo un concepto: es un hábito. Y los hábitos se forman, no se heredan. La educación financiera en el aula puede trabajar este hábito de forma práctica: simulaciones de presupuesto donde el ahorro se aparta primero, escenarios de imprevistos que requieren decisiones en tiempo real, o cálculos personalizados de cuánto necesitaría \"tu colchón\".",
+     "Los programas de educación financiera más efectivos no se limitan a explicar qué es un colchón de emergencia. Hacen que el alumnado lo calcule, lo planifique y lo incorpore en un presupuesto ficticio, creando la familiaridad cognitiva necesaria para que ese comportamiento sea accesible cuando llegue el momento real.",
+     "Y la educación financiera funciona: un metaanálisis de 76 experimentos aleatorizados (Kaiser, Lusardi, Menkhoff y Urban, Journal of Financial Economics, 2022) concluye que mejora tanto los conocimientos como comportamientos como el ahorro, con efectos comparables a los de otras intervenciones educativas."
+    ]
+   }
+  ],
+  "cta": "Finomik incluye módulos específicos sobre ahorro, presupuesto y resiliencia financiera, diseñados para crear hábitos desde la adolescencia. Empieza con un piloto en tu centro.",
+  "slug_en": "emergency-savings-unexpected-expenses"
+ },
+ {
+  "slug": "alumnado-sin-educacion-financiera-basica",
+  "date": "2026-04-03",
+  "cat": "Pedagogía y metodología",
+  "read": "5 min",
+  "stat": "18%",
+  "statLabel": "de los estudiantes de 15 años no alcanza el nivel básico de competencia financiera (media OCDE)",
+  "source": "OCDE, PISA 2022 (resultados publicados en 2024)",
+  "title": "Casi 1 de cada 5 estudiantes de 15 años no alcanza el nivel básico de competencia financiera",
+  "intro": "En la evaluación de competencia financiera de PISA 2022, el 18% de los estudiantes de 15 años de la OCDE quedó por debajo del nivel básico: no fue capaz de aplicar con fiabilidad conocimientos financieros a situaciones cotidianas, como interpretar una factura o comparar dos ofertas. No hablamos de inversión o planificación a largo plazo, sino del mínimo funcional para moverse en la vida económica diaria.",
+  "sections": [
+   {
+    "h": "Qué mide PISA en competencia financiera y qué significa \"nivel básico\"",
+    "p": [
+     "La evaluación PISA de competencia financiera clasifica a los estudiantes en cinco niveles de desempeño. El nivel 2 es el nivel básico: el mínimo para aplicar lo que saben a situaciones cotidianas, como reconocer el valor de un presupuesto sencillo, interpretar documentos financieros simples o tomar decisiones básicas de compra.",
+     "En la edición de 2022, cuyos resultados publicó la OCDE en 2024, el 18% de los estudiantes de la OCDE quedó por debajo de ese umbral. Esto no implica que no vayan a seguir estudiando o que no sean capaces intelectualmente. Implica que nadie les ha enseñado sistemáticamente cómo funciona el dinero."
+    ]
+   },
+   {
+    "h": "A qué situaciones reales se enfrentarán estos estudiantes sin preparación",
+    "p": [
+     "Los estudiantes que terminan la educación obligatoria por debajo del nivel básico de competencia financiera se enfrentan, en los siguientes dos o tres años, a situaciones que requieren exactamente las habilidades que no tienen: su primer sueldo, su primera declaración de impuestos, su primer contrato de alquiler, su primera tarjeta de crédito.",
+     "Muchos de estos contratos y productos incluyen cláusulas que un adulto con competencia financiera identificaría como problemáticas. Un adulto sin esa competencia los firma sin entenderlos, y las consecuencias se acumulan durante años.",
+     "La correlación entre baja competencia financiera y uso de productos de crédito de alto coste está bien documentada."
+    ]
+   },
+   {
+    "h": "Qué diferencia a los centros que mejoran estos resultados",
+    "p": [
+     "Los centros que obtienen mejores resultados en competencia financiera de su alumnado comparten tres características: incorporan contenidos financieros de forma regular (no como evento puntual), utilizan metodologías activas que van más allá de la clase magistral, y conectan los conceptos con situaciones de la vida real del alumnado.",
+     "No se trata de añadir una asignatura nueva. Se trata de integrar la perspectiva financiera en materias existentes: matemáticas aplicadas, economía, ciencias sociales, o proyectos interdisciplinares. Los centros que lo hacen bien lo integran de forma progresiva, con una secuencia pensada por niveles y edades.",
+     "Los resultados son medibles: un metaanálisis de 76 experimentos aleatorizados (Kaiser y otros, Journal of Financial Economics, 2022) concluye que la educación financiera mejora los conocimientos y los comportamientos financieros, con efectos comparables a los de otras intervenciones educativas."
+    ]
+   }
+  ],
+  "cta": "Finomik ofrece itinerarios estructurados por niveles y edades para que tu alumnado llegue a los 18 años con las herramientas financieras que necesita. Empieza con un grupo piloto.",
+  "slug_en": "students-basic-financial-literacy-pisa"
+ },
+ {
+  "slug": "adultos-sin-conocimientos-financieros-basicos-mundo",
+  "date": "2026-03-18",
+  "cat": "Investigación y datos",
+  "read": "5 min",
+  "stat": "3.5B+",
+  "statLabel": "personas adultas en el mundo sin conocimientos financieros básicos",
+  "source": "S&P Global FinLit Survey, 2015",
+  "title": "3.500 millones de adultos en el mundo no tienen conocimientos financieros básicos",
+  "intro": "Según la encuesta mundial de S&P, Gallup y el Banco Mundial, unos 3.500 millones de personas adultas carecen de los conocimientos financieros mínimos para tomar decisiones informadas. No es una cifra abstracta: es la proporción de la humanidad que gestiona sus ingresos, sus deudas y su futuro sin las herramientas necesarias para hacerlo bien.",
+  "sections": [
+   {
+    "h": "Cómo se llega a este número: la magnitud del déficit global",
+    "p": [
+     "El S&P Global Financial Literacy Survey (Klapper, Lusardi & Van Oudheusden, 2015) estableció que solo el 33% de los adultos a nivel mundial puede considerarse financieramente competente.",
+     "Encuestas posteriores, como la internacional de la OCDE/INFE de 2023, siguen mostrando niveles de conocimiento financiero bajos en muchos países. El déficit está presente en todos los continentes, incluida Europa."
+    ]
+   },
+   {
+    "h": "Las consecuencias reales de vivir sin conocimientos financieros",
+    "p": [
+     "La baja alfabetización financiera no es un déficit académico abstracto. Se traduce en decisiones concretas con consecuencias concretas: contratar créditos sin comprender el coste real, aceptar condiciones hipotecarias sin entender la diferencia entre tipo fijo y variable, invertir en productos que no se comprenden, o no ahorrar para imprevistos porque nadie explicó por qué es necesario.",
+     "La falta de conocimientos tiene un precio literal. Lusardi y Tufano estimaron que hasta un tercio de los intereses y comisiones de tarjeta que pagan las personas con menos conocimientos sobre deuda se debe precisamente a ese desconocimiento. Y ese precio lo pagan quienes menos pueden permitírselo."
+    ]
+   },
+   {
+    "h": "Por qué esta cifra seguirá creciendo si no se actúa en los colegios",
+    "p": [
+     "Cada año, millones de jóvenes acceden al mercado laboral, firman su primer contrato de alquiler, abren su primera cuenta bancaria o contratan su primer seguro sin haber recibido formación financiera formal. Se convierten en nuevos integrantes de esos 3.500 millones.",
+     "La velocidad a la que los productos financieros se complejizan, la proliferación de criptoactivos, los productos de inversión de alto riesgo presentados como seguros, y la expansión del crédito digital de alto coste hacen que la brecha entre lo que los consumidores entienden y lo que el mercado les ofrece sea mayor cada año.",
+     "La única intervención que puede romper este ciclo de forma sistemática y escalable es la educación en la etapa escolar. No hay otro canal con el alcance, la regularidad y la universalidad del sistema educativo."
+    ]
+   },
+   {
+    "h": "Qué pueden hacer los centros hoy",
+    "p": [
+     "No es necesario esperar a que la educación financiera sea obligatoria por ley.",
+     "La clave no es añadir más contenido al currículo ya saturado, sino incorporar metodologías que integren la competencia financiera en el aprendizaje existente de forma progresiva, adaptada a la edad y con impacto medible."
+    ]
+   }
+  ],
+  "cta": "Finomik trabaja con centros educativos para que sus estudiantes no se conviertan en parte de esta estadística. Empieza con un piloto y mide el impacto desde el primer trimestre.",
+  "slug_en": "adults-without-basic-financial-knowledge"
+ },
+ {
+  "slug": "aprendizaje-gamificado-retencion-educacion-financiera",
+  "date": "2026-03-05",
+  "cat": "Pedagogía y metodología",
+  "read": "7 min",
+  "stat": "+50%",
+  "statLabel": "de recuerdo una semana después al practicar respondiendo preguntas en lugar de releer",
+  "source": "Roediger y Karpicke, Psychological Science, 2006",
+  "title": "Responder en lugar de releer: hasta un 50% más de recuerdo una semana después",
+  "intro": "No es solo que los estudiantes prefieran los retos a los libros de texto. Responder preguntas obliga a recuperar lo aprendido, y eso fija el conocimiento mucho mejor que releer. En el experimento clásico de Roediger y Karpicke (2006), quienes practicaron respondiendo recordaban alrededor de un 50% más una semana después.",
+  "sections": [
+   {
+    "h": "Qué es realmente la gamificación en educación (y qué no es)",
+    "p": [
+     "Gamificar no es convertir la clase en un videojuego. Es usar elementos del diseño de juegos (retos, puntos, niveles, feedback inmediato) para que el alumnado practique más y con más intención."
+    ]
+   },
+   {
+    "h": "Por qué aprender respondiendo funciona",
+    "p": [
+     "El feedback inmediato permite corregir un error en el momento en que se comete, en lugar de días después del examen.",
+     "Y cada vez que un estudiante responde una pregunta practica la recuperación activa (active recall), uno de los mecanismos de aprendizaje mejor documentados. Roediger y Karpicke (2006) mostraron que, una semana después, quienes habían practicado respondiendo recordaban alrededor de un 50% más que quienes solo habían releído el material."
+    ]
+   },
+   {
+    "h": "Qué dice la evidencia sobre gamificación",
+    "p": [
+     "El metaanálisis de Sailer y Homner (Educational Psychology Review, 2020) encontró efectos positivos de la gamificación sobre el aprendizaje, la motivación y el comportamiento, con un efecto sobre el aprendizaje que se mantuvo en los estudios de mayor rigor.",
+     "En educación financiera, un metaanálisis de 76 experimentos aleatorizados (Kaiser y otros, Journal of Financial Economics, 2022) concluye que la formación mejora los conocimientos y los comportamientos financieros. Los conceptos abstractos ganan claridad cuando se practican en escenarios simulados antes de enfrentarse a ellos en la vida real."
+    ]
+   },
+   {
+    "h": "Qué implica esto para la metodología de los centros",
+    "p": [
+     "El formato de enseñanza importa tanto como el contenido. Un centro que imparte educación financiera solo con fichas cumple el requisito formal, pero desaprovecha lo que la práctica activa puede aportar.",
+     "La buena noticia: no es necesario desarrollar estos sistemas desde cero. Plataformas diseñadas específicamente para educación financiera gamificada pueden integrarse en el currículo existente sin reemplazarlo."
+    ]
+   }
+  ],
+  "cta": "Si quieres ver cómo funciona, empezamos con un piloto en tu centro.",
+  "slug_en": "retrieval-practice-gamified-learning"
+ },
+ {
+  "slug": "alfabetizacion-financiera-adultos-mundo-sp-global",
+  "date": "2026-02-20",
+  "cat": "Investigación y datos",
+  "read": "6 min",
+  "stat": "33%",
+  "statLabel": "de los adultos en el mundo es financieramente competente",
+  "source": "S&P Global FinLit Survey, 2015",
+  "title": "Solo el 33% de los adultos en el mundo tiene competencia financiera básica",
+  "intro": "En 2015, S&P Ratings, Gallup y el Banco Mundial realizaron el mayor estudio sobre alfabetización financiera de la historia: 150.000 adultos entrevistados en 148 países. La conclusión fue contundente: solo 1 de cada 3 adultos en el mundo comprende conceptos financieros básicos como el interés compuesto, la inflación o la diversificación del riesgo.",
+  "sections": [
+   {
+    "h": "Cómo se midió: la metodología del S&P Global Financial Literacy Survey",
+    "p": [
+     "El estudio evaluó a adultos de 148 países usando cuatro preguntas que representan los conceptos financieros más relevantes para las decisiones del día a día. Para ser considerado \"financieramente competente\", un entrevistado debía responder correctamente al menos tres de las cuatro.",
+     "Las cuatro áreas: diversificación del riesgo, inflación, cálculo de interés simple e interés compuesto. El resultado global: el 67% de los adultos falló en al menos dos de esas cuatro preguntas."
+    ]
+   },
+   {
+    "h": "",
+    "p": [
+     "Una brecha que la educación temprana puede cerrar si es igualitaria desde el diseño."
+    ]
+   },
+   {
+    "h": "El coste concreto de la baja alfabetización financiera",
+    "p": [
+     "La baja competencia financiera tiene consecuencias económicas medibles: endeudamiento de consumo excesivo con créditos de alto coste, vulnerabilidad ante fraudes financieros, e infrautilización del ahorro para la jubilación.",
+     "La dependencia casi exclusiva del sistema público de pensiones representa un riesgo sistémico que la educación financiera temprana puede contribuir a reducir."
+    ]
+   },
+   {
+    "h": "Por qué el punto de intervención más eficaz es el colegio",
+    "p": [
+     "Los programas de educación financiera para adultos tienen tasas de impacto limitadas. Los hábitos financieros con años de arraigo cambian con dificultad.",
+     "Además, los hábitos se forman pronto: una revisión de la Universidad de Cambridge para el Money Advice Service (Whitebread y Bingham, 2013) concluyó que hábitos como planificar o saber esperar empiezan a formarse en la infancia. La escuela es el lugar donde convertir esos hábitos en decisiones con criterio antes de que lleguen las primeras decisiones reales."
+    ]
+   }
+  ],
+  "cta": "Finomik lleva estas competencias al aula antes de que el alumnado tome sus primeras decisiones financieras. Empezamos con un piloto en tu centro en menos de una semana.",
+  "slug_en": "global-adult-financial-literacy-sp"
+ },
+ {
+  "slug": "educacion-financiera-colegios-ocde-pisa-2023",
+  "date": "2026-02-06",
+  "cat": "Investigación y datos",
+  "read": "5 min",
+  "stat": "88%",
+  "statLabel": "de los adultos en EE. UU. cree que debería ser obligatorio un curso de educación financiera para terminar secundaria",
+  "source": "NEFE, 2022",
+  "title": "El 88% de los adultos quiere educación financiera obligatoria en secundaria",
+  "intro": "Cuando se pregunta a los adultos, la respuesta es clara. En una encuesta de la National Endowment for Financial Education (NEFE, 2022), el 88% de los adultos estadounidenses dijo que su estado debería exigir un curso de educación financiera para graduarse en secundaria. No es una demanda marginal: es una demanda generacional.",
+  "sections": [
+   {
+    "h": "Qué dice PISA sobre la competencia financiera de los estudiantes",
+    "p": [
+     "El Programme for International Student Assessment (PISA) evalúa cada tres años a jóvenes de 15 años en matemáticas, lectura, ciencias y, desde 2012, competencia financiera. En la edición de 2022, cuyos resultados se publicaron en 2024, participaron 20 países y economías.",
+     "El resultado: el 18% de los estudiantes de la OCDE no alcanzó el nivel básico de competencia financiera.",
+     "Las encuestas a adultos completan el cuadro: quienes no aprendieron sobre dinero en el colegio echan de menos haberlo hecho, y piden que sus hijos sí lo aprendan."
+    ]
+   },
+   {
+    "h": "Por qué los centros educativos tienen un papel que nadie más puede asumir",
+    "p": [
+     "La familia transmite hábitos financieros, pero también reproduce sus propios sesgos y limitaciones. Un hogar con dificultades económicas difícilmente puede enseñar planificación presupuestaria avanzada. En ambos casos, el centro escolar es el único canal universal que llega a todos los estudiantes independientemente de su origen.",
+     "La investigación en economía del comportamiento señala que los hábitos financieros se forman antes de los 20 años. Lo que no se trabaja en esa ventana tiene un coste medible en las decisiones de vida adulta.",
+     "Los países que han incorporado educación financiera como materia curricular muestran resultados consistentes: mayor tasa de ahorro en adultos jóvenes, menor endeudamiento de consumo improductivo y mejor comprensión de los productos financieros. Australia, Reino Unido y los países nórdicos llevan más de una década con programas estructurados."
+    ]
+   },
+   {
+    "h": "Qué competencias financieras define la OCDE para el alumnado de secundaria",
+    "p": [
+     "El marco de evaluación PISA define cuatro áreas de contenido que todo estudiante debería trabajar antes de terminar la educación obligatoria:"
+    ],
+    "sub": [
+     {
+      "h": "Dinero y transacciones",
+      "p": [
+       "Entender el valor del dinero, los distintos medios de pago y cómo funcionan las transacciones cotidianas, incluyendo tarjetas de débito y crédito y transferencias digitales."
+      ]
+     },
+     {
+      "h": "Planificación y gestión de las finanzas",
+      "p": [
+       "Capacidad para presupuestar ingresos y gastos, establecer objetivos de ahorro y planificar a corto y medio plazo. Esta competencia correlaciona directamente con la estabilidad financiera en la vida adulta."
+      ]
+     },
+     {
+      "h": "Riesgo y rentabilidad",
+      "p": [
+       "Comprender que toda decisión financiera implica un nivel de riesgo. Evaluar productos de inversión básicos y reconocer promesas de rentabilidad irreales."
+      ]
+     },
+     {
+      "h": "Contexto financiero",
+      "p": [
+       "Entender el entorno en el que se toman las decisiones financieras: derechos del consumidor, regulación básica y cómo la economía afecta a las finanzas personales."
+      ]
+     }
+    ]
+   },
+   {
+    "h": "Qué implica este dato para los equipos directivos y pedagógicos",
+    "p": [
+     "Este dato no es solo una estadística. Es la señal de que existe una brecha entre lo que la sociedad espera del sistema educativo y lo que el sistema educativo ofrece hoy en materia financiera.",
+     "Los centros que actúan hoy están respondiendo a una demanda social clara, adelantándose a regulaciones que varios países europeos ya están desarrollando, y ofreciendo a su alumnado herramientas que usarán el resto de su vida.",
+     "La pregunta es cuándo. Los centros que se anticipen tendrán la ventaja de haber construido una metodología propia en lugar de adoptar una impuesta."
+    ]
+   }
+  ],
+  "cta": "Finomik diseña itinerarios de educación financiera adaptados al currículo y a la edad de cada grupo. Si tu centro quiere cerrar esta brecha, empezamos con un piloto sin compromiso.",
+  "slug_en": "financial-education-in-schools-support"
+ }
+]

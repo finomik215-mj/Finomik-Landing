@@ -1,0 +1,52 @@
+{
+ "index": {
+  "es": {
+   "title": "Finomik · Educación financiera para colegios",
+   "desc": "Finomik prepara a tus alumnos para las decisiones de la vida adulta con retos, simulación e IA. Y tú lo ves todo desde tu panel."
+  },
+  "en": {
+   "title": "Finomik · Financial education for schools",
+   "desc": "Finomik prepares your students for the decisions of adult life with challenges, simulation and AI. And you see it all from your dashboard."
+  }
+ },
+ "alumnos": {
+  "es": {
+   "title": "Para alumnos · Finomik",
+   "desc": "Así aprenden tus alumnos en Finomik: su camino, píldoras, retos, simulador, actualidad y avatar. Con Finny, su tutor con IA."
+  },
+  "en": {
+   "title": "For students · Finomik",
+   "desc": "How your students learn with Finomik: their path, short lessons, challenges, simulator, news and avatar. With Finny, their AI tutor."
+  }
+ },
+ "profesores": {
+  "es": {
+   "title": "Para profesores · Finomik",
+   "desc": "El panel del profesor: seguimiento de cada alumno, control del contenido, mensajes y exámenes en Word."
+  },
+  "en": {
+   "title": "For teachers · Finomik",
+   "desc": "The teacher dashboard: track every student, control the content, send messages and download exams in Word."
+  }
+ },
+ "programas": {
+  "es": {
+   "title": "Programas · Finomik",
+   "desc": "Cuatro programas de educación financiera para Secundaria que se adaptan a vuestras horas."
+  },
+  "en": {
+   "title": "Programmes · Finomik",
+   "desc": "Four financial education programmes for secondary schools that fit your timetable."
+  }
+ },
+ "demo": {
+  "es": {
+   "title": "Pide una demo · Finomik",
+   "desc": "Te enseñamos Finomik en 20 minutos con un caso de tu colegio."
+  },
+  "en": {
+   "title": "Book a demo · Finomik",
+   "desc": "We will show you Finomik in 20 minutes with a case from your school."
+  }
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "id": "nueva-web-finomik",
+ "estado": "publicado",
+ "fecha": "2026-10-15",
+ "destacado": true,
+ "imagen": "",
+ "es": {
+  "slug": "nueva-web-finomik",
+  "titulo": "Estrenamos web: así es la nueva cara de Finomik",
+  "categoria": "Novedades de Finomik",
+  "entradilla": "Hemos rehecho nuestra web para que cualquier colegio pueda probar la plataforma antes de hablar con nosotros: el simulador, los retos, Finny y el panel del profesor, todo con datos de ejemplo.",
+  "texto": "## Qué puedes probar\n\nEn la página de alumnos puedes recorrer las seis cosas que hacen dentro de Finomik. En la de profesores, el panel con el que siguen a su clase.\n\n## Lo que viene\n\nIremos publicando aquí novedades de la plataforma, ideas para el aula y datos sobre educación financiera.",
+  "dato": "",
+  "dato_texto": "",
+  "fuente": "",
+  "llamada": "¿Quieres verla con un caso de tu colegio? Te la enseñamos en 20 minutos."
+ },
+ "en": {
+  "slug": "new-website",
+  "titulo": "Our new website: the new face of Finomik",
+  "categoria": "Finomik news",
+  "entradilla": "We've rebuilt our website so any school can try the platform before talking to us: the simulator, the challenges, Finny and the teacher dashboard, all with sample data.",
+  "texto": "## What you can try\n\nOn the students page you can walk through the six things they do inside Finomik. On the teachers page, the dashboard they use to follow their class.\n\n## What's next\n\nWe'll post platform news, classroom ideas and data on financial education here.",
+  "dato": "",
+  "dato_texto": "",
+  "fuente": "",
+  "llamada": "Want to see it with a case from your school? We'll show you in 20 minutes."
+ }
+}

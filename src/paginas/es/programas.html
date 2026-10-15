@@ -1,0 +1,32 @@
+<header class="phead"><div class="wrap"><p class="eyebrow"><i></i>Programas</p><h1>Un programa a la medida <em>de tu colegio</em>.</h1><p class="lead">Cuatro programas que se combinan según vuestro curso y vuestras horas.</p></div></header>
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="prog-cards">
+<div class="prgc" style="background:#e8eef8"><i style="background:#0B3064"></i><b>Vida adulta</b><span>Sueldo, presupuesto, contratos e impuestos.</span></div>
+<div class="prgc" style="background:#eef2fa"><i style="background:#5574A7"></i><b>Inversión</b><span>Ahorro, riesgo y mercados, con el simulador.</span></div>
+<div class="prgc" style="background:#fff7d6"><i style="background:#F5C518"></i><b>Emprendimiento</b><span>De la idea al plan, con números.</span></div>
+<div class="prgc" style="background:#f1f3f7"><i style="background:#C8D0DD"></i><b>Economía</b><span>El temario, con práctica real.</span></div>
+</div></div></section>
+<!-- ============ 6 · TU COLEGIO ============ -->
+<section class="sec" id="colegio">
+  <div class="stage paper" style="padding:clamp(70px,10vh,110px) 0">
+    <div class="wrap">
+      
+      <p class="eyebrow"><i></i>Monta tu trimestre</p><h2 class="h2" style="font-size:clamp(2rem,3.6vw,3.4rem)">Elige dónde y cuántas horas.<br><span>El resto lo hacemos nosotros.</span></h2>
+      <div class="presets" id="presets">
+        <button class="preset" data-h="1" data-m="vida"><b>Tutoría</b><small>1 h/semana · Vida adulta</small></button>
+        <button class="preset on" data-h="2" data-m="vida,inv,emp"><b>Materia optativa</b><small>2 h/semana · 3 programas</small></button>
+        <button class="preset" data-h="2" data-m="eco,inv"><b>Asignatura de Economía</b><small>2 h/semana · temario + inversión</small></button>
+        <button class="preset" data-h="2" data-m="emp"><b>Emprendimiento</b><small>2 h/semana · de la idea al plan</small></button>
+      </div>
+      <div class="prog-ui">
+        <div class="ctl">
+          <label>HORAS A LA SEMANA</label><div class="row" id="cHours"><button class="chip" data-v="1">1 h</button><button class="chip on" data-v="2">2 h</button></div>
+          <label>PROGRAMAS</label><div class="mods" id="cMods"></div>
+        </div>
+        <div class="calendar"><div class="cal-head"><b id="calT">Primer trimestre</b><span id="calS"></span></div><div class="weeks" id="weeks"></div></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec"><div class="stage navy dark cta-band"><h2>Que decidan<br>con <em>criterio</em>.</h2><p>Te enseñamos Finomik en 20 minutos, con un caso de tu colegio.</p><div class="ctas"><a class="btn btn-gold" href="{{url:demo}}">Pide una demo</a><a class="btn btn-ghost" href="{{url:porque}}">Por qué Finomik</a></div></div></section>
