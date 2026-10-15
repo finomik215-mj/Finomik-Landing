@@ -4,37 +4,37 @@
 
 ## Páginas principales (español)
 
-- [Finomik · Educación financiera para colegios](https://finomik.com/): Finomik prepara a tus alumnos para las decisiones de la vida adulta con retos, simulación e IA. Y tú lo ves todo desde tu panel.
-- [Para alumnos · Finomik](https://finomik.com/alumnos): Así aprenden tus alumnos en Finomik: su camino, píldoras, retos, simulador de inversión, actualidad y avatar. Con Finny, su tutor con IA.
-- [Para profesores · Finomik](https://finomik.com/profesores): Da tú la clase o deja que Finomik explique. Sigue a cada alumno, decide qué contenido ve tu clase, escribe mensajes y descarga exámenes en Word.
-- [Programas · Finomik](https://finomik.com/programas): Cuatro programas de educación financiera para Secundaria (Vida adulta, Inversión, Emprendimiento y Economía) que se adaptan a vuestras horas.
-- [Por qué Finomik · Educación financiera para colegios](https://finomik.com/por-que-finomik): Por qué la educación financiera importa en el colegio y en qué se diferencia Finomik de un libro de texto, una charla o una app.
-- [Pide una demo · Finomik](https://finomik.com/demo): Te enseñamos Finomik en 20 minutos con un caso de tu colegio. Sin compromiso.
-- [Finomik para entidades financieras](https://finomik.com/bancos): Finomik integra la educación financiera en la relación entre el banco y sus clientes: clientes mejor educados, decisiones más sólidas.
-- [Sobre nosotros · Finomik](https://finomik.com/sobre-nosotros): Finomik es una plataforma de educación financiera para colegios. Enseñamos a decidir.
+- [Finomik · Educación financiera para colegios](https://www.finomik.com/): Finomik prepara a tus alumnos para las decisiones de la vida adulta con retos, simulación e IA. Y tú lo ves todo desde tu panel.
+- [Para alumnos · Finomik](https://www.finomik.com/alumnos): Así aprenden tus alumnos en Finomik: su camino, píldoras, retos, simulador de inversión, actualidad y avatar. Con Finny, su tutor con IA.
+- [Para profesores · Finomik](https://www.finomik.com/profesores): Da tú la clase o deja que Finomik explique. Sigue a cada alumno, decide qué contenido ve tu clase, escribe mensajes y descarga exámenes en Word.
+- [Programas · Finomik](https://www.finomik.com/programas): Cuatro programas de educación financiera para Secundaria (Vida adulta, Inversión, Emprendimiento y Economía) que se adaptan a vuestras horas.
+- [Por qué Finomik · Educación financiera para colegios](https://www.finomik.com/por-que-finomik): Por qué la educación financiera importa en el colegio y en qué se diferencia Finomik de un libro de texto, una charla o una app.
+- [Pide una demo · Finomik](https://www.finomik.com/demo): Te enseñamos Finomik en 20 minutos con un caso de tu colegio. Sin compromiso.
+- [Finomik para entidades financieras](https://www.finomik.com/bancos): Finomik integra la educación financiera en la relación entre el banco y sus clientes: clientes mejor educados, decisiones más sólidas.
+- [Sobre nosotros · Finomik](https://www.finomik.com/sobre-nosotros): Finomik es una plataforma de educación financiera para colegios. Enseñamos a decidir.
 
 ## Main pages (English)
 
-- [Finomik · Financial education for schools](https://finomik.com/en): Finomik prepares your students for the decisions of adult life with challenges, simulation and AI. And you see it all from your dashboard.
-- [For students · Finomik](https://finomik.com/en/students): How your students learn with Finomik: their path, short lessons, challenges, investment simulator, news and avatar. With Finny, their AI tutor.
-- [For teachers · Finomik](https://finomik.com/en/teachers): Teach the class yourself or let Finomik explain. Track every student, decide what your class sees, send messages and download exams in Word.
-- [Programmes · Finomik](https://finomik.com/en/programmes): Four financial education programmes for secondary schools (Adult life, Investing, Entrepreneurship and Economics) that fit your timetable.
-- [Why Finomik · Financial education for schools](https://finomik.com/en/why-finomik): Why financial education matters at school, and how Finomik differs from a textbook, a one-off talk or an app.
-- [Book a demo · Finomik](https://finomik.com/en/demo): We'll show you Finomik in 20 minutes with a case from your school. No commitment.
+- [Finomik · Financial education for schools](https://www.finomik.com/en): Finomik prepares your students for the decisions of adult life with challenges, simulation and AI. And you see it all from your dashboard.
+- [For students · Finomik](https://www.finomik.com/en/students): How your students learn with Finomik: their path, short lessons, challenges, investment simulator, news and avatar. With Finny, their AI tutor.
+- [For teachers · Finomik](https://www.finomik.com/en/teachers): Teach the class yourself or let Finomik explain. Track every student, decide what your class sees, send messages and download exams in Word.
+- [Programmes · Finomik](https://www.finomik.com/en/programmes): Four financial education programmes for secondary schools (Adult life, Investing, Entrepreneurship and Economics) that fit your timetable.
+- [Why Finomik · Financial education for schools](https://www.finomik.com/en/why-finomik): Why financial education matters at school, and how Finomik differs from a textbook, a one-off talk or an app.
+- [Book a demo · Finomik](https://www.finomik.com/en/demo): We'll show you Finomik in 20 minutes with a case from your school. No commitment.
 
 ## Blog
 
-- [Estrenamos web: así es la nueva cara de Finomik](https://finomik.com/blog/nueva-web-finomik)
-- [Casi la mitad de los adultos no podría afrontar un imprevisto sin grandes dificultades](https://finomik.com/blog/adultos-sin-colchon-emergencia-ahorro)
-- [Casi 1 de cada 5 estudiantes de 15 años no alcanza el nivel básico de competencia financiera](https://finomik.com/blog/alumnado-sin-educacion-financiera-basica)
-- [3.500 millones de adultos en el mundo no tienen conocimientos financieros básicos](https://finomik.com/blog/adultos-sin-conocimientos-financieros-basicos-mundo)
-- [Responder en lugar de releer: hasta un 50% más de recuerdo una semana después](https://finomik.com/blog/aprendizaje-gamificado-retencion-educacion-financiera)
-- [Solo el 33% de los adultos en el mundo tiene competencia financiera básica](https://finomik.com/blog/alfabetizacion-financiera-adultos-mundo-sp-global)
-- [El 88% de los adultos quiere educación financiera obligatoria en secundaria](https://finomik.com/blog/educacion-financiera-colegios-ocde-pisa-2023)
-- [Our new website: the new face of Finomik](https://finomik.com/en/blog/new-website)
-- [Almost half of adults couldn't face an unexpected expense without serious difficulty](https://finomik.com/en/blog/emergency-savings-unexpected-expenses)
-- [Almost 1 in 5 15-year-olds don't reach the baseline level of financial literacy](https://finomik.com/en/blog/students-basic-financial-literacy-pisa)
-- [3.5 billion adults worldwide lack basic financial knowledge](https://finomik.com/en/blog/adults-without-basic-financial-knowledge)
-- [Answer instead of reread: up to 50% more recall one week later](https://finomik.com/en/blog/retrieval-practice-gamified-learning)
-- [Only 33% of adults worldwide have basic financial literacy](https://finomik.com/en/blog/global-adult-financial-literacy-sp)
-- [88% of adults want compulsory financial education in high school](https://finomik.com/en/blog/financial-education-in-schools-support)
+- [Estrenamos web: así es la nueva cara de Finomik](https://www.finomik.com/blog/nueva-web-finomik)
+- [Casi la mitad de los adultos no podría afrontar un imprevisto sin grandes dificultades](https://www.finomik.com/blog/adultos-sin-colchon-emergencia-ahorro)
+- [Casi 1 de cada 5 estudiantes de 15 años no alcanza el nivel básico de competencia financiera](https://www.finomik.com/blog/alumnado-sin-educacion-financiera-basica)
+- [3.500 millones de adultos en el mundo no tienen conocimientos financieros básicos](https://www.finomik.com/blog/adultos-sin-conocimientos-financieros-basicos-mundo)
+- [Responder en lugar de releer: hasta un 50% más de recuerdo una semana después](https://www.finomik.com/blog/aprendizaje-gamificado-retencion-educacion-financiera)
+- [Solo el 33% de los adultos en el mundo tiene competencia financiera básica](https://www.finomik.com/blog/alfabetizacion-financiera-adultos-mundo-sp-global)
+- [El 88% de los adultos quiere educación financiera obligatoria en secundaria](https://www.finomik.com/blog/educacion-financiera-colegios-ocde-pisa-2023)
+- [Our new website: the new face of Finomik](https://www.finomik.com/en/blog/new-website)
+- [Almost half of adults couldn't face an unexpected expense without serious difficulty](https://www.finomik.com/en/blog/emergency-savings-unexpected-expenses)
+- [Almost 1 in 5 15-year-olds don't reach the baseline level of financial literacy](https://www.finomik.com/en/blog/students-basic-financial-literacy-pisa)
+- [3.5 billion adults worldwide lack basic financial knowledge](https://www.finomik.com/en/blog/adults-without-basic-financial-knowledge)
+- [Answer instead of reread: up to 50% more recall one week later](https://www.finomik.com/en/blog/retrieval-practice-gamified-learning)
+- [Only 33% of adults worldwide have basic financial literacy](https://www.finomik.com/en/blog/global-adult-financial-literacy-sp)
+- [88% of adults want compulsory financial education in high school](https://www.finomik.com/en/blog/financial-education-in-schools-support)

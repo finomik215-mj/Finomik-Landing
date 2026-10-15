@@ -17,7 +17,7 @@ import sys
 VISTA = "--vista" in sys.argv  # vista previa del panel del blog: incluye borradores y no toca public/
 SRC, OUT = R / "src", (R / ".vista" if "--vista" in sys.argv else R / "public")
 PUB = R / "public"
-SITE = "https://finomik.com"
+SITE = "https://www.finomik.com"  # dirección principal en Vercel (finomik.com redirige aquí)
 LINKEDIN = "https://www.linkedin.com/company/finomik"
 # Redes sociales: las que tienen dirección salen en el hero y en el pie (las vacías no se muestran)
 REDES = [("LinkedIn", LINKEDIN), ("YouTube", "https://www.youtube.com/@Finomik-app"), ("Instagram", "https://www.instagram.com/finomik.app/"), ("TikTok", "https://www.tiktok.com/@finomikapp"), ("Facebook", "https://www.facebook.com/profile.php?id=61595023097070")]

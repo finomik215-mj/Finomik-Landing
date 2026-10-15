@@ -1,4 +1,4 @@
 Contact: mailto:hello@finomik.com
 Expires: 2027-12-31T23:00:00.000Z
 Preferred-Languages: es, en
-Canonical: https://finomik.com/.well-known/security.txt
+Canonical: https://www.finomik.com/.well-known/security.txt
