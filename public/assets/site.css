@@ -421,7 +421,7 @@ footer { background:var(--deep); color:rgba(255,255,255,.75); padding:70px var(-
 .fcols img { height:30px; margin-bottom:14px; }
 .bigword { max-width:1360px; margin:60px auto 0; font-weight:900; letter-spacing:-.06em; font-size:clamp(4rem,19vw,20rem); line-height:.8; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.18); background:linear-gradient(var(--gold),var(--gold)) 0 0/0% 100% no-repeat; -webkit-background-clip:text; background-clip:text; }
 .fine { max-width:1360px; margin:30px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12px; }
-@media (max-width:800px) { .fcols { grid-template-columns:1fr 1fr; } }
+@media (max-width:800px) { .fcols { grid-template-columns:1fr 1fr; } .fcols > div:first-child { grid-column:1 / -1; } } /* en móvil: logo y contacto a todo el ancho, enlaces en 2 columnas debajo */
 .vtag { position:fixed; right:16px; bottom:16px; z-index:60; background:var(--gold); color:var(--navy); font:800 12px Montserrat; padding:8px 12px; border-radius:999px; }
 @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
 

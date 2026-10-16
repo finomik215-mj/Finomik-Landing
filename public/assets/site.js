@@ -94,7 +94,7 @@ if ($('#film')) {
   gsap.timeline().from('#film', { clipPath: 'inset(18% 22% 18% 22% round 32px)', duration: 1.1, ease: 'expo.inOut' }).from('.hero-copy > *', { y: 40, opacity: 0, duration: .7, ease: 'power3.out', stagger: .06 }, .5);
   const mx = scenes.map((s) => gsap.quickTo(s, 'x', { duration: .9, ease: 'power3.out' })), my = scenes.map((s) => gsap.quickTo(s, 'y', { duration: .9, ease: 'power3.out' }));
   addEventListener('pointermove', (e) => { if (scrollY > innerHeight) return; const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5; mx.forEach((f) => f(-x * 30)); my.forEach((f) => f(-y * 18)); }, { passive: true });
-  gsap.timeline({ scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: .6 } }).to('#film', { clipPath: 'inset(6% 2% 22% 2% round 36px)', ease: 'none' }, 0).to('.hero-copy', { y: -140, opacity: 0, ease: 'none' }, 0);
+  gsap.timeline({ scrollTrigger: { trigger: '#inicio', start: 'top top', end: 'bottom top', scrub: .6 } }).to('#film', { clipPath: 'inset(6% 2% 0% 2% round 36px)', ease: 'none' }, 0).to('.hero-copy', { y: -140, opacity: 0, ease: 'none' }, 0);
 })();
 
 }
@@ -438,6 +438,10 @@ if ($('#convo')) {
 
 }
 /* ---------- entradas y pie ---------- */
+// Si la página cambia de alto (pestañas de las demos, vídeo, imágenes), se recalculan las animaciones ligadas al scroll;
+// si no, sus finales se quedan donde ya no se llega (p. ej. el FINOMIK del pie se quedaba a medio rellenar en Alumnos)
+let altoPrevio = document.documentElement.scrollHeight, rh;
+new ResizeObserver(() => { const a = document.documentElement.scrollHeight; if (Math.abs(a - altoPrevio) < 2) return; altoPrevio = a; clearTimeout(rh); rh = setTimeout(() => ScrollTrigger.refresh(), 150); }).observe(document.body);
 // Entradas cortas y tempranas: el contenido aparece en cuanto asoma, sin esperar. Durante la entrada se apagan
 // las transiciones CSS del elemento, que si no frenan la animación (efecto "a cámara lenta").
 const reveal = (targets, trigger, opts = {}) => gsap.from(targets, { y: 24, opacity: 0, duration: .6, ease: 'power3.out', ...opts,
