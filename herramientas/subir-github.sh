@@ -6,6 +6,11 @@
 set -e
 cd "$(dirname "$0")/.."
 SRC="$(pwd)"; REPO="$HOME/FinomikLocal/Finomik-Landing"; RAMA="${1:-main}"
+# La web se sincroniza entre el Mac y el servidor (ops.finomik.com). Antes de publicar se trae
+# lo último del otro lado, para no subir una versión sin los artículos escritos allí.
+if [ -x "$HOME/.finomik/sincronizar-web.sh" ]; then
+  "$HOME/.finomik/sincronizar-web.sh" || { echo "No se ha podido sincronizar la web con el servidor. No se publica."; exit 1; }
+fi
 python3 build.py
 [ -d "$REPO/.git" ] || gh repo clone finomik215-mj/Finomik-Landing "$REPO"
 cd "$REPO"

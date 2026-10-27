@@ -112,7 +112,7 @@ def version(p):
     return hashlib.md5((PUB / p).read_bytes()).hexdigest()[:8]
 
 
-V_CSS, V_JS = version("assets/site.css"), version("assets/site.js")
+V_CSS, V_JS, V_FOOT = version("assets/site.css"), version("assets/site.js"), version("assets/footer.css")
 
 ORG = {"@type": "Organization", "@id": SITE + "/#org", "name": "Finomik", "url": SITE + "/", "logo": SITE + "/icon-512.png", "email": "hello@finomik.com", "telephone": "+34673319335", "sameAs": [u for _, u in REDES if u], "legalName": "EduFin Tech, S.L.", "taxID": "B26790485",
        "address": {"@type": "PostalAddress", "streetAddress": "Passeig de Sant Gervasi, 10, 4.º 3.ª", "postalCode": "08022", "addressLocality": "Barcelona", "addressCountry": "ES"},
@@ -279,7 +279,7 @@ for lang in LANGS:
                   + f'\n<div class="pq-menu" id="pqMenu" role="dialog" aria-label="{t["menu"]}"><img src="/media/logo-azul.png" alt="Finomik" width="88" height="28" style="height:28px;width:auto"><button class="pq-x" id="pqClose" aria-label="{t["close"]}">✕</button><ul>{mm}</ul><a class="pq-lang" href="{url("porque", other)}" hreflang="{other}">{t["other"]}</a></div>', body, count=1)
     legal = "".join(f'<a href="{url(k, lang)}">{n}</a>' for k, n in [("index", t["home"]), ("nosotros", dict(t["cols"][3][1])["nosotros"]), ("blog", "Blog")] + t["legal"])
     body = body.rstrip() + "\n" + footer(lang).replace("<footer>", '<footer class="site-foot">', 1) + "\n"
-    doc = head(lang, *META["porque"][lang], url("porque", lang), url("porque", other), [faq_ld(body)], extra='<link rel="stylesheet" href="/assets/fonts/montserrat.css">\n<link rel="stylesheet" href="/assets/footer.css">\n' + style + "\n") + "\n<body>" + body
+    doc = head(lang, *META["porque"][lang], url("porque", lang), url("porque", other), [faq_ld(body)], extra=f'<link rel="stylesheet" href="/assets/fonts/montserrat.css">\n<link rel="stylesheet" href="/assets/footer.css?v={V_FOOT}">\n' + style + "\n") + "\n<body>" + body
     menu_js = "<script>(() => { const m = document.getElementById('pqMenu'); document.getElementById('pqBurger').onclick = () => m.classList.add('open'); document.getElementById('pqClose').onclick = () => m.classList.remove('open'); gsap.to('#bigword', { backgroundSize: '100% 100%', ease: 'none', scrollTrigger: { trigger: 'footer', start: 'top 80%', end: 'bottom bottom', scrub: true } }); })();</script>"
     doc += SCRIPTS.split('<script src="/assets/site.js')[0] + inline + "\n" + menu_js + "\n</body>\n</html>\n"
     write(url("porque", lang), doc)

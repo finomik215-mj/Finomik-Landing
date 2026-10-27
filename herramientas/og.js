@@ -20,7 +20,7 @@ h1{position:absolute;left:64px;top:186px;width:${p.stat ? 690 : 1060}px;font-wei
 <img class="logo" src="${F('media/logo-blanco.png')}"><p class="cat">${esc(p.cat)}</p><h1>${esc(p.title)}</h1>
 ${p.stat ? `<div class="st"><b>${esc(p.stat)}</b><small>${esc(p.statLabel)}</small></div>` : ''}<div class="bar"><i></i>${lang === 'es' ? 'Blog de Finomik' : 'Finomik blog'} · finomik.com</div></body></html>`;
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true, args: ['--no-first-run', '--allow-file-access-from-files'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true, args: ['--no-first-run', '--allow-file-access-from-files'] });
   const pg = await b.newPage(); await pg.setViewport({ width: 1200, height: 630 });
   const shot = async (html, out) => { const tmp = path.join(PUB, '_og_tmp.html'); fs.writeFileSync(tmp, html); await pg.goto('file://' + tmp, { waitUntil: 'load' }); await pg.evaluate(() => document.fonts.ready); await pg.screenshot({ path: out, type: 'jpeg', quality: 82 }); fs.unlinkSync(tmp); console.log(path.relative(R, out)); };
   fs.mkdirSync(path.join(PUB, 'og'), { recursive: true });
